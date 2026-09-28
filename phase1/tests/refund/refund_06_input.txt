@@ -1,0 +1,1 @@
+login → AdminUser → refund → [blank] → Seller1 → 20.00 → logout

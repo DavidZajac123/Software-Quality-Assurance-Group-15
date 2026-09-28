@@ -1,0 +1,1 @@
+login → [blank line] → login → AdminUser → logout

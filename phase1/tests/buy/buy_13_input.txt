@@ -1,0 +1,1 @@
+login → Seller1 → buy → Minecraft → Seller1 → logout

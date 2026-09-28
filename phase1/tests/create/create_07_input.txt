@@ -1,0 +1,1 @@
+login → AdminUser → create → ABCDEFGHIJKLMNO → full-standard → logout

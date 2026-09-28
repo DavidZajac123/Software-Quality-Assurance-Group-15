@@ -1,0 +1,1 @@
+Login accepted; 100.00 added to FullUser; logout accepted.

@@ -1,0 +1,1 @@
+login → AdminUser → refund → Buyer1 → InvalidSeller → 20.00 → logout

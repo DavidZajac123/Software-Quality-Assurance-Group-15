@@ -1,0 +1,1 @@
+same, fixture Seller1 balance = 20.00

@@ -1,0 +1,1 @@
+With buyer credit 20.00 and price 50.00: denied for insufficient credit.

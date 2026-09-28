@@ -1,0 +1,1 @@
+With buyer credit exactly 50.00: accepted; balance becomes 0.00.

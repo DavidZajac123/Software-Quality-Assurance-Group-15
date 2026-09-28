@@ -1,0 +1,1 @@
+login → AdminUser → addcredit → 100.00 → User1 → logout

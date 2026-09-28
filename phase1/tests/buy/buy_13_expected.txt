@@ -1,0 +1,1 @@
+Denied: seller cannot buy own listed game.

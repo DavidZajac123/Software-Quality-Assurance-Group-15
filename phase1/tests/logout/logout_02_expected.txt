@@ -1,0 +1,1 @@
+First logout denied; later valid session/logout succeeds.

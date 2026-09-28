@@ -1,9 +1,13 @@
-This folder contains test cases for the login transaction.
+Login Requirements Tests
 
-Tests will verify requirements such as:
-- valid admin login
-- valid standard-user login
-- invalid usernames
-- transactions attempted before login
-- attempting a second login while already logged in
-- correct session behavior after login
+This folder contains the Phase 1 requirements tests for the login transaction.
+
+Number of test cases: 9
+
+These tests cover successful login for each user type, invalid usernames, transactions attempted before login, repeated login attempts, login after logout, and blank usernames.
+
+File naming convention:
+
+login_XX_input.txt
+login_XX_expected.txt
+login_XX_dtf_expected.txt

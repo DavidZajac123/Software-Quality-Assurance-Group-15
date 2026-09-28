@@ -1,11 +1,13 @@
-This folder contains general invalid-input and robustness test cases.
+General Invalid Input Requirements Tests
 
-These tests will verify that the Front End handles bad input gracefully without crashing.
+This folder contains Phase 1 tests for the Front End's general invalid-input handling requirements.
 
-Examples may include:
-- invalid transaction commands
-- blank input
-- invalid monetary values
-- malformed usernames
-- malformed game names
-- recovery after invalid input
+Number of test cases: 10
+
+These tests cover invalid transaction names, blank input, nonnumeric values, excessive input lengths, special characters, and continued operation after invalid input.
+
+File naming convention:
+
+invalid_input_XX_input.txt
+invalid_input_XX_expected.txt
+invalid_input_XX_dtf_expected.txt

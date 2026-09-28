@@ -1,0 +1,1 @@
+Sale accepted; same-session attempted use denied.

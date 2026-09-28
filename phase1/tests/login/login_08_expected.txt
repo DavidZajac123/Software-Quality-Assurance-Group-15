@@ -1,0 +1,1 @@
+Second session login accepted after first logout.

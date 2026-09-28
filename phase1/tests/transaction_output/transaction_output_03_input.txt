@@ -1,0 +1,1 @@
+login → FullUser → sell → TxnSellGame → 25.00 → logout

@@ -1,0 +1,1 @@
+Unused numeric field(s) in 02 record filled with zeroes

@@ -1,0 +1,1 @@
+With empty fixture, reports no games available.

@@ -1,0 +1,1 @@
+login → AdminUser → delete → [blank line] → logout

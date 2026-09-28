@@ -1,0 +1,1 @@
+login → FullUser → buy → FakeGame → Seller1 → logout

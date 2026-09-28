@@ -1,0 +1,1 @@
+login → FullUser → addcredit → abc → logout

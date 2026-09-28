@@ -1,0 +1,1 @@
+Denied: cannot delete current user.

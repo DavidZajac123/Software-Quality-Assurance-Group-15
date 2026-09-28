@@ -1,0 +1,1 @@
+login → FullUser → addcredit → 50.00 → banana → logout

@@ -1,0 +1,1 @@
+Invalid input rejected; later valid login succeeds.

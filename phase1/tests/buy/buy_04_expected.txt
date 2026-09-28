@@ -1,0 +1,1 @@
+buy denied because sell-standard users cannot buy.

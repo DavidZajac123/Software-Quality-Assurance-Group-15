@@ -1,0 +1,1 @@
+First accepted; second denied because total would exceed 1000.00.

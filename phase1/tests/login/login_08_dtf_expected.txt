@@ -1,0 +1,1 @@
+Two sessions: each should produce an end-only DTF

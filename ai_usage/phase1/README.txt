@@ -1,10 +1,12 @@
-This folder contains the generative AI usage documentation for Phase 1.
+Phase 1 AI Usage
 
-It includes the prompt and response history related to work submitted for:
-- Phase 1 folder organization
-- test planning
-- test case development
-- requirement interpretation
-- Phase 1 documentation
+Generative AI was used to support planning and organization for Phase 1, including:
 
-The included history is provided to satisfy the Phase 1 generative AI disclosure requirement.
+- reviewing and interpreting project requirements
+- organizing the Phase 1 repository and folder structure
+- identifying test categories, constraints, and edge cases
+- planning test cases and expected outputs
+- identifying ambiguities in the project requirements
+- organizing Phase 1 documentation
+
+The accompanying prompt and response history contains the relevant AI interactions associated with the Phase 1 work submitted.

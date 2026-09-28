@@ -1,0 +1,1 @@
+Exactly one 01, one 06, one 05, in session order, then exactly one 00

@@ -1,0 +1,1 @@
+With starting balance 100.00, resulting balance = 150.00.

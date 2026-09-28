@@ -1,0 +1,1 @@
+First login accepted; second login denied; logout works.

@@ -1,0 +1,1 @@
+Unused alphabetic fields in end record are spaces

@@ -1,0 +1,1 @@
+list_games record PENDING; logout still requires END

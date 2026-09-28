@@ -1,0 +1,1 @@
+Monetary field contains required representation of 110.00, including required zero-padding

@@ -1,9 +1,13 @@
-This folder contains the main written Phase 1 deliverables.
+Phase 1 Test Results
 
-Planned files include:
-- Test Case List
-- Test Plan
+This folder is reserved for outputs produced when the Phase 1 requirements tests are executed against the Front End in later project phases.
 
-The Test Case List will describe each test and what requirement it is intended to verify.
+Subfolders:
 
-The Test Plan will explain how the tests are organized, how they will eventually be run, and how test results will be stored and compared.
+actual/
+- Stores actual terminal output and generated Daily Transaction File output from test executions.
+
+comparisons/
+- Stores comparison results between actual program output and the expected output files defined in phase1/tests.
+
+During Phase 1, no Front End implementation exists yet, so these folders contain only documentation describing their intended use.

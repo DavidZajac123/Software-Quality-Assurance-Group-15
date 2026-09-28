@@ -1,8 +1,13 @@
-This folder contains test cases for the logout transaction.
+Logout Requirements Tests
 
-Tests will verify requirements such as:
-- valid logout while logged in
-- attempting to logout before login
-- preventing non-login transactions after logout
-- allowing a new login after logout
-- creation of the Daily Transaction File when the session ends
+This folder contains the Phase 1 requirements tests for the logout transaction.
+
+Number of test cases: 10
+
+These tests cover valid logout, logout without a session, transaction attempts after logout, starting a new session after logout, and list_games behaviour after logout.
+
+File naming convention:
+
+logout_XX_input.txt
+logout_XX_expected.txt
+logout_XX_dtf_expected.txt
