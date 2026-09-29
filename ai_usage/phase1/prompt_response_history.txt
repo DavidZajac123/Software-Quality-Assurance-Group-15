@@ -1,39 +1,80 @@
-PHASE 1 AI PROMPT AND RESPONSE HISTORY
+CSCI 3060U – Phase 1
+AI Prompt and Response History
 
-==================================================
-SECTION 1 - REQUIREMENTS INTERPRETATION
-==================================================
+Generative AI Tool Used: ChatGPT
 
-USER:
-[prompt]
+The following is a reconstructed record of the main AI-assisted interactions that contributed to the Phase 1 submission. Repetitive follow-up questions have been combined where they addressed the same topic.
 
-ASSISTANT:
-[full response]
+User:
+Help me understand the Phase 1 requirements and what we need to submit.
 
-==================================================
-SECTION 2 - TEST CASE DEVELOPMENT
-==================================================
+ChatGPT:
+Reviewed the Phase 1 instructions and explained that the focus was on Front End requirements testing rather than implementation. Identified the required test-case list, input and expected output files, Test Plan, GitHub submission, and AI-use documentation.
 
-USER:
-[prompt]
+User:
+Can you help us organize the test suite and determine what kinds of test cases we need?
 
-ASSISTANT:
-[full response]
+ChatGPT:
+Suggested organizing tests by transaction and helped identify successful, invalid, boundary, permission, session, and transaction-output cases for login, logout, create, delete, sell, buy, refund, addcredit, list_games, invalid input, and Daily Transaction File behaviour.
 
-==================================================
-SECTION 3 - REPOSITORY ORGANIZATION
-==================================================
+User:
+Can you help us interpret the Daily Transaction File requirements?
 
-...
+ChatGPT:
+Reviewed the transaction codes and fixed-width record formats. Helped interpret field widths, left-justified text fields, spacing, zero-filled numeric fields, monetary formatting, transaction ordering, and the 00 end-of-session record.
 
-==================================================
-SECTION 4 - CLIENT REQUIREMENT CLARIFICATIONS
-==================================================
+User:
+Some field lengths in the written requirements conflict with the examples. How should we handle that?
 
-...
+ChatGPT:
+Identified this as a requirements inconsistency. After the client clarified that the examples should take precedence, the affected tests and test data were updated. This included the Available Games record length and the game-name boundary.
 
-==================================================
-SECTION 5 - TEST INPUT AND EXPECTED OUTPUT FILES
-==================================================
+User:
+Can you help apply the client/TA clarifications to our tests?
 
-...
+ChatGPT:
+Helped incorporate clarifications including:
+- newly created accounts start with 0.00 credit;
+- sellers cannot buy their own listed games;
+- refunded games are removed from the buyer's Game Collection;
+- buyers may repurchase a refunded game;
+- refunds require sufficient seller credit;
+- addcredit cannot exceed the maximum balance;
+- failed or incomplete transactions are omitted from the DTF;
+- administrators may perform transactions permitted by the original requirements.
+
+User:
+How should we handle list_games and unclear requirements?
+
+ChatGPT:
+Applied the clarification that list_games requires login and is available to all account types. Since no DTF code or format was provided for list_games, the group documented the assumption that it does not create its own transaction record. The group also documented its assumption regarding removal of Game Collection entries when an account is deleted.
+
+User:
+Can you review our shared data and test files for consistency?
+
+ChatGPT:
+Reviewed the Current User Accounts, Available Games, Game Collection, and test cases. Identified cases where the starting data conflicted with the intended test condition and recommended using shared data plus test-specific fixtures for special boundary and ownership cases.
+
+User:
+Can you review the actual input and expected DTF files?
+
+ChatGPT:
+Identified that some input files contained descriptive shorthand instead of literal console input and that some expected DTF files contained descriptions instead of literal records. Recommended changing them to actual line-by-line input streams and exact fixed-width expected DTF outputs.
+
+User:
+How should multi-session tests be represented?
+
+ChatGPT:
+Recommended separate expected DTF files for each session because each completed session produces its own Daily Transaction File.
+
+User:
+Can you review the Phase 1 folder before submission?
+
+ChatGPT:
+Reviewed the folder organization, test fixtures, shared test data, multi-session files, READMEs, and Git status. Recommended removing temporary helper files, keeping the assignment-relevant files, and fixing filename inconsistencies before committing.
+
+User:
+Can you help update the Phase 1 AI usage documentation?
+
+ChatGPT:
+Suggested documenting the main areas where ChatGPT assisted, including requirements interpretation, test-case review, ambiguity identification, DTF formatting, test-data consistency, client clarification incorporation, and test fixture development.
