@@ -1,1 +1,2 @@
-Accepted.
+Create transaction accepted.
+The username field in the generated Daily Transaction File is exactly 15 characters long. The username is left-justified and unused positions are padded with spaces.

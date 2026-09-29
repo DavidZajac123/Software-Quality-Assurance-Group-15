@@ -1,1 +1,2 @@
-01 ZeroUser/FS/0.00 → END
+01 ZeroUser        FS 000000.00
+00                    000000.00

@@ -6,8 +6,4 @@ Number of test cases: 10
 
 These tests cover valid logout, logout without a session, transaction attempts after logout, starting a new session after logout, and list_games behaviour after logout.
 
-File naming convention:
-
-logout_XX_input.txt
-logout_XX_expected.txt
-logout_XX_dtf_expected.txt
+Most tests use logout_XX_dtf_expected.txt. Logout 09 spans two sessions and therefore uses logout_09_session1_dtf_expected.txt and logout_09_session2_dtf_expected.txt.

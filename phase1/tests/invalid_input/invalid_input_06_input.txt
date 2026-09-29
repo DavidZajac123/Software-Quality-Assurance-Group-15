@@ -1,1 +1,6 @@
-login → AdminUser → create → THIS_USERNAME_IS_FAR_TOO_LONG_FOR_THE_SYSTEM → full-standard → logout
+login
+AdminUser
+create
+THIS_USERNAME_IS_FAR_TOO_LONG_FOR_THE_SYSTEM
+full-standard
+logout

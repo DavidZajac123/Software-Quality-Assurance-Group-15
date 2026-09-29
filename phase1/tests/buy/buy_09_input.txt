@@ -1,1 +1,6 @@
-login → FullUser → buy → [blank line] → Seller1 → logout
+login
+FullUser
+buy
+
+Seller1
+logout

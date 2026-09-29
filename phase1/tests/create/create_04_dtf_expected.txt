@@ -1,1 +1,2 @@
-01 NewSeller/SS/0.00 → END
+01 NewSeller       SS 000000.00
+00                    000000.00

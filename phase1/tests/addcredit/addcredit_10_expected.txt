@@ -1,1 +1,1 @@
-With starting balance 100.00, resulting balance = 150.00.
+With User1 starting at 100.00, addcredit is accepted and the resulting balance is 150.00.

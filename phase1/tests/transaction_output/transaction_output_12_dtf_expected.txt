@@ -1,1 +1,2 @@
-Unused numeric field(s) in 02 record filled with zeroes
+02 David              000000.00
+00                    000000.00

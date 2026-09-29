@@ -1,1 +1,6 @@
-same valid purchase stream
+login
+FullUser
+buy
+Minecraft
+Seller1
+logout

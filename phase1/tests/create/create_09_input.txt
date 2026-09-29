@@ -1,1 +1,6 @@
-login → AdminUser → create → NewUser → randomtype → logout
+login
+AdminUser
+create
+NewUser
+randomtype
+logout

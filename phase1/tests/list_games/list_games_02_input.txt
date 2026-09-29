@@ -1,1 +1,4 @@
-same
+login
+FullUser
+list_games
+logout

@@ -1,1 +1,4 @@
-login → AdminUser → logout → refund
+login
+AdminUser
+logout
+refund

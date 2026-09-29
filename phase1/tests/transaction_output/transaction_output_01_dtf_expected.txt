@@ -1,1 +1,2 @@
-Proper 01 record → 00
+01 TxnNewUser      FS 000000.00
+00                    000000.00

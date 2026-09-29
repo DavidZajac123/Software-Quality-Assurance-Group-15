@@ -1,1 +1,4 @@
-login → AdminUser → logout → create
+login
+AdminUser
+logout
+create

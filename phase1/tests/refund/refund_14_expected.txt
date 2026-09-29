@@ -1,0 +1,5 @@
+Login accepted.
+Refund transaction accepted.
+20.00 is transferred from Seller1 to Buyer1.
+The corresponding refunded game is removed from Buyer1's Game Collection under the client clarification.
+Logout accepted.

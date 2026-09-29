@@ -1,1 +1,4 @@
-login → SellUser → list_games → logout
+login
+SellUser
+list_games
+logout

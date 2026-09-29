@@ -1,1 +1,4 @@
-login → BuyUser → list_games → logout
+login
+BuyUser
+list_games
+logout

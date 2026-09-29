@@ -1,1 +1,4 @@
-this_is_an_extremely_long_invalid_transaction_command_that_should_not_crash_the_program → login → AdminUser → logout
+this_is_an_extremely_long_invalid_transaction_command_that_should_not_crash_the_program
+login
+AdminUser
+logout

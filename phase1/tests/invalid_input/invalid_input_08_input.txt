@@ -1,1 +1,6 @@
-login → FullUser → banana → addcredit → 50.00 → logout
+login
+FullUser
+banana
+addcredit
+50.00
+logout

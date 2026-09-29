@@ -1,0 +1,4 @@
+Login accepted.
+Delete transaction accepted.
+Under the documented group assumption, Game Collection entries owned by Buyer1 are removed when the account is deleted.
+Logout accepted.

@@ -1,1 +1,3 @@
-Denied; 26 chars.
+Login accepted.
+Sell transaction denied because the game name exceeds the example-defined maximum field length.
+Logout accepted.

@@ -1,1 +1,4 @@
-Accepted; exactly 25 chars.
+Login accepted.
+Sell transaction accepted.
+The 26-character game name is accepted because it matches the example-defined maximum field length.
+Logout accepted.

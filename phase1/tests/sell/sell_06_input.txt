@@ -1,1 +1,6 @@
-login → FullUser → sell → TooExpensive → 1000.00 → logout
+login
+FullUser
+sell
+TooExpensive
+1000.00
+logout

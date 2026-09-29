@@ -1,1 +1,6 @@
-login → AdminUser → buy → Terraria → Seller3 → logout
+login
+AdminUser
+buy
+Terraria
+Seller3
+logout

@@ -1,1 +1,4 @@
-list_games → login → AdminUser → logout
+list_games
+login
+AdminUser
+logout

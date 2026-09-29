@@ -1,1 +1,2 @@
-01 NewBuyer/BS/0.00 → END
+01 NewBuyer        BS 000000.00
+00                    000000.00

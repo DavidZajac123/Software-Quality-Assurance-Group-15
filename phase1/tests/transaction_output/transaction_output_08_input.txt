@@ -1,1 +1,8 @@
-login → FullUser → addcredit → 50.00 → banana → logout
+login
+FullUser
+addcredit
+50.00
+buy
+FakeGame
+Seller1
+logout

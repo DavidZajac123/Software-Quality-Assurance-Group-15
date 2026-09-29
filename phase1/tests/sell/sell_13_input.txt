@@ -1,1 +1,6 @@
-login → FullUser → sell → FreeGame → 0.00 → logout
+login
+FullUser
+sell
+FreeGame
+0.00
+logout

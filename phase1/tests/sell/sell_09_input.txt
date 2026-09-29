@@ -1,1 +1,6 @@
-login → FullUser → sell → ExistingGame → 25.00 → logout
+login
+FullUser
+sell
+ExistingGame
+25.00
+logout

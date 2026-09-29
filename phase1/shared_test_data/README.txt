@@ -1,23 +1,12 @@
 Shared Test Data
 
-This folder contains common starting-state data used by the Phase 1 test cases.
+This folder contains the default starting-state data for Phase 1 requirements tests.
 
-The files in this folder provide known users, balances, available games, sellers, and game ownership information so that test cases can be executed from a predictable starting state.
+Files use the fixed-width formats defined by the project requirements and client clarifications:
+- current_users.txt: 15-character username + space + 2-character user type + space + 9-character credit field (28 characters per line, plus newline).
+- available_games.txt: 26-character game name + space + 15-character seller username + space + 6-character price field (49 characters per line, plus newline). The 26-character game-name width follows the client instruction to use the example when the written length conflicts with the example.
+- game_collection.txt: 26-character game name + space + 15-character owner username (42 characters per line, plus newline). The irrelevant statement about unused numeric fields is ignored because this file has no numeric field.
 
-Files:
+Default collection state gives Buyer1 ownership of Minecraft so refund/delete collection tests have a defined starting relationship while FullUser remains able to buy Minecraft in ordinary buy tests.
 
-current_users.txt
-- Contains user accounts used throughout the Phase 1 tests.
-- Includes admin, full-standard, buy-standard, and sell-standard accounts.
-- Includes users with specific balances needed for boundary and transaction tests.
-
-available_games.txt
-- Contains games currently available for purchase.
-- Includes the game name, seller username, and price.
-- Provides known games for buy and list_games tests.
-
-game_collection.txt
-- Contains existing game ownership information.
-- Used for tests such as attempting to purchase a game already owned by a user.
-
-Individual tests may require a modified starting state. Where this occurs, the required starting condition is described in the corresponding expected-output file or test-case documentation.
+Tests needing a different starting state use files from ../test_fixtures/.

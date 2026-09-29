@@ -1,1 +1,9 @@
-login → FullUser → sell → FreshGame → 25.00 → buy → FreshGame → FullUser → logout
+login
+FullUser
+sell
+FreshGame
+25.00
+buy
+FreshGame
+FullUser
+logout

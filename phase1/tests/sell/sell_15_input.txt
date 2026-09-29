@@ -1,1 +1,12 @@
-login → FullUser → sell → NextSessionGame → 25.00 → logout → login → BuyUser → buy → NextSessionGame → FullUser → logout
+login
+FullUser
+sell
+NextSessionGame
+25.00
+logout
+login
+BuyUser
+buy
+NextSessionGame
+FullUser
+logout

@@ -1,1 +1,4 @@
-login → FullUser → logout → addcredit
+login
+FullUser
+logout
+addcredit

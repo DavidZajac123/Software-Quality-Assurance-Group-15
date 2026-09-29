@@ -1,1 +1,4 @@
-login → FullUser → logout → list_games
+login
+FullUser
+logout
+list_games

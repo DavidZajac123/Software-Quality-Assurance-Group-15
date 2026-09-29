@@ -1,5 +1,5 @@
-Minecraft        Seller1         50.00
-Portal           Seller2         40.00
-Terraria         Seller3         30.00
-ExistingGame     Seller1         25.00
-END
+Minecraft                  Seller1         050.00
+Portal                     Seller2         040.00
+Terraria                   Seller3         030.00
+ExistingGame               Seller1         025.00
+END                                              

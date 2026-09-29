@@ -1,1 +1,4 @@
-banana → login → AdminUser → logout
+banana
+login
+AdminUser
+logout

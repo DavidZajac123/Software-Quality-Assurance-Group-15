@@ -1,1 +1,6 @@
-login → FullUser → buy → Minecraft → Seller1 → logout
+login
+FullUser
+buy
+Minecraft
+Seller1
+logout

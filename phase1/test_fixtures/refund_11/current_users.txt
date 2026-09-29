@@ -1,0 +1,13 @@
+AdminUser       AA 001000.00
+FullUser        FS 000500.00
+BuyUser         BS 000500.00
+SellUser        SS 000500.00
+Seller1         SS 000010.00
+Seller2         SS 000500.00
+Seller3         SS 000500.00
+Buyer1          BS 000500.00
+User1           FS 000100.00
+David           FS 000250.00
+ExistingUser    FS 000100.00
+NearMax         FS 999500.00
+END                         

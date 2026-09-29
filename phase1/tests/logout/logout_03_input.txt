@@ -1,1 +1,4 @@
-login → FullUser → logout → buy
+login
+FullUser
+logout
+buy

@@ -1,1 +1,4 @@
-addcredit accepted; banana rejected.
+Login accepted.
+Addcredit transaction accepted.
+Buy transaction denied because the game does not exist.
+Logout accepted.

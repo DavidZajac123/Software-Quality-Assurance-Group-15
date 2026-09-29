@@ -1,1 +1,6 @@
-login → FullUser → sell → [blank] → 25.00 → logout
+login
+FullUser
+sell
+
+25.00
+logout

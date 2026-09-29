@@ -1,1 +1,5 @@
-login → AdminUser → delete → David → logout
+login
+AdminUser
+delete
+David
+logout

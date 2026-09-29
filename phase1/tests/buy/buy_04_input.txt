@@ -1,1 +1,4 @@
-login → SellUser → buy → logout
+login
+SellUser
+buy
+logout

@@ -1,1 +1,6 @@
-login → AdminUser → create → ZeroUser → full-standard → logout
+login
+AdminUser
+create
+ZeroUser
+full-standard
+logout

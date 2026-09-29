@@ -1,1 +1,6 @@
-login → AdminUser → create → ABCDEFGHIJKLMNOP → full-standard → logout
+login
+AdminUser
+create
+ABCDEFGHIJKLMNOP
+full-standard
+logout

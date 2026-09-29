@@ -1,1 +1,4 @@
-login → FullUser → login → logout
+login
+FullUser
+login
+logout

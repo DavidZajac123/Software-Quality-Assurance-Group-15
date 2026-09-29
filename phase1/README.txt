@@ -1,34 +1,21 @@
-Phase 1 Requirements Tests
+Phase 1 - Front End Requirements Testing Assets
 
-This directory contains all Front End requirements tests for Phase 1.
+Contents:
+- documents/: Phase 1 test-case documentation and Test Plan.
+- tests/: 131 Front End requirements tests, grouped by transaction/category.
+- scripts/: planned test execution scripts.
+- results/: planned actual-output and comparison locations.
 
-Tests are organized by transaction or behaviour category:
+Test file convention:
+- *_input.txt: literal console input, one input line per line in the file.
+- *_expected.txt: expected observable terminal behaviour.
+- *_dtf_expected.txt: exact expected Daily Transaction File content.
 
-addcredit
-buy
-create
-delete
-invalid_input
-list_games
-login
-logout
-refund
-sell
-transaction_output
+For multi-session tests, session-specific DTF expected files are used because each valid logout writes a separate DTF.
 
-Each numbered test normally contains three files:
-
-<category>_XX_input.txt
-- Complete test-session console input stream.
-
-<category>_XX_expected.txt
-- Expected terminal behaviour/output.
-
-<category>_XX_dtf_expected.txt
-- Expected Daily Transaction File output.
-
-Tests that contain invalid transactions still include the expected DTF result for the complete session. Invalid transactions must not create transaction records, although a later valid logout may still produce an end-of-session record.
-
-The shared starting state used by tests is documented in:
-
-../shared_test_data/
+Deadline assumptions adopted where no further clarification could be obtained:
+1. list_games is display-only and creates no DTF transaction record because no code/record format is defined for it.
+2. When an account is deleted, Game Collection entries owned by that user are removed as a documented group design decision.
+3. Where a written field length conflicts with the provided example, the client-confirmed example length is used.
+4. Available Games records use the example-defined 49-character line format.
+5. Failed/incomplete transactions are omitted from the DTF.

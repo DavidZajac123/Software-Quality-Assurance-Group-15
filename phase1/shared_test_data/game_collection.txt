@@ -1,3 +1,2 @@
-Minecraft        FullUser
-Portal           Buyer1
-END
+Minecraft                  Buyer1         
+END                                       

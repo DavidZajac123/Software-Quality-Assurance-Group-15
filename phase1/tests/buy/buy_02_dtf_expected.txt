@@ -1,1 +1,2 @@
-04 Portal/Seller2/BuyUser/price → END
+04 Portal                     Seller2         BuyUser         040.00
+00                    000000.00

@@ -1,1 +1,2 @@
-06 record for FullUser/100.00 → END
+06 FullUser           000100.00
+00                    000000.00

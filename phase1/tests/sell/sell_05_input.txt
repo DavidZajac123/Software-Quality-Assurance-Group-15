@@ -1,1 +1,6 @@
-login → FullUser → sell → MaxPriceGame → 999.99 → logout
+login
+FullUser
+sell
+MaxPriceGame
+999.99
+logout

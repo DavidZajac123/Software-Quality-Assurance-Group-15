@@ -1,0 +1,2 @@
+Session 1: refund accepted; the corresponding game is removed from Buyer1's collection; logout accepted.
+Session 2: Buyer1 may purchase the previously refunded Minecraft again if all normal buy requirements are satisfied; purchase accepted; logout accepted.

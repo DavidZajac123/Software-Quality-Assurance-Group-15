@@ -1,1 +1,6 @@
-login → AdminUser → sell → Portal → 20.00 → logout
+login
+AdminUser
+sell
+Portal
+20.00
+logout

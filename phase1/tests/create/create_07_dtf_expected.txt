@@ -1,1 +1,2 @@
-valid 01 → END
+01 ABCDEFGHIJKLMNO FS 000000.00
+00                    000000.00

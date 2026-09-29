@@ -1,1 +1,7 @@
-valid 20.00 refund stream
+login
+AdminUser
+refund
+Buyer1
+Seller1
+20.00
+logout

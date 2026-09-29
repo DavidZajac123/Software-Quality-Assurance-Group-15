@@ -1,1 +1,6 @@
-login → AdminUser → create → Bob → full-standard → logout
+login
+AdminUser
+create
+Bob
+full-standard
+logout

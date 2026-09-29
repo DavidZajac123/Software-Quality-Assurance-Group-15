@@ -1,1 +1,6 @@
-login → AdminUser → addcredit → 100.00 → InvalidUser → logout
+login
+AdminUser
+addcredit
+100.00
+InvalidUser
+logout

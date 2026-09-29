@@ -1,1 +1,3 @@
-login → AdminUser → logout
+login
+AdminUser
+logout

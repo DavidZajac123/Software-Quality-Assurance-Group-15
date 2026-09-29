@@ -1,1 +1,2 @@
-Bob is left-justified and username field padded with spaces
+01 Bob             FS 000000.00
+00                    000000.00

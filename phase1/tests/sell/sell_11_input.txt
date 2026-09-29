@@ -1,1 +1,6 @@
-login → FullUser → sell → UniqueGame → abc → logout
+login
+FullUser
+sell
+UniqueGame
+abc
+logout

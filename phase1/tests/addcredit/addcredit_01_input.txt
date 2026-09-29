@@ -1,1 +1,5 @@
-login → FullUser → addcredit → 100.00 → logout
+login
+FullUser
+addcredit
+100.00
+logout

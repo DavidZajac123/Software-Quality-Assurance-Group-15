@@ -1,1 +1,2 @@
-Monetary field contains required representation of 110.00, including required zero-padding
+06 FullUser           000110.00
+00                    000000.00

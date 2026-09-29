@@ -1,1 +1,2 @@
-06 → 00; no record for banana
+06 FullUser           000050.00
+00                    000000.00

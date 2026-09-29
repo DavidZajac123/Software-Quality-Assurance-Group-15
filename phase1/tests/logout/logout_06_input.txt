@@ -1,1 +1,4 @@
-login → AdminUser → logout → delete
+login
+AdminUser
+logout
+delete

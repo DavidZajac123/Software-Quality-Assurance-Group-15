@@ -1,1 +1,4 @@
-buy → login → AdminUser → logout
+buy
+login
+AdminUser
+logout
