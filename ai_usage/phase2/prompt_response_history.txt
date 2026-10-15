@@ -1,0 +1,48 @@
+CSCI 3060U – Phase 2
+AI Prompt and Response History
+
+Generative AI Tool Used: ChatGPT
+
+The following is a reconstructed record of the main AI-assisted interactions that contributed to the Phase 2 submission. Repetitive follow-up questions have been combined where they addressed the same topic.
+
+User:
+Can you review the Week 4 project update, the Phase 2 requirements, and the current group design?
+
+ChatGPT:
+Reviewed the Phase 2 Rapid Prototype requirements and the group’s preliminary design document. Identified that Phase 2 requires a human-readable UML design, class and method descriptions, and a first C++ prototype that runs on at least some inputs without being fully tested.
+
+User:
+Is the new privileged transaction from the Week 4 update already represented in the UML?
+
+ChatGPT:
+Reviewed the existing design and identified that the Transactions package currently contained the original transaction classes but did not yet include the new privileged transaction that displays active-account information. Recommended adding another Transaction subclass rather than restructuring the overall architecture.
+
+User:
+Do the six packages in the current design make sense?
+
+ChatGPT:
+Reviewed the proposed Program Entry, Control, Session State, Input/Output, Transactions, and Utilities packages and concluded that the separation of responsibilities was reasonable. Recommended keeping the structure and adding the new privileged transaction to the Transactions package.
+
+User:
+How should the new privileged transaction fit into the current design?
+
+ChatGPT:
+Suggested keeping it consistent with the existing transaction hierarchy by adding another subclass of Transaction. Recommended restricting it to the privileged/admin account type and avoiding assumptions about its transaction code or DTF behaviour until those details are clarified.
+
+User:
+Does Session already contain what the new privileged transaction needs?
+
+ChatGPT:
+Reviewed the Session design and noted that its account collection already contains the loaded UserAccount records, including usernames, account types, and credit information. Suggested that Session likely does not need new state, but that a read-only accessor for the complete account collection could allow the transaction to iterate over the accounts without directly accessing Session’s private data.
+
+User:
+What can I realistically start implementing before the updated UML is finalized?
+
+ChatGPT:
+Recommended beginning with the stable session-state record types rather than FrontEnd, Session methods, or transaction subclasses, since those interfaces were still changing. Identified UserType, UserAccount, GameListing, and OwnedGame as low-risk pieces already represented in the group design.
+
+User:
+Can you help create the stable Phase 2 files I can work on now?
+
+ChatGPT:
+Drafted initial header files for UserType, UserAccount, GameListing, and OwnedGame. The records use descriptive field names and store monetary values as whole cents. More complex classes such as Session, FrontEnd, MasterFileReader, and the transaction classes were intentionally left for later so their implementations can follow the finalized UML.
