@@ -5,10 +5,16 @@ Generative AI (ChatGPT) was used during Phase 2 of the CSCI 3060U Software Quali
 AI was used to assist with:
 
 - reviewing and interpreting the Phase 2 Front End Rapid Prototype requirements;
-- reviewing the group’s preliminary system design and UML structure;
+- reviewing the group’s preliminary and updated system design and UML structure;
+- identifying the effect of the Week 4 privileged transaction on the design;
 - suggesting a read-only account collection accessor for the Session design;
 - identifying which parts of the implementation were stable enough to begin before the UML was finalized;
+- drafting the initial session-state data types UserType, UserAccount, GameListing, and OwnedGame;
+- drafting the FixedWidthFormat, Money, and UserTypeCodes utility classes based on the finalized UML;
+- interpreting fixed-width field offsets, END-record handling, user-type codes, and monetary values stored as whole cents;
+- diagnosing C++/VS Code IntelliSense issues and distinguishing environment problems from code errors;
+- configuring and verifying the C++ compiler environment using Visual Studio C++ tooling and the Windows SDK;
 
-AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s current system design, and the available client/TA updates before being incorporated into the project.
+AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 
 The file prompt_response_history.txt contains a reconstructed record of the main relevant AI-assisted interactions associated with the work submitted for Phase 2.
