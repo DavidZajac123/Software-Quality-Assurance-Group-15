@@ -20,6 +20,7 @@ AI was used to assist with:
 - implementing the InputRules utility class and its shared validation constants and methods;
 - implementing the Transaction class and its shared validation constants and methods;
 - implemented the abstract Transaction base class according to the finalized UML and shared transaction interface.
+- implementing the Session class and its account, credit, listing, ownership, and per-session state-management methods according to the finalized UML;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 
