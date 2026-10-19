@@ -68,6 +68,10 @@ MasterFileReader::readUserAccounts() {
         );
 
     for (const std::string& line : lines) {
+        if (line.size() != 28) {
+            continue;
+        }
+
         std::string username =
             FixedWidthFormat::extractField(
                 line,
@@ -122,6 +126,10 @@ MasterFileReader::readAvailableGames() {
         );
 
     for (const std::string& line : lines) {
+        if (line.size() != 49) {
+            continue;
+        }
+
         std::string gameName =
             FixedWidthFormat::extractField(
                 line,
@@ -171,6 +179,10 @@ MasterFileReader::readGameCollection() {
         );
 
     for (const std::string& line : lines) {
+        if (line.size() != 42) {
+            continue;
+        }
+        
         std::string gameName =
             FixedWidthFormat::extractField(
                 line,
