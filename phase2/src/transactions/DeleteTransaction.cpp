@@ -4,14 +4,18 @@
 #include "../io/DailyTransactionWriter.h"
 #include "../session/Session.h"
 
+// Returns the command word that selects the delete transaction.
 std::string DeleteTransaction::code() const {
     return "delete";
 }
 
+// Returns true only for administrator accounts.
 bool DeleteTransaction::isPermittedFor(UserType type) const {
     return type == UserType::Admin;
 }
 
+// Validates that the target account exists and is not
+// the currently logged-in account.
 std::string DeleteTransaction::validateInput(
     Session& session,
     const std::string& username
@@ -27,6 +31,8 @@ std::string DeleteTransaction::validateInput(
     return "";
 }
 
+// Prompts for the target username, validates the deletion,
+// removes the account, and records the 02 DTF entry.
 void DeleteTransaction::execute(
     Session& session,
     Console& console,

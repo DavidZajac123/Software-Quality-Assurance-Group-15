@@ -5,14 +5,18 @@
 #include "../session/Session.h"
 #include "../utilities/Money.h"
 
+// Returns the command word that selects the refund transaction.
 std::string RefundTransaction::code() const {
     return "refund";
 }
 
+// Returns true only for administrator accounts.
 bool RefundTransaction::isPermittedFor(UserType type) const {
     return type == UserType::Admin;
 }
 
+// Validates the buyer, seller, and refund amount.
+// Returns an error message when invalid, or an empty string when valid.
 std::string RefundTransaction::validateInput(
     Session& session,
     const std::string& buyerUsername,
@@ -46,6 +50,8 @@ std::string RefundTransaction::validateInput(
     return "";
 }
 
+// Prompts for the refund information, validates it,
+// transfers credit from seller to buyer, and writes the 05 DTF entry.
 void RefundTransaction::execute(
     Session& session,
     Console& console,

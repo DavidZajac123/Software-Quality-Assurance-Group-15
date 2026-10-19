@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cctype>
 
+// Converts a UserType value to its two-letter master-file code.
 std::string UserTypeCodes::toFileCode(UserType type) {
     switch (type) {
         case UserType::Admin:
@@ -21,6 +22,8 @@ std::string UserTypeCodes::toFileCode(UserType type) {
     return "";
 }
 
+// Converts a two-letter master-file account code into a UserType.
+// Returns false when the code is not recognized.
 bool UserTypeCodes::fromFileCode(
     const std::string& code,
     UserType& type
@@ -48,6 +51,8 @@ bool UserTypeCodes::fromFileCode(
     return false;
 }
 
+// Converts a typed account-type keyword into a UserType.
+// Returns false when the keyword is not recognized.
 bool UserTypeCodes::fromKeyword(
     const std::string& keyword,
     UserType& type

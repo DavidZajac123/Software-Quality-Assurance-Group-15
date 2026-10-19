@@ -6,10 +6,13 @@
 #include "../utilities/InputRules.h"
 #include "../utilities/Money.h"
 
+// Returns the command word that selects the addcredit transaction.
 std::string AddCreditTransaction::code() const {
     return "addcredit";
 }
 
+// Validates the requested credit amount and target account.
+// Returns an error message when invalid, or an empty string when valid.
 std::string AddCreditTransaction::validateInput(
     Session& session,
     const std::string& username,
@@ -47,6 +50,8 @@ std::string AddCreditTransaction::validateInput(
     return "";
 }
 
+// Prompts for the credit amount and target account when required,
+// validates the request, adds credit, and writes the 06 DTF entry.
 void AddCreditTransaction::execute(
     Session& session,
     Console& console,

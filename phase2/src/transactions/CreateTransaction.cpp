@@ -7,14 +7,18 @@
 #include "../utilities/InputRules.h"
 #include "../utilities/UserTypeCodes.h"
 
+// Returns the command word that selects the create transaction.
 std::string CreateTransaction::code() const {
     return "create";
 }
 
+// Returns true only for administrator accounts.
 bool CreateTransaction::isPermittedFor(UserType type) const {
     return type == UserType::Admin;
 }
 
+// Validates the requested username and account-type keyword.
+// Returns an error message when invalid, or an empty string when valid.
 std::string CreateTransaction::validateInput(
     Session& session,
     const std::string& username,
@@ -36,6 +40,8 @@ std::string CreateTransaction::validateInput(
     return "";
 }
 
+// Prompts for new-account information, validates it,
+// creates the account, and records the 01 DTF entry.
 void CreateTransaction::execute(
     Session& session,
     Console& console,

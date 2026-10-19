@@ -5,14 +5,18 @@
 #include "../utilities/Money.h"
 #include "../utilities/UserTypeCodes.h"
 
+// Returns the command word that selects the list_accounts transaction.
 std::string ListAccountsTransaction::code() const {
     return "list_accounts";
 }
 
+// Returns true only for administrator accounts.
 bool ListAccountsTransaction::isPermittedFor(UserType type) const {
     return type == UserType::Admin;
 }
 
+// Displays every active account in username order.
+// This transaction does not write a DTF record.
 void ListAccountsTransaction::execute(
     Session& session,
     Console& console,

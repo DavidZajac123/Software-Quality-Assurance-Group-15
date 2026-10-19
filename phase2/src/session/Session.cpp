@@ -2,6 +2,8 @@
 
 #include <utility>
 
+// Starts a new logged-in session using fresh master-file data
+// and clears all per-session tracking information.
 void Session::begin(
     const std::string& username,
     std::map<std::string, UserAccount> accounts,
@@ -19,6 +21,7 @@ void Session::begin(
     creditAddedThisSession_.clear();
 }
 
+// Ends the current session and clears all stored session state.
 void Session::end() {
     loggedIn_ = false;
     currentUsername_.clear();
@@ -31,10 +34,12 @@ void Session::end() {
     creditAddedThisSession_.clear();
 }
 
+// Returns whether a user is currently logged in.
 bool Session::isLoggedIn() const {
     return loggedIn_;
 }
 
+// Returns the account belonging to the currently logged-in user.
 UserAccount Session::currentUser() const {
     auto account = accounts_.find(currentUsername_);
 
@@ -45,6 +50,8 @@ UserAccount Session::currentUser() const {
     return UserAccount{};
 }
 
+// Returns the account with the given username,
+// or nullptr if that account does not exist.
 UserAccount* Session::findAccount(const std::string& username) {
     auto account = accounts_.find(username);
 
@@ -55,14 +62,17 @@ UserAccount* Session::findAccount(const std::string& username) {
     return &account->second;
 }
 
+// Returns all active accounts in username order.
 std::map<std::string, UserAccount> Session::accounts() const {
     return accounts_;
 }
 
+// Adds a newly created account to the current session.
 void Session::addAccount(const UserAccount& account) {
     accounts_[account.username] = account;
 }
 
+// Removes an account and cancels that user's available game listings.
 void Session::removeAccount(const std::string& username) {
     accounts_.erase(username);
 
@@ -75,6 +85,7 @@ void Session::removeAccount(const std::string& username) {
     }
 }
 
+// Adds credit to an account and tracks the amount added during this session.
 void Session::addCredit(
     const std::string& username,
     long long amountCents
@@ -89,6 +100,7 @@ void Session::addCredit(
     creditAddedThisSession_[username] += amountCents;
 }
 
+// Transfers the specified amount of credit from one account to another.
 void Session::transferCredit(
     const std::string& fromUsername,
     const std::string& toUsername,
@@ -105,6 +117,7 @@ void Session::transferCredit(
     toAccount->creditCents += amountCents;
 }
 
+// Returns the total credit added to an account during this session.
 long long Session::creditAddedThisSession(
     const std::string& username
 ) const {
@@ -117,6 +130,8 @@ long long Session::creditAddedThisSession(
     return amount->second;
 }
 
+// Returns the available listing with the given game name,
+// or nullptr if no matching listing exists.
 GameListing* Session::findListing(const std::string& gameName) {
     auto listing = listings_.find(gameName);
 
@@ -127,20 +142,24 @@ GameListing* Session::findListing(const std::string& gameName) {
     return &listing->second;
 }
 
+// Returns all games currently available for purchase.
 std::map<std::string, GameListing> Session::listings() const {
     return listings_;
 }
 
+// Returns whether a game name is already listed or was reserved this session.
 bool Session::isGameNameTaken(const std::string& gameName) const {
     return listings_.find(gameName) != listings_.end()
         || gamesListedThisSession_.find(gameName)
             != gamesListedThisSession_.end();
 }
 
+// Reserves a game name so that it cannot be reused during this session.
 void Session::reserveGameName(const std::string& gameName) {
     gamesListedThisSession_.insert(gameName);
 }
 
+// Returns whether the specified user already owns the named game.
 bool Session::ownsGame(
     const std::string& username,
     const std::string& gameName
@@ -157,6 +176,7 @@ bool Session::ownsGame(
     return false;
 }
 
+// Adds a purchased game to the user's collection for the current session.
 void Session::addOwnedGame(
     const std::string& username,
     const std::string& gameName

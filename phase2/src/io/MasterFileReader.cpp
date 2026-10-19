@@ -6,6 +6,7 @@
 #include "../utilities/Money.h"
 #include "../utilities/UserTypeCodes.h"
 
+// Stores the paths of the three master files used by the Front End.
 MasterFileReader::MasterFileReader(
     const std::string& userAccountsPath,
     const std::string& availableGamesPath,
@@ -16,6 +17,7 @@ MasterFileReader::MasterFileReader(
       gameCollectionPath_(gameCollectionPath) {
 }
 
+// Returns true only when all three configured master files can be opened.
 bool MasterFileReader::canOpenAllFiles() const {
     std::ifstream userAccountsFile(userAccountsPath_);
     std::ifstream availableGamesFile(availableGamesPath_);
@@ -26,6 +28,8 @@ bool MasterFileReader::canOpenAllFiles() const {
         && gameCollectionFile.is_open();
 }
 
+// Reads records from a master file until its END record is reached
+// and returns the lines that appear before END.
 std::vector<std::string> MasterFileReader::readRecordLines(
     const std::string& path,
     std::size_t keyFieldWidth
@@ -57,6 +61,8 @@ std::vector<std::string> MasterFileReader::readRecordLines(
     return records;
 }
 
+// Reads and parses the Current User Accounts File,
+// returning valid accounts keyed by username.
 std::map<std::string, UserAccount>
 MasterFileReader::readUserAccounts() {
     std::map<std::string, UserAccount> accounts;
@@ -115,6 +121,8 @@ MasterFileReader::readUserAccounts() {
     return accounts;
 }
 
+// Reads and parses the Available Games File,
+// returning valid listings keyed by game name.
 std::map<std::string, GameListing>
 MasterFileReader::readAvailableGames() {
     std::map<std::string, GameListing> listings;
@@ -168,6 +176,8 @@ MasterFileReader::readAvailableGames() {
     return listings;
 }
 
+// Reads and parses the Game Collection File
+// and returns the valid owned-game records.
 std::vector<OwnedGame>
 MasterFileReader::readGameCollection() {
     std::vector<OwnedGame> collection;
