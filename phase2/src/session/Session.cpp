@@ -55,6 +55,10 @@ UserAccount* Session::findAccount(const std::string& username) {
     return &account->second;
 }
 
+std::map<std::string, UserAccount> Session::accounts() const {
+    return accounts_;
+}
+
 void Session::addAccount(const UserAccount& account) {
     accounts_[account.username] = account;
 }

@@ -45,6 +45,9 @@ public:
     // Returns the account with the given username, or nullptr if it does not exist.
     UserAccount* findAccount(const std::string& username);
 
+    // Returns all active user accounts in username order.
+    std::map<std::string, UserAccount> accounts() const;
+
     // Adds a newly created account to the current session.
     void addAccount(const UserAccount& account);
 

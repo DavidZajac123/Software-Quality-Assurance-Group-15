@@ -30,6 +30,7 @@ AI was used to assist with:
 - implementing BuyTransaction with account-type permission checking, listing/seller validation, self-purchase and ownership checks, credit transfer, collection updates, and 04 DTF recording according to the finalized design;
 - implementing RefundTransaction with admin permission checking, buyer/seller account validation, refund amount validation, credit transfer, and 05 DTF recording according to the finalized design;
 - implementing LoginTransaction with fresh master-file loading, username validation, pre-login transaction handling, and Session initialization according to the finalized design;
+- implementing the client-added ListAccountsTransaction and Session::accounts() accessor according to the updated near-final design, including admin-only access and active-account display with no DTF record;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 
