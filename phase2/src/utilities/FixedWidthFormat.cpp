@@ -5,7 +5,7 @@ std::string FixedWidthFormat::padRight(
     std::size_t width
 ) {
     if (text.size() >= width) {
-        return text;
+        return text.substr(0, width);
     }
 
     return text + std::string(width - text.size(), ' ');
