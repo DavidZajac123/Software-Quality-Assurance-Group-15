@@ -26,6 +26,7 @@ AI was used to assist with:
 - implementing CreateTransaction with admin permission checking, username/account-type validation, Session account creation, and 01 DTF recording according to the finalized design;
 - implementing DeleteTransaction with admin permission checking, account-existence/current-user validation, Session account removal, and 02 DTF recording according to the finalized design;
 - implementing AddCreditTransaction with monetary validation, administrator target-account handling, per-session credit limits, maximum-balance checking, Session updates, and 06 DTF recording according to the finalized design;
+- implementing SellTransaction with account-type permission checking, game-name and price validation, session game-name reservation, and 03 DTF recording according to the finalized design;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 

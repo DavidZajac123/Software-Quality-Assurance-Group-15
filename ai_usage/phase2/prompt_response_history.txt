@@ -118,3 +118,9 @@ Can you help me implement AddCreditTransaction from the finalized Phase 2 design
 
 ChatGPT:
 Reviewed the finalized AddCreditTransaction design and drafted AddCreditTransaction.h and AddCreditTransaction.cpp. The transaction prompts for an amount and, for administrators, a target username; validates account existence, monetary input, a positive amount, the $1000 per-account session credit limit, and the maximum balance; then updates Session and records a 06 Daily Transaction File entry.
+
+User (David):
+Can you help me implement SellTransaction from the finalized Phase 2 design using the existing Session, Money, InputRules, Console, and DailyTransactionWriter interfaces?
+
+ChatGPT:
+Reviewed the finalized SellTransaction design and drafted SellTransaction.h and SellTransaction.cpp. The transaction rejects buy-standard accounts, prompts for a game name and price, validates game-name format and uniqueness, parses and checks the price against the 999.99 maximum, reserves the game name for the session, and records a 03 Daily Transaction File entry.
