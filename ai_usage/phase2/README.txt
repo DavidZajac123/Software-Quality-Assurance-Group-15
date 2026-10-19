@@ -33,6 +33,7 @@ AI was used to assist with:
 - implementing the client-added ListAccountsTransaction and Session::accounts() accessor according to the updated near-final design, including admin-only access and active-account display with no DTF record;
 - auditing the Phase 2 implementation against the updated near-final design and making small alignment fixes to FixedWidthFormat::padRight(), AddCreditTransaction validation order, and ListGamesTransaction empty-list behavior;
 - adding the required class and method documentation comments to Console and DailyTransactionWriter without changing their behavior;
+- adding required internal documentation comments to the remaining Session, MasterFileReader, utility, and transaction method implementations without changing program behavior;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 

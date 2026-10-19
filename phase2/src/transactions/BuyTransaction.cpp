@@ -4,14 +4,18 @@
 #include "../io/DailyTransactionWriter.h"
 #include "../session/Session.h"
 
+// Returns the command word that selects the buy transaction.
 std::string BuyTransaction::code() const {
     return "buy";
 }
 
+// Returns false for sell-standard accounts and true for all other account types.
 bool BuyTransaction::isPermittedFor(UserType type) const {
     return type != UserType::SellStandard;
 }
 
+// Validates the requested purchase and provides the listing price.
+// Returns an error message when invalid, or an empty string when valid.
 std::string BuyTransaction::validateInput(
     Session& session,
     const std::string& gameName,
@@ -51,6 +55,8 @@ std::string BuyTransaction::validateInput(
     return "";
 }
 
+// Prompts for the game and seller, validates the purchase,
+// transfers credit, records ownership, and writes the 04 DTF entry.
 void BuyTransaction::execute(
     Session& session,
     Console& console,

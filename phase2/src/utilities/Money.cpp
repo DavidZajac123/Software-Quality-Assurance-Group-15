@@ -4,6 +4,8 @@
 #include <iomanip>
 #include <sstream>
 
+// Parses a monetary text value into whole cents.
+// Returns false for invalid or unsupported monetary input.
 bool Money::parse(
     const std::string& text,
     long long& cents
@@ -68,6 +70,7 @@ bool Money::parse(
     return true;
 }
 
+// Formats a whole-cent value as a zero-filled fixed-width monetary field.
 std::string Money::toFileField(
     long long cents,
     std::size_t width
@@ -92,6 +95,7 @@ std::string Money::toFileField(
     return result;
 }
 
+// Formats a whole-cent value for console display with two decimal places.
 std::string Money::toDisplay(long long cents) {
     long long dollars = cents / 100;
     long long remainingCents = cents % 100;

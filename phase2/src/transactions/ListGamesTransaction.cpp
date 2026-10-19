@@ -4,10 +4,13 @@
 #include "../session/Session.h"
 #include "../utilities/Money.h"
 
+// Returns the command word that selects the list_games transaction.
 std::string ListGamesTransaction::code() const {
     return "list_games";
 }
 
+// Displays every game currently available for purchase.
+// This transaction does not write a DTF record.
 void ListGamesTransaction::execute(
     Session& session,
     Console& console,
