@@ -17,6 +17,11 @@ void ListGamesTransaction::execute(
 
     const auto availableGames = session.listings();
 
+    if (availableGames.empty()) {
+        console.showMessage("No games available.");
+        return;
+    }
+
     for (const auto& entry : availableGames) {
         const GameListing& listing = entry.second;
 
