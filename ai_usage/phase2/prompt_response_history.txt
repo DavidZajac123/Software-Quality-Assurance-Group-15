@@ -76,3 +76,9 @@ Where should the record-length checks go?
 
 ChatGPT:
 Recommended placing the checks at the start of each parsing loop in readUserAccounts(), readAvailableGames(), and readGameCollection(), before extracting any fields, so malformed records are skipped cleanly.
+
+User (David):
+Can you help me implement the abstract Transaction base class from the finalized UML?
+
+ChatGPT:
+Reviewed the finalized transaction design and drafted Transaction.h and Transaction.cpp with the shared transaction interface, including the virtual destructor, code(), requiresLogin(), isPermittedFor(), and abstract execute() method. The default behavior requires login and permits all account types unless a subclass overrides those methods.
