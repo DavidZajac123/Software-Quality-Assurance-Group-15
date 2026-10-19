@@ -112,3 +112,9 @@ Can you help me implement DeleteTransaction from the finalized Phase 2 design us
 
 ChatGPT:
 Reviewed the finalized DeleteTransaction design and drafted DeleteTransaction.h and DeleteTransaction.cpp. The transaction is restricted to admin users, prompts for a username, validates that the account exists and is not the currently logged-in account, removes the account through Session::removeAccount(), and records a 02 Daily Transaction File entry.
+
+User (David):
+Can you help me implement AddCreditTransaction from the finalized Phase 2 design using the existing Session, Money, InputRules, Console, and DailyTransactionWriter interfaces?
+
+ChatGPT:
+Reviewed the finalized AddCreditTransaction design and drafted AddCreditTransaction.h and AddCreditTransaction.cpp. The transaction prompts for an amount and, for administrators, a target username; validates account existence, monetary input, a positive amount, the $1000 per-account session credit limit, and the maximum balance; then updates Session and records a 06 Daily Transaction File entry.
