@@ -29,6 +29,7 @@ AI was used to assist with:
 - implementing SellTransaction with account-type permission checking, game-name and price validation, session game-name reservation, and 03 DTF recording according to the finalized design;
 - implementing BuyTransaction with account-type permission checking, listing/seller validation, self-purchase and ownership checks, credit transfer, collection updates, and 04 DTF recording according to the finalized design;
 - implementing RefundTransaction with admin permission checking, buyer/seller account validation, refund amount validation, credit transfer, and 05 DTF recording according to the finalized design;
+- implementing LoginTransaction with fresh master-file loading, username validation, pre-login transaction handling, and Session initialization according to the finalized design;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 
