@@ -24,6 +24,7 @@ AI was used to assist with:
 - implementing ListGamesTransaction using the finalized transaction design and the team's Console interface;
 - implementing LogoutTransaction using the team's completed DailyTransactionWriter, Console, and Session interfaces;
 - implementing CreateTransaction with admin permission checking, username/account-type validation, Session account creation, and 01 DTF recording according to the finalized design;
+- implementing DeleteTransaction with admin permission checking, account-existence/current-user validation, Session account removal, and 02 DTF recording according to the finalized design;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 
