@@ -16,18 +16,18 @@ std::string AddCreditTransaction::validateInput(
     const std::string& amountText,
     long long& amountCents
 ) const {
-    UserAccount* account = session.findAccount(username);
-
-    if (account == nullptr) {
-        return "Error: account does not exist.";
-    }
-
     if (!Money::parse(amountText, amountCents)) {
         return "Error: invalid credit amount.";
     }
 
     if (amountCents <= 0) {
         return "Error: credit amount must be greater than zero.";
+    }
+
+    UserAccount* account = session.findAccount(username);
+
+    if (account == nullptr) {
+        return "Error: account does not exist.";
     }
 
     if (

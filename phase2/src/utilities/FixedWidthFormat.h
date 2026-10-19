@@ -14,6 +14,7 @@ public:
     static constexpr std::size_t PRICE_WIDTH = 6;
 
     // Pads text on the right with spaces until it reaches width.
+    // Callers are expected to pass text that already fits the field width.
     static std::string padRight(
         const std::string& text,
         std::size_t width
