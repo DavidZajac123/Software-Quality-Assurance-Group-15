@@ -14,6 +14,10 @@ AI was used to assist with:
 - interpreting fixed-width field offsets, END-record handling, user-type codes, and monetary values stored as whole cents;
 - diagnosing C++/VS Code IntelliSense issues and distinguishing environment problems from code errors;
 - configuring and verifying the C++ compiler environment using Visual Studio C++ tooling and the Windows SDK;
+- identifying and correcting the FixedWidthFormat::padRight truncation mismatch;
+- adding fixed-record-length validation to MasterFileReader for the three master-file formats;
+- improving class and method comments to match the Phase 2 internal-documentation requirements;
+- implementing the InputRules utility class and its shared validation constants and methods;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 
