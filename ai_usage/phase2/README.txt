@@ -22,6 +22,7 @@ AI was used to assist with:
 - implemented the abstract Transaction base class according to the finalized UML and shared transaction interface.
 - implementing the Session class and its account, credit, listing, ownership, and per-session state-management methods according to the finalized UML;
 - implementing ListGamesTransaction using the finalized transaction design and the team's Console interface;
+- implementing LogoutTransaction using the team's completed DailyTransactionWriter, Console, and Session interfaces;
 
 AI-assisted code and design suggestions were reviewed against the Phase 2 requirements, the group’s finalized system design, the project requirements, and the available client/TA updates before being incorporated into the project.
 
