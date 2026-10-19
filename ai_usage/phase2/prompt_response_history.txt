@@ -130,3 +130,9 @@ Can you help me implement BuyTransaction from the finalized Phase 2 design using
 
 ChatGPT:
 Reviewed the finalized BuyTransaction design and drafted BuyTransaction.h and BuyTransaction.cpp. The transaction rejects sell-standard accounts, prompts for a game name and seller username, validates the listing, seller account, self-purchase rule, existing ownership, and buyer credit, then transfers the purchase price, adds the game to the buyer's collection, and records a 04 Daily Transaction File entry.
+
+User (David):
+Can you help me implement RefundTransaction from the finalized Phase 2 design using the existing Session, Money, Console, and DailyTransactionWriter interfaces?
+
+ChatGPT:
+Reviewed the finalized RefundTransaction design and drafted RefundTransaction.h and RefundTransaction.cpp. The transaction is restricted to admin users, prompts for buyer username, seller username, and refund amount, validates that both accounts exist, parses a positive amount that does not exceed the seller's credit, transfers credit from seller to buyer, and records a 05 Daily Transaction File entry.
