@@ -12,31 +12,41 @@
 #include "../session/Session.h"
 #include "../transactions/Transaction.h"
 
-// Controls the entire program with how it works + handles different user transactions.
+// Runs the Front End transaction loop, determines whether transactions
+// may run, and passes accepted transaction codes to the matching transaction.
 class FrontEnd {
 public:
-    // Starts up the front end with input, output, and file handling.
-    FrontEnd(std::istream& input, std::ostream& output,
-             const MasterFileReader& fileReader,
-             const std::string& dtfFilePrefix);
+    // Connects the Front End to the given input/output streams, copies the
+    // master-file reader, initializes the DTF writer, and registers all
+    // supported transactions.
+    FrontEnd(
+        std::istream& input,
+        std::ostream& output,
+        MasterFileReader fileReader,
+        const std::string& dtfFilePrefix
+    );
 
-    // Runs the program
+    // Reads and processes transaction codes until the input ends.
+    // Returns 0 when the transaction loop finishes normally.
     int run();
 
 private:
-    // Processes the specific transaction that was requested.
+    // Finds the transaction for the given code and either executes it
+    // or displays the reason it cannot currently run.
     void processTransactionCode(const std::string& code);
 
-    // Performs a check to see if the transaction is allowed or if it should send an error.
+    // Returns an error message if the transaction cannot run in the
+    // current session state, or an empty string if it is permitted.
     std::string rejectionReason(const Transaction& transaction) const;
 
-    // Adds specific transaction to list of commands
+    // Adds a transaction to the lookup table using its command code.
     void registerTransaction(std::unique_ptr<Transaction> transaction);
 
     Console console_;
     MasterFileReader fileReader_;
     DailyTransactionWriter dtfWriter_;
     Session session_;
+
     std::map<std::string, std::unique_ptr<Transaction>> transactions_;
 };
 

@@ -4,39 +4,70 @@
 #include <iostream>
 
 /*
-This program is intended to run a front end of a Games Distribution system, similar to a program named "Steam". This program allows the user to login to an account and perform the following transactions: 
-- Login (Start Front End session)
-- Logout (End Front End session)
-- Create (Create new user)
-- Delete (Cancel games or remove user account)
-- Sell (Put a game up for sale)
-- Buy (Purchase a game)
-- Refund (Issue credit to buyers account from sellers)
-- Add credit (Add credit into system for the purchase of accounts)
+This program runs the Front End of a digital game distribution system.
+It allows users to log in and perform the following transactions:
 
-The input files are current_users.txt, available_games.txt, and game_collection.txt.
+- Login (start a Front End session)
+- Logout (end the current session and write its Daily Transaction File)
+- Create (create a new user account)
+- Delete (delete an existing user account)
+- Sell (list a game for sale)
+- Buy (purchase an available game)
+- Refund (transfer credit from a seller back to a buyer)
+- Add Credit (add credit to an account)
+- List Games (display games currently available for purchase)
+- List Accounts (admin-only display of all active accounts)
 
-The output file is a Daily Transaction File, storing the successful transaction from that session (daily_session<N>.txt)
+Input files:
+- Current User Accounts File
+- Available Games File
+- Game Collection File
 
-To compile the program, run both of these commandlines in the terminal: 
+Output:
+- One Daily Transaction File per successfully logged-out session,
+  named <dtf prefix>_session<N>.txt.
+
+The program expects four command-line arguments:
+frontend <users file> <games file> <collection file> <dtf prefix>
+
+Example compilation from the phase2 directory in PowerShell:
 g++ -std=c++17 (Get-ChildItem .\src -Recurse -Filter *.cpp).FullName -o frontend.exe
+
+Example run:
 .\frontend.exe ..\phase1\shared_test_data\current_users.txt ..\phase1\shared_test_data\available_games.txt ..\phase1\shared_test_data\game_collection.txt daily
 */
+
+// Checks the command-line arguments and master files,
+// creates the Front End, runs it, and returns its exit status.
 int main(int argc, char* argv[]) {
     if (argc != 5) {
-        std::cerr << "Error: expected four arguments.\n"
-                  << "Usage: " << argv[0]
-                  << " <users file> <games file> <collection file> <dtf prefix>\n";
+        std::cerr
+            << "Error: expected four arguments.\n"
+            << "Usage: " << argv[0]
+            << " <users file> <games file> <collection file> <dtf prefix>\n";
+
         return 1;
     }
 
-    MasterFileReader fileReader(argv[1], argv[2], argv[3]);
+    MasterFileReader fileReader(
+        argv[1],
+        argv[2],
+        argv[3]
+    );
 
     if (!fileReader.canOpenAllFiles()) {
-        std::cerr << "Error: cannot open one or more master files.\n";
+        std::cerr
+            << "Error: cannot open one or more master files.\n";
+
         return 1;
     }
 
-    FrontEnd frontEnd(std::cin, std::cout, fileReader, argv[4]);
+    FrontEnd frontEnd(
+        std::cin,
+        std::cout,
+        fileReader,
+        argv[4]
+    );
+
     return frontEnd.run();
 }
