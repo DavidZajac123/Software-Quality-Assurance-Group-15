@@ -1,0 +1,5 @@
+Enter username:
+Error: account does not exist.
+Enter username:
+Login successful.
+Logout successful.

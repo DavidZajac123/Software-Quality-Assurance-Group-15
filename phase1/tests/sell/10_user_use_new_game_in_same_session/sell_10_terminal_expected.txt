@@ -1,0 +1,9 @@
+Enter username:
+Login successful.
+Enter game name:
+Enter price:
+Game listed successfully.
+Enter game name:
+Enter seller's username:
+Error: game is not available.
+Logout successful.

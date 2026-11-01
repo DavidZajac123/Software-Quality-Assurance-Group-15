@@ -1,0 +1,9 @@
+*.exe
+.vscode/
+phase2/Phase2_Source/
+
+phase1/results/actual/*
+!phase1/results/actual/README.txt
+
+phase1/results/comparisons/*
+!phase1/results/comparisons/README.txt

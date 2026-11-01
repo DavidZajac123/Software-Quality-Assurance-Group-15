@@ -1,0 +1,4 @@
+Error: please log in before using "buy".
+Enter username:
+Login successful.
+Logout successful.

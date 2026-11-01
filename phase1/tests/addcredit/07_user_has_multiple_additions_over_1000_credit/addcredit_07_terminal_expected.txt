@@ -1,0 +1,7 @@
+Enter username:
+Login successful.
+Enter amount:
+Credit added successfully.
+Enter amount:
+Error: session credit limit exceeded.
+Logout successful.
