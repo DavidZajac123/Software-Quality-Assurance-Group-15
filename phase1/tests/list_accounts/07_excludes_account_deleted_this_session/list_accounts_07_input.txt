@@ -1,0 +1,6 @@
+login
+AdminUser
+delete
+User1
+list_accounts
+logout

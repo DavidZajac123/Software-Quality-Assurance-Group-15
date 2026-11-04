@@ -18,5 +18,7 @@ Overrides:
 - sell_02/available_games.txt: Terraria is absent so selling Terraria is a valid unique-name test.
 - sell_03/available_games.txt: Portal is absent so selling Portal is a valid unique-name test.
 - sell_15b/available_games.txt: NextSessionGame is listed, standing in for the Back End applying the earlier sale.
+- search_06/current_users.txt: adds AdminSeller, a second admin account.
+- search_06/available_games.txt: AdminSeller is selling Zelda, so AdminSeller is an admin who is selling games.
 
 These overrides keep each requirements test independent and reproducible without changing the purpose of the test case.

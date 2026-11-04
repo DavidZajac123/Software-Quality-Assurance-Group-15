@@ -117,8 +117,8 @@ Client change: "Add a new transaction SEARCH that outputs all items and all user
 
 - Prompt: `Enter search text:`
 - Check: blank text -> `Error: search text cannot be blank.`
-- Prints `Games matching "<text>":` then every game for sale whose name contains the text, in the list_games line format and name order. If there are none: `No games match "<text>".`
-- Then prints `Users matching "<text>":` then every username that contains the text, one per line, in username order. If there are none: `No users match "<text>".`
+- Prints `Games matching "<text>":` then every game for sale whose name contains the text, in the list_games line format and name order. If no game matches, it prints only `No games match "<text>".`
+- Then prints `Users matching "<text>":` then every username that contains the text, one per line, in username order. If no user matches, it prints only `No users match "<text>".`
 - A non-admin never sees the name of an admin account that has no game for sale. An admin sees every match.
 - Writes nothing to the daily transaction file.
 - Pending the client's answers: "items" means games for sale, and matching is case-sensitive.

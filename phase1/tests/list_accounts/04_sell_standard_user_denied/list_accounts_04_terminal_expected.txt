@@ -1,0 +1,4 @@
+Enter username:
+Login successful. Welcome, SellUser (SS).
+Error: your account type cannot use "list_accounts".
+Logout successful.

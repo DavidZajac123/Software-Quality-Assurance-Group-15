@@ -1,0 +1,1 @@
+AdminUser sells nothing, so a non-admin search does not show it.
