@@ -8,6 +8,7 @@ Overrides:
 - buy_06/current_users.txt: FullUser starts with 20.00 credit for insufficient-credit testing.
 - buy_07/current_users.txt: FullUser starts with exactly 50.00 credit.
 - buy_08/game_collection.txt: FullUser already owns Minecraft.
+- buy_13/current_users.txt: Seller1 is full-standard instead of sell-standard. The original Phase 1 data made Seller1 sell-standard, so the account-type permission check refused "buy" before the own-game rule this test is meant to verify could run.
 - refund_10/current_users.txt: Seller1 starts with exactly 20.00 credit.
 - refund_11/current_users.txt: Seller1 starts with 10.00 credit.
 - refund_15b/game_collection.txt: Buyer1 no longer owns Minecraft, standing in for the Back End applying the earlier refund.

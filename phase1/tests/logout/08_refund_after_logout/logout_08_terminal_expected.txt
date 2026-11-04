@@ -1,0 +1,4 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Logout successful.
+Error: please log in before using "refund".

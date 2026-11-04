@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, FullUser (FS).
 Enter game name:
 Enter seller's username:
-Game purchased successfully.
+Purchase successful: Minecraft from Seller1 for 50.00.
 Logout successful.

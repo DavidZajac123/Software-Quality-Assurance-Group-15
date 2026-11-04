@@ -37,49 +37,63 @@ Session 1 matched for both tests. In session 2:
 < 04 Minecraft                  Seller1         Buyer1          050.00
 ```
 
+## Test corrections (not observed failures)
+
+| Test | Problem with the test | Correction | Why it is not in the failure log |
+|---|---|---|---|
+| `buy_13` | Meant to check that a seller cannot buy their own game, but the shared data made Seller1 sell-standard. The account-type permission check refused `buy` first, so the own-game rule was never reached. Design Table 8 notes this | Fixture `phase1/test_fixtures/buy_13/current_users.txt` makes Seller1 full-standard; all other data is shared. Input and expected DTF unchanged. Expected terminal error: `Error: you cannot buy your own game.` | Run 1 passed its DTF check and had no terminal comparison, so no failure was ever observed |
+
 ## Predicted, not yet observed (remove from the final log)
 
 | Test | Prediction | Why |
 |---|---|---|
-| `buy_01`, `sell_10` | `TERMINAL_DIFF` on the seller prompt | Expected files use the Figure 6 prompt `Enter seller's username:`; the source prints `Enter seller username:` (R1) |
-| `buy_13` | Own-game rule not reached | Design Table 8 notes that it stops at the permission check |
+| Every test with a terminal expected file | `TERMINAL_DIFF` wherever the source wording differs from `phase3/message_catalogue.md`, for example the login line (`Login successful.` instead of `Login successful. Welcome, <user> (<type>).`) | Found by comparing source strings with the catalogue, not by a run |
+| Tests that run `buy`, such as `buy_01` | `TERMINAL_DIFF` on the seller prompt and the success line | The catalogue uses `Enter seller's username:` and `Purchase successful: <game> from <seller> for <price>.`; the source prints `Enter seller username:` and `Game purchased successfully.` |
 | New overflow test | Very large amount accepted | Found by reading `Money.cpp` and probing a copy |
 
 ## Source of terminal expected wording
 
-Line sequences come from the test input, the prose expected result, and design Tables 3, 5 and 6. None were copied from Front End output.
+Every `*_terminal_expected.txt` file is written from the test's input, its prose expected result, the data files it runs with (shared data or its fixture), and `phase3/message_catalogue.md`. The catalogue was adopted by the group on 3 November 2026 and is the reference for all terminal wording and the order of checks. No expected file was copied from Front End output.
 
-**Exact wording from the design**
+**Wording taken directly from the Phase 2 design** (the catalogue repeats it unchanged)
 
-| Text | Source |
+| Text | Design source |
 |---|---|
 | `Error: "<code>" is not a valid transaction code.` | Table 5 |
 | `Error: please log in before using "<code>".` | Table 5 |
+| `Error: already logged in. Log out before logging in again.` | Table 5 |
 | `Error: your account type cannot use "<code>".` | Table 5 |
 | `Enter game name:` (buy) | Figure 6, step 7 |
 | `Enter seller's username:` | Figure 6, step 9 |
 | `Logout successful.` | Figure 6, step 32 |
 
-**Wording from the current message catalogue (not yet ratified by the group)**
+**Wording adopted by the group in the catalogue**
 
-The design defines the behaviour but not the words. This text matches the current source strings, so these lines cannot catch poor wording.
+The design defines the behaviour (the prompts, their order and the checks) but not these words. Examples:
 
 | Text | Used for |
 |---|---|
-| `Enter username:` | Login prompt |
-| `Login successful.` | Login accepted |
-| `Error: account does not exist.` | Login with an unknown account |
-| `Enter game name:` (sell), `Enter price:`, `Game listed successfully.` | Sell |
-| `Game purchased successfully.` | Buy accepted; **conflicts with the Figure 6 label, see R1** |
-| `Error: game is not available.` | Buy of a game not for sale |
-| `Enter amount:`, `Credit added successfully.`, `Error: session credit limit exceeded.` | Addcredit |
-| `<name> \| <seller> \| $<price>` | `list_games` line; separators and `$` are not in the design, see R3 |
+| `Login successful. Welcome, <username> (<type>).` | Login accepted |
+| `Error: "<username>" is not a registered user.` | Unknown account |
+| `Purchase successful: <game> from <seller> for <price>.` | Buy accepted. Figure 6 shows only the start, `Purchase successful ...`; the catalogue completes it |
+| `Enter amount of credit to add:`, `Credit added: <amount> to <username>.` | Addcredit |
+| `Games available for purchase:`, then fixed-width lines | `list_games` |
+
+See the catalogue for the full list. An empty value is shown as `""`, for example `Error: "" is not a registered user.` (group decision, 3 November 2026).
+
+## Resolved by the message catalogue
+
+| Former question | Resolution |
+|---|---|
+| Seller prompt: design `Enter seller's username:` or source `Enter seller username:` | `Enter seller's username:`, as in the design |
+| Buy success text, which Figure 6 shows only in part | `Purchase successful: <game> from <seller> for <price>.` |
+| Approval of the terminal wording | The catalogue was adopted by the group on 3 November 2026 |
+| `list_games` line format | Header line, then name padded to 26, seller padded to 15, then the price |
+
+Where the source still prints different wording, that remains a prediction until a run shows it (see "Predicted, not yet observed").
 
 ## Open requirement questions
 
 | ID | Question | Who decides | Affects |
 |---|---|---|---|
-| R1 | Prompt: Figure 6 says `Enter seller's username:`, source says `Enter seller username:`. Confirmation: Figure 6 shows only `Purchase successful ...`, source says `Game purchased successfully.` Which is correct? | Group | Every test that runs `buy` |
-| R2 | Is the current message catalogue approved? | Group | All catalogue lines |
-| R3 | What is the `list_games` line format? | Group or TA | `list_games_*` |
 | R4 | A refund names no game. Which game leaves the buyer's collection, and is that the Back End's job? | Client or TA | `refund_14`, `refund_15b` fixture |

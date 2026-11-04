@@ -1,0 +1,3 @@
+Enter username:
+Login successful. Welcome, SellUser (SS).
+Logout successful.

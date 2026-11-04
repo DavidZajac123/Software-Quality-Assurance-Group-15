@@ -1,0 +1,5 @@
+Enter username:
+Error: "" is not a registered user.
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Logout successful.
