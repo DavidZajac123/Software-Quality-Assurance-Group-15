@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter username to delete:
+Account deleted: David.
+Logout successful.

@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter amount of credit to add:
+Error: "abc" is not a valid amount.
+Logout successful.

@@ -1,0 +1,4 @@
+Error: "this_is_an_extremely_long_invalid_transaction_command_that_should_not_crash_the_program" is not a valid transaction code.
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Logout successful.

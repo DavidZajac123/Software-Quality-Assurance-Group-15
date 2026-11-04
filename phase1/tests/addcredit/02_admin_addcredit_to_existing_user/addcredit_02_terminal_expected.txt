@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter amount of credit to add:
+Enter username to credit:
+Credit added: 100.00 to User1.
+Logout successful.

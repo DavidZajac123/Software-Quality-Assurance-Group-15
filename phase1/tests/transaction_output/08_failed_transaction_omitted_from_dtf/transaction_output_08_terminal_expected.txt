@@ -1,0 +1,8 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter amount of credit to add:
+Credit added: 50.00 to FullUser.
+Enter game name:
+Enter seller's username:
+Error: "FakeGame" is not for sale by "Seller1".
+Logout successful.

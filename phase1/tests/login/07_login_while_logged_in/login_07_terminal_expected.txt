@@ -1,0 +1,4 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Error: already logged in. Log out before logging in again.
+Logout successful.
