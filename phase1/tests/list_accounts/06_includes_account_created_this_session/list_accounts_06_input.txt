@@ -1,0 +1,7 @@
+login
+AdminUser
+create
+NewUser
+full-standard
+list_accounts
+logout

@@ -1,0 +1,7 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter search text:
+Games matching "Mine":
+Minecraft                  Seller1         50.00
+No users match "Mine".
+Logout successful.

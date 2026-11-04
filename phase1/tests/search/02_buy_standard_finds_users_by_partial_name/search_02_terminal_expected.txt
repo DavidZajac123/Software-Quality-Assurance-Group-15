@@ -1,0 +1,9 @@
+Enter username:
+Login successful. Welcome, BuyUser (BS).
+Enter search text:
+No games match "Seller".
+Users matching "Seller":
+Seller1
+Seller2
+Seller3
+Logout successful.

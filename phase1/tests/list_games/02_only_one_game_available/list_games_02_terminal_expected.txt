@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Games available for purchase:
+Minecraft                  Seller1         50.00
+Logout successful.

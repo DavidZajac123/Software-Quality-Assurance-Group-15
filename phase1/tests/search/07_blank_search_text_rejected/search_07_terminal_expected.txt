@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter search text:
+Error: search text cannot be blank.
+Logout successful.

@@ -1,0 +1,1 @@
+With the fixture, AdminSeller is selling Zelda, so it is shown; AdminUser is not.
