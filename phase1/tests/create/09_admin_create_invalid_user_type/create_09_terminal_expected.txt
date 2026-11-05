@@ -1,0 +1,6 @@
+Enter username:
+Login successful.
+Enter new username:
+Enter account type:
+Error: invalid account type.
+Logout successful.

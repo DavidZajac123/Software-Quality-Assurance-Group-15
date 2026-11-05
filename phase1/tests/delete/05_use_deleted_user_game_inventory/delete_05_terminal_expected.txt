@@ -1,0 +1,8 @@
+Enter username:
+Login successful.
+Enter username:
+Account deleted successfully.
+Enter game name:
+Enter seller username:
+Error: game is not available.
+Logout successful.
