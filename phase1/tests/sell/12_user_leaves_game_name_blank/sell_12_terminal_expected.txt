@@ -1,0 +1,6 @@
+Enter username:
+Login successful.
+Enter game name:
+Enter price:
+Error: invalid game name.
+Logout successful.

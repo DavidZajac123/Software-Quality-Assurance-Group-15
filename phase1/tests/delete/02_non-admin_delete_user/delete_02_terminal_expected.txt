@@ -1,0 +1,4 @@
+Enter username:
+Login successful.
+Error: your account type cannot use "delete".
+Logout successful.

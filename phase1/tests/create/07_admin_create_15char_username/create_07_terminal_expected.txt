@@ -1,0 +1,6 @@
+Enter username:
+Login successful.
+Enter new username:
+Enter account type:
+Account created successfully.
+Logout successful.

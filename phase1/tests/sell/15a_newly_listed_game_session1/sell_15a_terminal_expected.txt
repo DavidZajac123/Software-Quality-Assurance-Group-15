@@ -1,0 +1,6 @@
+Enter username:
+Login successful.
+Enter game name:
+Enter price:
+Game listed successfully.
+Logout successful.
