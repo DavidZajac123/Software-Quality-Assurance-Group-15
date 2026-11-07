@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, Seller1 (FS).
+Enter game name:
+Enter seller's username:
+Error: you cannot buy your own game.
+Logout successful.

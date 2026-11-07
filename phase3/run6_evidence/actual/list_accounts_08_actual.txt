@@ -1,0 +1,19 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter amount of credit to add:
+Enter username to credit:
+Credit added: 100.00 to FullUser.
+Active accounts:
+AdminUser       AA 1000.00
+BuyUser         BS 500.00
+Buyer1          BS 500.00
+David           FS 250.00
+ExistingUser    FS 100.00
+FullUser        FS 600.00
+NearMax         FS 999500.00
+SellUser        SS 500.00
+Seller1         SS 500.00
+Seller2         SS 500.00
+Seller3         SS 500.00
+User1           FS 100.00
+Logout successful.

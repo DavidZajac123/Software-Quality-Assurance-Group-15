@@ -1,0 +1,13 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter new username:
+Enter account type (admin, full-standard, buy-standard, sell-standard):
+Account created: TempUser (FS) with 0.00 credit.
+Enter amount of credit to add:
+Enter username to credit:
+Credit added: 50.00 to User1.
+Enter buyer's username:
+Enter seller's username:
+Enter refund amount:
+Refund successful: 20.00 moved from Seller1 to Buyer1.
+Logout successful.

@@ -1,0 +1,7 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter search text:
+No games match "Admin".
+Users matching "Admin":
+AdminUser
+Logout successful.

@@ -1,0 +1,8 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Games available for purchase:
+ExistingGame               Seller1         25.00
+Minecraft                  Seller1         50.00
+Portal                     Seller2         40.00
+Terraria                   Seller3         30.00
+Logout successful.

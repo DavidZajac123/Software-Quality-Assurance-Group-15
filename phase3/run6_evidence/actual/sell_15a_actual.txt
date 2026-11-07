@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter game name:
+Enter price:
+Game listed: NextSessionGame for 25.00.
+Logout successful.

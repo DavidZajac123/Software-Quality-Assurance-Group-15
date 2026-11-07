@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter amount of credit to add:
+Enter username to credit:
+Error: "InvalidUser" is not a registered user.
+Logout successful.

@@ -1,0 +1,4 @@
+Enter username:
+Login successful. Welcome, BuyUser (BS).
+Error: your account type cannot use "list_accounts".
+Logout successful.

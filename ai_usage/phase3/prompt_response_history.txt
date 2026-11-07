@@ -3,183 +3,106 @@ AI Prompt and Response History
 
 Each group member is responsible for documenting their own use of generative AI. Entries are labelled with the group member's name.
 
-[David] Generative AI Tool Used: Claude (Claude Code, Claude Opus 5.5 model)
-
-This is a condensed record of David's Claude use during Phase 3 from 1–3 November 2026. Prompts and responses are summarized rather than reproduced verbatim. The summaries preserve the purpose of each request, the important constraints, the files or project areas affected, and the substantive work performed.
-
-David also used ChatGPT during Phase 3. That record is documented separately.
+Prompts and responses below are summarized rather than reproduced verbatim. The summaries preserve the purpose of each request, important constraints, affected project areas, and substantive AI contributions.
 
 ========================================================================
-[David] Entry 1 – Repository, Test, and Source Audit
+[David] Generative AI Tool Used: Claude
+Claude Code, Claude Opus 5.5 model
+1–7 November 2026
+
+========================================================================
+[David] Claude Entry 1 – Repository Audit, Repair Plan, and Test Infrastructure
 1 November 2026
 
 [David] Prompt Summary:
 
-Asked Claude to inspect the complete project repository in read-only mode for Phase 3. The audit was to cover:
-- repository structure;
-- all Phase 1 acceptance tests, expected outputs, shared data, and fixtures;
-- the Phase 2 Front End implementation;
-- missing Phase 3 testing infrastructure;
-- likely defects and requirement ambiguities;
-- an automated test-runner design;
-- integration and possible acceptance tests for the new SEARCH transaction.
+Asked Claude to inspect the Phase 1 tests, Phase 2 Front End, shared data, fixtures, repository structure, missing Phase 3 infrastructure, likely defects, requirement ambiguities, and possible SEARCH coverage.
 
-Claude was explicitly told not to modify files, source code, tests, expected outputs, Git history, or the development environment, and not to invent unspecified requirements.
+Claude was initially instructed to work read-only and not modify files, tests, source, expected outputs, Git history, or unspecified requirements.
 
-[David] Claude Response Summary:
-
-Claude performed a read-only audit and identified:
-- 131 existing Phase 1 tests whose `*_expected.txt` files were prose descriptions rather than exact terminal-output oracles;
-- several test-folder and path issues;
-- predicted second-session problems in `sell_15` and `refund_15`;
-- `buy_13` being unable to reach its intended own-game rule because Seller1 was sell-standard;
-- missing `list_accounts` coverage;
-- a possible overflow issue in `Money::parse`;
-- a proposed automated runner design;
-- possible SEARCH integration and test cases, with unresolved SEARCH behavior clearly separated from known requirements.
-
-No repository files were changed.
-
-========================================================================
-[David] Entry 2 – Phase 3 Repair Plan and Test Infrastructure
-1 November 2026
-
-[David] Prompt Summary:
-
-Asked Claude to turn the audit into a concrete Phase 3 repair plan while remaining read-only. Requested:
-- exact fixes for path/test-structure issues;
-- a naming convention for terminal expected-output files;
-- complete draft `run_tests.sh` and `run_tests.bat` scripts;
-- proposed corrections for `sell_15`, `refund_15`, and `buy_13`;
-- focused `list_accounts` tests;
-- review of the Money parsing issue;
-- a failure-log structure;
-- an outline for the final Phase 3 testing/instructions document.
-
-Later authorized Claude to make local repository edits in small reviewed batches, but prohibited committing, pushing, merging, rebasing, branch changes, or other Git-history operations.
+David later authorized small local edits but continued to prohibit committing, pushing, merging, rebasing, resetting, or changing branches.
 
 [David] Claude Response Summary:
 
 Claude:
-- corrected several conclusions from its first audit;
-- drafted and later created the automated test runner and Windows wrapper;
+- identified 131 existing Phase 1 tests whose prose `*_expected.txt` files were not exact terminal-output oracles;
+- found test-folder/path issues;
+- predicted problems in `sell_15`, `refund_15`, and `buy_13`;
+- identified missing list_accounts coverage and a possible `Money::parse` issue;
+- proposed SEARCH coverage and an automated test-runner design;
+- created `run_tests.sh` and the Windows `.bat` wrapper;
 - added `.gitattributes` and `.gitignore`;
-- corrected several test-folder organization issues;
-- preserved the existing prose expected files and adopted `<id>_terminal_expected.txt` for exact terminal-output expectations;
-- proposed test corrections and additional coverage;
-- tested the runner against a stand-in program before it was used on the actual Front End.
+- corrected test-folder organization issues;
+- established `<id>_terminal_expected.txt` as the exact terminal-output convention;
+- tested the runner against a stand-in program before using it on the Front End.
 
 All edits were reviewed by David before staging or committing.
 
 ========================================================================
-[David] Entry 3 – First Full Test Run and Test-Design Corrections
+[David] Claude Entry 2 – Run 1 and Test-Design Corrections
 1 November 2026
 
 [David] Prompt Summary:
 
-After David ran the first full Phase 3 suite, he reported:
+After David ran the first full suite, he reported:
 - 131 total tests;
-- every test reported `TERMINAL_EXPECTED_MISSING`;
+- all tests reported `TERMINAL_EXPECTED_MISSING`;
 - `sell_15` and `refund_15` also had real session-2 DTF mismatches;
 - no other DTF differences were observed.
 
-Asked Claude to treat the missing terminal files as an infrastructure gap rather than 131 Front End failures, document the two genuine observed failures, inspect their exact diffs, make the smallest justified test corrections, and create an initial representative set of terminal expected-output files without copying actual program output.
+Asked Claude to treat missing terminal files as an infrastructure gap, document the genuine failures, diagnose them, correct the affected tests, and begin creating independent terminal expectations.
 
 [David] Claude Response Summary:
 
 Claude:
 - created `phase3/Phase3_Failure_Log_Draft.md`;
-- documented `sell_15` and `refund_15` as the first observed failures;
-- determined that each failed because a later login re-read unchanged master files rather than seeing Back End-updated state;
-- split each multi-session case into separate tests (`sell_15a/b`, `refund_15a/b`);
-- added fixtures representing the Back End-updated state;
-- verified the corrected DTF expectations directly;
-- created nine initial terminal expected-output files from requirements/design information rather than actual terminal output.
+- documented `sell_15` and `refund_15` as observed failures;
+- determined that the second sessions incorrectly assumed Back End updates to the master files;
+- split them into `sell_15a/b` and `refund_15a/b`;
+- added fixtures representing the expected Back End-updated state;
+- verified the corrected DTF expectations;
+- created nine initial terminal expected-output files using requirements/design information rather than actual Front End output.
 
 ========================================================================
-[David] Entry 4 – Message Catalogue and Terminal Expected Outputs
+[David] Claude Entry 3 – Message Catalogue, Terminal Expectations, and buy_13
 3 November 2026
 
 [David] Prompt Summary:
 
-After Raihan added `phase3/message_catalogue.md`, asked Claude to use it as the group's current authority for terminal wording and validation order.
+After Raihan added `phase3/message_catalogue.md`, asked Claude to use it as the group's current terminal wording and validation-order reference.
 
 David's assigned categories were:
-- `addcredit`;
-- `buy`;
-- `invalid_input`;
-- `login`;
-- `logout`;
-- `transaction_output`.
+- addcredit;
+- buy;
+- invalid_input;
+- login;
+- logout;
+- transaction_output.
 
-Claude was instructed to:
-- derive expected output from each test's input, prose expectation, applicable data/fixtures, design, and message catalogue;
-- never copy actual Front End output;
-- preserve existing prose and DTF expected files;
-- flag ambiguities rather than invent behavior;
-- work in small batches and stop after each for review;
-- avoid files assigned to Raihan and Sanjith.
+Claude was instructed to derive expectations from the test inputs, prose expectations, data/fixtures, design, and message catalogue; not copy actual Front End output; preserve existing prose/DTF expectations; flag ambiguities; work in reviewed batches; and avoid teammates' assigned categories.
 
-[David] Claude Response Summary:
-
-Claude first audited the 71 tests in David's assigned categories, then created or revised their terminal expected-output files in six reviewed batches.
-
-Work included:
-- updating seven earlier sample files to match the adopted catalogue;
-- completing all login and logout terminal files;
-- completing all invalid-input terminal files;
-- completing all addcredit terminal files, including balance/session-limit calculations;
-- completing all 18 transaction-output terminal files while keeping DTF-only assertions out of terminal expectations;
-- completing all buy terminal files;
-- checking duplicate/identical cases and relevant shared data/fixtures;
-- reporting predicted source-versus-catalogue wording differences as predictions only, not observed failures.
-
-The final result was 71 terminal expected-output files for David's assigned categories.
-
-========================================================================
-[David] Entry 5 – `buy_13` Fixture and Failure-Log Cleanup
-3 November 2026
-
-[David] Prompt Summary:
-
-Approved changing `buy_13` so it could actually test the requirement that a seller cannot buy their own listed game.
-
-Requested a fixture where Seller1 is Full-Standard instead of Sell-Standard, while leaving the remaining shared account data unchanged. The expected own-game error was taken from the group message catalogue.
-
-Also asked Claude to update stale failure-log wording after the message catalogue had been adopted and to distinguish:
-- wording taken directly from the Phase 2 design;
-- wording adopted by the group in the message catalogue;
-- predicted source/catalogue mismatches;
-- observed failures.
+David also approved correcting `buy_13` so it could actually reach the own-game validation rule.
 
 [David] Claude Response Summary:
 
 Claude:
-- added `phase1/test_fixtures/buy_13/current_users.txt`, changing only Seller1 from SS to FS relative to the shared accounts data;
-- documented why the fixture was needed;
-- kept the original input and DTF expectation unchanged;
-- verified that the Front End reader accepts the fixture and that the expected DTF still matches;
-- updated the failure-log draft so `buy_13` is listed as a test correction rather than an observed failure;
-- updated the wording-source section to reflect the adopted message catalogue;
-- moved previously unresolved wording questions that the catalogue settled into a resolved section;
-- kept the remaining refund-game ambiguity open.
+- created or revised 71 terminal expected-output files across David's six assigned categories;
+- completed the work in six reviewed batches;
+- kept DTF-only assertions out of terminal expected files;
+- treated source/catalogue differences as predictions rather than observed failures;
+- added a `buy_13` fixture where Seller1 is Full-Standard instead of Sell-Standard so the intended own-game rule can be tested;
+- documented `buy_13` as a test correction rather than an observed failure;
+- updated failure-log wording to distinguish design wording, catalogue wording, predictions, and observed failures.
+
+Expected terminal files were not generated by copying actual Front End output.
 
 ========================================================================
-[David] Entry 6 – Phase 3 AI Documentation
+[David] Claude Entry 4 – Initial AI Documentation
 3 November 2026
 
 [David] Prompt Summary:
 
-Asked Claude to inspect the existing `ai_usage` structure and document only David's actual Claude-assisted Phase 3 work using the same general format as earlier phases.
-
-Requirements included:
-- identify all of David's entries with `[David]`;
-- distinguish Claude use from ChatGPT use;
-- do not invent ChatGPT content or teammates' AI use;
-- summarize Claude responses rather than reproducing all response text;
-- document both AI work that was incorporated and advice that was not implemented;
-- make no changes outside `ai_usage/phase3`;
-- do not stage, commit, push, merge, rebase, reset, or change branches.
+Asked Claude to document only David's actual Claude-assisted Phase 3 work, distinguish Claude from ChatGPT use, avoid inventing teammate AI use, summarize prompts/responses, and make changes only inside `ai_usage/phase3`.
 
 [David] Claude Response Summary:
 
@@ -187,15 +110,204 @@ Claude created:
 - `ai_usage/phase3/README.txt`;
 - `ai_usage/phase3/prompt_response_history.txt`.
 
-The documentation records:
-- what Claude assisted with;
-- what Claude did not do;
+The documentation recorded:
+- Claude's contributions;
+- work Claude did not perform;
 - advice that was proposed but not applied;
-- limited direct program runs Claude performed for DTF verification;
-- that expected terminal files were not generated from actual Front End output;
-- that David reviewed the AI-assisted changes before incorporating them.
+- limited direct program runs;
+- the independent expected-output rule;
+- David's review of AI-assisted work.
 
-No ChatGPT entries and no entries for Raihan or Sanjith were created.
+No teammate AI records or ChatGPT entries were invented.
+
+========================================================================
+[David] Claude Entry 5 – Final Repository Audit After Team Updates
+7 November 2026
+
+[David] Prompt Summary:
+
+After Raihan reported source wording fixes, SEARCH implementation, the `Money::parse` fix, `addcredit_12/13`, Runs 2–5, the updated failure log/test table, and corrected create/delete/refund/sell terminal expectations, asked Claude to audit the latest repository without editing.
+
+Requested checks included:
+- latest commits;
+- all 152 tests;
+- failure log and test table;
+- Sanjith-category terminal expectations, especially `sell_10`;
+- `Money::parse`;
+- addcredit_12/13;
+- SEARCH;
+- outstanding Phase 3 submission work.
+
+[David] Claude Response Summary:
+
+Claude reviewed GitHub `main` at `fdb0ce8` in a temporary clone and:
+- confirmed all 152 tests have input, prose, terminal, and DTF expected files;
+- confirmed the test table matches the repository;
+- ran the full suite on Windows with 152/152 passing and no build warnings;
+- spot-checked 18 create/delete/refund/sell terminal files against the catalogue and found them correct;
+- found no leftover old wording in the terminal expectations;
+- reviewed the Money fix, new addcredit tests, and SEARCH implementation;
+- identified remaining documentation/evidence issues, stale split-test prose, the outdated submission ZIP, open questions, and outstanding AI records.
+
+Claude also confirmed David's earlier feature-branch work had been merged into `main`.
+
+========================================================================
+[David] Claude Entry 6 – Final Run 6 and Evidence
+7 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to run the complete suite on the exact committed `main` state `fdb0ce8`, report the final result, and preserve evidence without modifying earlier evidence or the failure log.
+
+[David] Claude Response Summary:
+
+Claude ran `phase1\scripts\run_tests.bat`.
+
+Because g++ was not installed on David's machine, the run used clang++ 23.1.3 with the script's existing flags.
+
+Result:
+- 152 total tests;
+- 152 passed;
+- 0 failed;
+- 154/154 DTF files matched;
+- no build warnings or errors;
+- exit status 0.
+
+Claude created `phase3/run6_evidence/` containing:
+- `run_info.txt`;
+- `summary.txt`;
+- `console_output.txt`;
+- copied actual terminal and DTF outputs.
+
+Claude did not run Runs 1–5. David ran Run 1, and Raihan reported Runs 2–5. Claude recommended obtaining Raihan's original evidence rather than recreating those runs unless clearly labelled as reproductions.
+
+========================================================================
+[David] Claude Entry 7 – Final Status and AI Documentation Update
+7 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to summarize the remaining Phase 3 submission work and then update David's Claude AI documentation for the work completed on November 7.
+
+[David] Claude Response Summary:
+
+Claude:
+- summarized the final project state and remaining submission tasks;
+- drafted a group status message;
+- updated the README and Claude history to include the final audit and Run 6;
+- corrected earlier statements that were no longer accurate;
+- clarified that the final Money, list_accounts, and SEARCH work was committed by Raihan rather than Claude.
+
+Claude did not stage, commit, or push these changes.
 
 ========================================================================
 End of David's Claude record.
+
+========================================================================
+[David] Generative AI Tool Used: ChatGPT
+1–7 November 2026
+
+========================================================================
+[David] ChatGPT Entry 1 – Review of Testing Work and Test Corrections
+1–3 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to review Claude-assisted Phase 3 work as it was completed, including test automation, fixtures, terminal expected outputs, failure-log updates, and the `sell_15`, `refund_15`, and `buy_13` corrections.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- distinguished infrastructure gaps from actual Front End failures;
+- reinforced that expected output must be independently derived rather than copied from actual program output;
+- reviewed the logic behind the three test corrections;
+- reviewed David's assigned terminal-output work;
+- advised keeping predictions separate from observed failures;
+- advised against modifying teammates' assigned work without coordination.
+
+ChatGPT did not directly edit repository files.
+
+========================================================================
+[David] ChatGPT Entry 2 – Git and Collaboration Guidance
+3–4 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT for help staging and integrating David's Phase 3 work while teammates were also updating `main`.
+
+Questions covered line-ending warnings, feature branching, fetching/merging `origin/main`, completing the merge, and opening a pull request.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- explained that the LF/CRLF messages were warnings rather than `git diff --check` failures;
+- recommended using the `david-phase3-terminal-tests` feature branch;
+- recommended the branch → commit → fetch → merge → review → push → pull request workflow;
+- explained how to complete the Git merge editor;
+- reviewed the successful merge with Raihan's latest work;
+- advised using a pull request rather than pushing directly over `main`.
+
+David performed all Git history-changing actions himself.
+
+========================================================================
+[David] ChatGPT Entry 3 – AI Documentation Review and Condensation
+3–7 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to review and condense the Phase 3 AI documentation while keeping it accurate and transparent.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- recommended explicitly stating that prompts and responses are summarized rather than verbatim;
+- helped condense the earlier Claude history;
+- reviewed wording describing what Claude did and did not do;
+- separated proposed AI advice from implemented work;
+- helped correct documentation inconsistencies and a trailing-whitespace issue;
+- later recommended appending David's ChatGPT record to the same prompt/response history and updating the README accordingly.
+
+========================================================================
+[David] ChatGPT Entry 4 – Phase 3 Requirements and Final Project Status
+7 November 2026
+
+[David] Prompt Summary:
+
+Provided the official Phase 3 handout, Claude status summaries, and recent Discord/team updates and asked ChatGPT to evaluate the project's status against the assignment requirements.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- summarized the official requirements for automated testing, terminal/DTF comparison, failure logging, reruns, final code/tests, submission ZIP, GitHub, and AI documentation;
+- clarified that the failure table should contain observed failures while other sections may separately document infrastructure gaps, test corrections, and requirement clarifications;
+- emphasized preserving multiple meaningful full-suite runs;
+- identified November 7, 2026 at 8:00pm as the working handout deadline unless explicitly changed;
+- updated its assessment when SEARCH, Money parsing, new tests, corrected source wording, and 152/152 passing results were reported;
+- concluded that the project had moved from implementation/debugging into final verification, documentation, evidence, and packaging.
+
+========================================================================
+[David] ChatGPT Entry 5 – Final Audit, Run 6 Interpretation, and Submission Planning
+7 November 2026
+
+[David] Prompt Summary:
+
+Provided Claude's final repository audit and Run 6 result and asked ChatGPT what remained before submission.
+
+David also asked whether Run 6 passing 152/152 meant the group had passed everything on the first attempt and whether artificial failures should be introduced.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- recommended prioritizing a final run on committed code, preserving evidence, correcting failure-log chronology, preserving earlier run evidence if available, creating a fresh final ZIP, and completing AI records;
+- clarified that the project did not pass on its first attempt:
+  - Run 1 exposed missing terminal-output infrastructure and genuine `sell_15`/`refund_15` failures;
+  - Run 2 exposed many terminal-output differences;
+  - later runs involved fixes;
+  - Run 6 passed only after those corrections;
+- advised against inventing failures or deliberately breaking the final code because genuine failures and correction cycles already existed;
+- reviewed the final AI documentation and recommended the final README/history cleanup.
+
+ChatGPT did not directly edit repository files, run the Front End, or perform Git history-changing actions.
+
+========================================================================
+End of David's ChatGPT record.

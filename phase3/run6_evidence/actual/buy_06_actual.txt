@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter game name:
+Enter seller's username:
+Error: not enough credit to buy "Minecraft".
+Logout successful.

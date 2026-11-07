@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Error: "banana" is not a valid transaction code.
+Enter amount of credit to add:
+Credit added: 50.00 to FullUser.
+Logout successful.

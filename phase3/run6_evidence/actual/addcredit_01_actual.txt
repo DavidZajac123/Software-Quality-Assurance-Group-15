@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter amount of credit to add:
+Credit added: 100.00 to FullUser.
+Logout successful.

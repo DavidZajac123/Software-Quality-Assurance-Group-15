@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter game name:
+Enter seller's username:
+Error: "FakeGame" is not for sale by "Seller1".
+Logout successful.

@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, BuyUser (BS).
+Enter game name:
+Enter seller's username:
+Purchase successful: Portal from Seller2 for 40.00.
+Logout successful.

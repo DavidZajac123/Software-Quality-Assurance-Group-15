@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter game name:
+Enter seller's username:
+Purchase successful: Terraria from Seller3 for 30.00.
+Logout successful.

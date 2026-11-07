@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter new username:
+Enter account type (admin, full-standard, buy-standard, sell-standard):
+Account created: TxnNewUser (FS) with 0.00 credit.
+Logout successful.

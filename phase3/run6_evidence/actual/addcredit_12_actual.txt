@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter amount of credit to add:
+Error: at most 1000.00 can be added to an account in one session.
+Logout successful.
