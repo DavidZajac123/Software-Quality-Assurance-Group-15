@@ -1,0 +1,20 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter new username:
+Enter account type (admin, full-standard, buy-standard, sell-standard):
+Account created: NewUser (FS) with 0.00 credit.
+Active accounts:
+AdminUser       AA 1000.00
+BuyUser         BS 500.00
+Buyer1          BS 500.00
+David           FS 250.00
+ExistingUser    FS 100.00
+FullUser        FS 500.00
+NearMax         FS 999500.00
+NewUser         FS 0.00
+SellUser        SS 500.00
+Seller1         SS 500.00
+Seller2         SS 500.00
+Seller3         SS 500.00
+User1           FS 100.00
+Logout successful.

@@ -1,0 +1,4 @@
+Error: "@#$%^" is not a valid transaction code.
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Logout successful.

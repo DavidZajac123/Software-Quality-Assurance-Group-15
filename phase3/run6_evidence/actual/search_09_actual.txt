@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter search text:
+No games match "mine".
+No users match "mine".
+Logout successful.

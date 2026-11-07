@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, User1 (FS).
+Enter amount of credit to add:
+Credit added: 50.00 to User1.
+Logout successful.

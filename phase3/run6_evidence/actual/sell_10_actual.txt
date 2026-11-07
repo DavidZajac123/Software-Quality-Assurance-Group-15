@@ -1,0 +1,9 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter game name:
+Enter price:
+Game listed: FreshGame for 25.00.
+Enter game name:
+Enter seller's username:
+Error: "FreshGame" is not for sale by "FullUser".
+Logout successful.

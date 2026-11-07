@@ -1,0 +1,8 @@
+Enter username:
+Login successful. Welcome, SellUser (SS).
+Enter search text:
+Games matching "Exist":
+ExistingGame               Seller1         25.00
+Users matching "Exist":
+ExistingUser
+Logout successful.

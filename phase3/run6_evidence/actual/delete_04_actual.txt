@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter username to delete:
+Error: you cannot delete your own account.
+Logout successful.

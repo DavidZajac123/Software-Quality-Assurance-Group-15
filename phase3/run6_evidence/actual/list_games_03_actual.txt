@@ -1,0 +1,4 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+No games are available for purchase.
+Logout successful.

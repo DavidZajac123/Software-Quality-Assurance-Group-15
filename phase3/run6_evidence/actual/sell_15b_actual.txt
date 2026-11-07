@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, BuyUser (BS).
+Enter game name:
+Enter seller's username:
+Purchase successful: NextSessionGame from FullUser for 25.00.
+Logout successful.

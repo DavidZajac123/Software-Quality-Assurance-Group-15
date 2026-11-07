@@ -1,0 +1,6 @@
+Enter username:
+Login successful. Welcome, FullUser (FS).
+Enter game name:
+Enter price:
+Game listed: FreeGame for 0.00.
+Logout successful.

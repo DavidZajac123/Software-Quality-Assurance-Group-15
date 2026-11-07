@@ -1,0 +1,5 @@
+Enter username:
+Login successful. Welcome, AdminUser (AA).
+Enter username to delete:
+Error: "DavidZ" is not a registered user.
+Logout successful.
