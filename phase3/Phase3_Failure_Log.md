@@ -33,7 +33,7 @@ The results folders are emptied at the start of every run. Exit status: 0 = ever
 | 5 | 2026-11-06 11:56 | Same code as run 4; new tests `addcredit_12` and `addcredit_13` (also in `fdb0ce8`) | 152 total, 152 passed, 0 failed | The two new tests were also run against a build of `7bce07d` (the code of runs 2 and 3): both failed (F12) |
 | 6 | 2026-11-07 01:56 | `fdb0ce8`, committed, clean working tree | 152 total, 152 passed, 0 failed | Final confirmation on Windows 11 with clang++ 23.1.3 (`g++` not installed); 154 of 154 DTFs matched; the build had no warnings |
 
-Runs 1 and 6 were run by David. Runs 2 to 5 were run in Raihan's Claude workspace, a Linux copy of the repository (g++ 13.3.0), with the same script (see `ai_usage/phase3/`). Each run's evidence is listed under "Evidence" below.
+Run 1 was run by David. Run 6 was run on David's machine by Claude Code at David's request. Runs 2 to 5 were run in Raihan's Claude workspace, a Linux copy of the repository (g++ 13.3.0), with the same script (see `ai_usage/phase3/`). Each run's evidence is listed under "Evidence" below.
 
 ## Test-infrastructure gap (not Front End failures)
 
@@ -153,6 +153,8 @@ See the catalogue for the full list. An empty value is shown as `""`, for exampl
 | ID | Question | Who decides | Affects | How we will address it |
 |---|---|---|---|---|
 | R4 | A refund names no game. Which game leaves the buyer's collection, and is that the Back End's job? | Client or TA | `refund_14`, `refund_15b` fixture | Until it is answered, `refund_14` checks only the credit transfer and the `05` record, and the `refund_15b` fixture stands in for the Back End. The Front End does not change either way. If a game must leave the collection, the Back End does it in Phase 4 and we add a Back End test for it |
-| R5 | SEARCH: does "items" mean only games for sale, or also games in users' collections? | Client (asked on Slack, 3 November) | `SearchTransaction`, `search_01`–`09` | We assume games for sale. If collections count too, `SearchTransaction` also searches the collection and we add tests; the nine tests stay valid |
-| R6 | SEARCH: is matching case-sensitive? | Client (asked on Slack, 3 November) | `search_09` | We assume case-sensitive. If not, one comparison in `SearchTransaction` changes, and so does the expected result of `search_09` |
-| R7 | SEARCH: does it write a DTF record? | Client (asked on Slack, 3 November) | DTF expected files of `search_01`–`09` | We assume no record: the DTF format has no code for it, as for `list_games`. If a record is wanted, we need its format from the client before the Back End phase |
+| R5 | SEARCH: does "items" mean only games for sale, or also games in users' collections? | Client (asked on Slack, 3 November; no answer before the blackout) | `SearchTransaction`, `search_01`–`09` | We assume games for sale. If collections count too, `SearchTransaction` also searches the collection and we add tests; the nine tests stay valid |
+| R6 | SEARCH: is matching case-sensitive? | Client (asked on Slack, 3 November; no answer before the blackout) | `search_09` | We assume case-sensitive. If not, one comparison in `SearchTransaction` changes, and so does the expected result of `search_09` |
+| R7 | SEARCH: does it write a DTF record? | Client (asked on Slack, 3 November; no answer before the blackout) | DTF expected files of `search_01`–`09` | We assume no record: the DTF format has no code for it, as for `list_games`. If a record is wanted, we need its format from the client before the Back End phase |
+
+No answers to R4–R7 had been received when the 48-working-hour client blackout before submission began, so no further clarification could be requested. The tests and the Front End are submitted with the assumptions above.

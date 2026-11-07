@@ -1,5 +1,7 @@
 Login accepted.
 Refund transaction accepted.
 20.00 is transferred from Seller1 to Buyer1.
-The corresponding refunded game is removed from Buyer1's Game Collection under the client clarification.
+Under the client clarification, the refunded game leaves Buyer1's Game
+Collection when the Back End applies the refund (open question R4).
+This Front End test checks only the credit transfer and the 05 record.
 Logout accepted.
