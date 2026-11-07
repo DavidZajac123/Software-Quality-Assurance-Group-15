@@ -3,7 +3,7 @@ Phase 1 - Front End Requirements Testing Assets
 Contents:
 - documents/: Phase 1 test-case documentation and Test Plan.
 - tests/: 152 Front End requirements tests, grouped by transaction/category (131 from Phase 1; Phase 3 split sell_15 and refund_15 into two tests each and added list_accounts, search and addcredit_12-13).
-- scripts/: run_tests.sh and run_tests.bat, which build the Front End and run every test (see phase3/Phase3_Failure_Log_Draft.md, "How to run the tests").
+- scripts/: run_tests.sh and run_tests.bat, which build the Front End and run every test (see phase3/Phase3_Failure_Log.md, "How to run the tests").
 - results/: actual output and comparison results, written by each run.
 
 Test file convention:

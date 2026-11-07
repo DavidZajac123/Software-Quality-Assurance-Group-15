@@ -1,0 +1,18 @@
+Run 3 - corrected expected files, code unchanged
+
+Date:          2026-11-06, 11:52 (UTC-05:00)
+Code version:  7bce07d code (the build from run 2, run with --no-build); the 50 terminal expected
+               files of create, delete, refund, sell and sell_10 rewritten from the message catalogue
+Machine:       Linux copy of the repository in Raihan's Claude workspace
+Command:       bash phase1/scripts/run_tests.sh --no-build
+
+Result
+  Tests:  150 total, 0 passed, 150 failed
+  All failures were TERMINAL_DIFF. Every DTF matched.
+  Causes F1 to F11 in phase3/Phase3_Failure_Log.md.
+
+Files in this folder
+  run_info.txt        this file
+  console_output.txt  everything the run printed (one line per test, totals)
+  summary.txt         copy of phase1/results/comparisons/summary.txt from this run
+  terminal_diffs.txt  all 150 <test id>_output_diff.txt files from this run, in one file

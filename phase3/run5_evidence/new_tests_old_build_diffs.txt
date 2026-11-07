@@ -1,0 +1,27 @@
+Run 5 - the two new tests against the old build (code 7bce07d)
+Lines starting with < are expected, lines starting with > are what the old build printed or wrote.
+
+===== addcredit_12_output_diff.txt
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Error: at most 1000.00 can be added to an account in one session.
+---
+> Login successful.
+> Enter amount:
+> Error: credit amount must be greater than zero.
+
+===== addcredit_13_output_diff.txt
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Error: ".5" is not a valid amount.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+
+===== addcredit_13_session1_dtf_diff.txt
+0a1
+> 06 FullUser           000000.50
+

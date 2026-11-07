@@ -1,0 +1,18 @@
+Run 4 - after the code fixes
+
+Date:          2026-11-06, 11:55 (UTC-05:00)
+Code version:  7bce07d plus the fixes for F1 to F12 (wording, list formats, SEARCH, amount parsing),
+               not yet committed. Raihan committed exactly this code as fdb0ce8 the same day.
+Machine:       Linux copy of the repository in Raihan's Claude workspace
+Command:       bash phase1/scripts/run_tests.sh
+Compiler:      g++ 13.3.0, with the script's flags (-std=c++17 -Wall -Wextra); no warnings
+
+Result
+  Tests:  150 total, 150 passed, 0 failed. Every DTF matched.
+
+Files in this folder
+  run_info.txt        this file
+  console_output.txt  everything the run printed (build line, one line per test, totals)
+  summary.txt         the same per-test lines and totals, as written to summary.txt
+
+The per-test output files of this run were not kept. No diff files were produced.

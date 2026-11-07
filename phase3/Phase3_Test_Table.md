@@ -1,10 +1,10 @@
 # Phase 3 Test Table
 
-Every Front End requirements test, with the name given to it (its folder name, as the Phase 1 feedback asked). The test ID is the file prefix: `phase1/tests/<category>/<folder>/<test id>_input.txt`. Each test has an input file, a short expected result (shown below), a terminal expected file and one DTF expected file per session.
+Every Front End requirements test, with the name given to it (its folder name, as the Phase 1 feedback asked). The test ID is the file prefix: `phase1/tests/<category>/<folder>/<test id>_input.txt`. Each test has an input file, a one-line expected result (shown below), a terminal expected file and one DTF expected file per session.
 
 Data: "Shared" means the test starts from `phase1/shared_test_data/`; a fixture replaces only the named file, from `phase1/test_fixtures/<test id>/`.
 
-Total: 152 tests. Final run (run 5 in the failure log): 152 passed, 0 failed.
+Total: 152 tests. Final run (run 6 in the failure log, on the committed code): 152 passed, 0 failed.
 
 | Category | Tests |
 |---|---|
@@ -178,8 +178,8 @@ Total: 152 tests. Final run (run 5 in the failure log): 152 passed, 0 failed.
 | `refund_12` | 12_refund_amount_is_0 | Denied. | Shared | Phase 1 |
 | `refund_13` | 13_refund_amount_is_negative | Denied. | Shared | Phase 1 |
 | `refund_14` | 14_successful_refund_remove_game_from_buyer | Login accepted. Refund transaction accepted. 20.00 is transferred from Seller1 to Buyer1. The corresponding refunded game is removed from Buyer1's Game Collection under the client clarification. Logout accepted. | Shared | Phase 1 |
-| `refund_15a` | 15a_refund_session1 | Session 1: refund accepted; the corresponding game is removed from Buyer1's collection; logout accepted. Session 2: Buyer1 may purchase the previously refunded Minecraft again if all normal buy requirements are satisfied; purchase accepted; logout accepted. | Shared | Phase 3 (split from refund_15) |
-| `refund_15b` | 15b_repurchase_session2 | Session 1: refund accepted; the corresponding game is removed from Buyer1's collection; logout accepted. Session 2: Buyer1 may purchase the previously refunded Minecraft again if all normal buy requirements are satisfied; purchase accepted; logout accepted. | Fixture: `game_collection.txt` | Phase 3 (split from refund_15) |
+| `refund_15a` | 15a_refund_session1 | Session 1 of the original refund_15: AdminUser refunds 20.00 from Seller1 to Buyer1. Refund accepted and recorded (05); under the client clarification the refunded game leaves Buyer1's collection when the Back End applies the refund (open question R4); logout accepted. The repurchase in a later session is tested by refund_15b. | Shared | Phase 3 (split from refund_15) |
+| `refund_15b` | 15b_repurchase_session2 | Session 2 of the original refund_15: Buyer1 buys Minecraft from Seller1 again for 50.00. Purchase accepted and recorded (04); logout accepted. The fixture removes Minecraft from Buyer1's collection, standing in for the Back End after refund_15a (open question R4). | Fixture: `game_collection.txt` | Phase 3 (split from refund_15) |
 
 ## search (9)
 
@@ -213,8 +213,8 @@ Total: 152 tests. Final run (run 5 in the failure log): 152 passed, 0 failed.
 | `sell_12` | 12_user_leaves_game_name_blank | Blank game name rejected. | Shared | Phase 1 |
 | `sell_13` | 13_user_enters_price_of_0 | Accepted at 0.00. | Shared | Phase 1 |
 | `sell_14` | 14_user_enters_negative_price | Denied. | Shared | Phase 1 |
-| `sell_15a` | 15a_newly_listed_game_session1 | Session 1 sale accepted; Session 2 purchase accepted. | Shared | Phase 3 (split from sell_15) |
-| `sell_15b` | 15b_newly_listed_game_session2 | Session 1 sale accepted; Session 2 purchase accepted. | Fixture: `available_games.txt` | Phase 3 (split from sell_15) |
+| `sell_15a` | 15a_newly_listed_game_session1 | Session 1 of the original sell_15: FullUser lists NextSessionGame for 25.00. Sale accepted and recorded (03); logout accepted. The purchase in a later session is tested by sell_15b. | Shared | Phase 3 (split from sell_15) |
+| `sell_15b` | 15b_newly_listed_game_session2 | Session 2 of the original sell_15: BuyUser buys NextSessionGame from FullUser for 25.00. Purchase accepted and recorded (04); logout accepted. The fixture lists the game, standing in for the Back End after sell_15a. | Fixture: `available_games.txt` | Phase 3 (split from sell_15) |
 
 ## transaction_output (18)
 

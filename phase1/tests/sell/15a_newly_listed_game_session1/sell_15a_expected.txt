@@ -1,1 +1,1 @@
-Session 1 sale accepted; Session 2 purchase accepted.
+Session 1 of the original sell_15: FullUser lists NextSessionGame for 25.00. Sale accepted and recorded (03); logout accepted. The purchase in a later session is tested by sell_15b.

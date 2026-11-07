@@ -1,2 +1,1 @@
-Session 1: refund accepted; the corresponding game is removed from Buyer1's collection; logout accepted.
-Session 2: Buyer1 may purchase the previously refunded Minecraft again if all normal buy requirements are satisfied; purchase accepted; logout accepted.
+Session 2 of the original refund_15: Buyer1 buys Minecraft from Seller1 again for 50.00. Purchase accepted and recorded (04); logout accepted. The fixture removes Minecraft from Buyer1's collection, standing in for the Back End after refund_15a (open question R4).

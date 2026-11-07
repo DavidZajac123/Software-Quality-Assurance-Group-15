@@ -1,0 +1,1726 @@
+Run 3 - every terminal diff (150 tests)
+Each block is phase1/results/comparisons/<test id>_output_diff.txt from run 3:
+lines starting with < are expected (catalogue), lines starting with > are what the Front End printed.
+
+===== addcredit_01
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Credit added: 100.00 to FullUser.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+
+===== addcredit_02
+2,5c2,5
+< Login successful. Welcome, AdminUser (AA).
+< Enter amount of credit to add:
+< Enter username to credit:
+< Credit added: 100.00 to User1.
+---
+> Login successful.
+> Enter amount:
+> Enter username:
+> Credit added successfully.
+
+===== addcredit_03
+2,5c2,5
+< Login successful. Welcome, AdminUser (AA).
+< Enter amount of credit to add:
+< Enter username to credit:
+< Error: "InvalidUser" is not a registered user.
+---
+> Login successful.
+> Enter amount:
+> Enter username:
+> Error: account does not exist.
+
+===== addcredit_04
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Credit added: 1000.00 to FullUser.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+
+===== addcredit_05
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Error: at most 1000.00 can be added to an account in one session.
+---
+> Login successful.
+> Enter amount:
+> Error: session credit limit exceeded.
+
+===== addcredit_06
+2,6c2,6
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Credit added: 400.00 to FullUser.
+< Enter amount of credit to add:
+< Credit added: 600.00 to FullUser.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+> Enter amount:
+> Credit added successfully.
+
+===== addcredit_07
+2,6c2,6
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Credit added: 600.00 to FullUser.
+< Enter amount of credit to add:
+< Error: at most 1000.00 can be added to an account in one session.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+> Enter amount:
+> Error: session credit limit exceeded.
+
+===== addcredit_08
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Error: "abc" is not a valid amount.
+---
+> Login successful.
+> Enter amount:
+> Error: invalid credit amount.
+
+===== addcredit_09
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Error: "" is not a valid amount.
+---
+> Login successful.
+> Enter amount:
+> Error: invalid credit amount.
+
+===== addcredit_10
+2,4c2,4
+< Login successful. Welcome, User1 (FS).
+< Enter amount of credit to add:
+< Credit added: 50.00 to User1.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+
+===== addcredit_11
+2,4c2,4
+< Login successful. Welcome, NearMax (FS).
+< Enter amount of credit to add:
+< Error: the balance cannot exceed 999999.99.
+---
+> Login successful.
+> Enter amount:
+> Error: maximum account balance exceeded.
+
+===== buy_01
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Minecraft from Seller1 for 50.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== buy_02
+2c2
+< Login successful. Welcome, BuyUser (BS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Portal from Seller2 for 40.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== buy_03
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Terraria from Seller3 for 30.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== buy_04
+2c2
+< Login successful. Welcome, SellUser (SS).
+---
+> Login successful.
+
+===== buy_05
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Error: "FakeGame" is not for sale by "Seller1".
+---
+> Enter seller username:
+> Error: game is not available.
+
+===== buy_06
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Error: not enough credit to buy "Minecraft".
+---
+> Enter seller username:
+> Error: insufficient credit.
+
+===== buy_07
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Minecraft from Seller1 for 50.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== buy_08
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Error: you already own "Minecraft".
+---
+> Enter seller username:
+> Error: buyer already owns this game.
+
+===== buy_09
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Error: "" is not for sale by "Seller1".
+---
+> Enter seller username:
+> Error: game is not available.
+
+===== buy_10
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Error: "Minecraft" is not for sale by "Seller2".
+---
+> Enter seller username:
+> Error: seller does not match listing.
+
+===== buy_11
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Minecraft from Seller1 for 50.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== buy_12
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Minecraft from Seller1 for 50.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== buy_13
+2c2
+< Login successful. Welcome, Seller1 (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Error: you cannot buy your own game.
+---
+> Enter seller username:
+> Error: cannot buy your own game.
+
+===== create_01
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: NewAdmin (AA) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== create_02
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: NewFull (FS) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== create_03
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: NewBuyer (BS) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== create_04
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: NewSeller (SS) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== create_05
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== create_06
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Error: username "ExistingUser" already exists.
+---
+> Enter account type:
+> Error: username already exists.
+
+===== create_07
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: ABCDEFGHIJKLMNO (FS) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== create_08
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Error: username must be 1 to 15 characters, with no space at the start or end.
+---
+> Enter account type:
+> Error: invalid username.
+
+===== create_09
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Error: "randomtype" is not a valid account type.
+---
+> Enter account type:
+> Error: invalid account type.
+
+===== create_10
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Error: username must be 1 to 15 characters, with no space at the start or end.
+---
+> Enter account type:
+> Error: invalid username.
+
+===== create_11
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: ZeroUser (FS) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== delete_01
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Account deleted: David.
+---
+> Login successful.
+> Enter username:
+> Account deleted successfully.
+
+===== delete_02
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== delete_03
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Error: "DavidZ" is not a registered user.
+---
+> Login successful.
+> Enter username:
+> Error: account does not exist.
+
+===== delete_04
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Error: you cannot delete your own account.
+---
+> Login successful.
+> Enter username:
+> Error: cannot delete the currently logged-in account.
+
+===== delete_05
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Account deleted: Seller1.
+---
+> Login successful.
+> Enter username:
+> Account deleted successfully.
+6,7c6,7
+< Enter seller's username:
+< Error: "Minecraft" is not for sale by "Seller1".
+---
+> Enter seller username:
+> Error: game is not available.
+
+===== delete_06
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Error: "" is not a registered user.
+---
+> Login successful.
+> Enter username:
+> Error: account does not exist.
+
+===== delete_07
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Account deleted: Buyer1.
+---
+> Login successful.
+> Enter username:
+> Account deleted successfully.
+
+===== invalid_input_01
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== invalid_input_02
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== invalid_input_03
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Error: price must be an amount from 0.00 to 999.99.
+---
+> Error: invalid price.
+
+===== invalid_input_04
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Error: "abc" is not a valid amount.
+---
+> Login successful.
+> Enter amount:
+> Error: invalid credit amount.
+
+===== invalid_input_05
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "abc" is not a valid amount.
+---
+> Error: invalid refund amount.
+
+===== invalid_input_06
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Error: username must be 1 to 15 characters, with no space at the start or end.
+---
+> Enter account type:
+> Error: invalid username.
+
+===== invalid_input_07
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== invalid_input_08
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter amount of credit to add:
+< Credit added: 50.00 to FullUser.
+---
+> Enter amount:
+> Credit added successfully.
+
+===== invalid_input_09
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== invalid_input_10
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== list_accounts_01
+2,15c2,14
+< Login successful. Welcome, AdminUser (AA).
+< Active accounts:
+< AdminUser       AA 1000.00
+< BuyUser         BS 500.00
+< Buyer1          BS 500.00
+< David           FS 250.00
+< ExistingUser    FS 100.00
+< FullUser        FS 500.00
+< NearMax         FS 999500.00
+< SellUser        SS 500.00
+< Seller1         SS 500.00
+< Seller2         SS 500.00
+< Seller3         SS 500.00
+< User1           FS 100.00
+---
+> Login successful.
+> AdminUser | AA | $1000.00
+> BuyUser | BS | $500.00
+> Buyer1 | BS | $500.00
+> David | FS | $250.00
+> ExistingUser | FS | $100.00
+> FullUser | FS | $500.00
+> NearMax | FS | $999500.00
+> SellUser | SS | $500.00
+> Seller1 | SS | $500.00
+> Seller2 | SS | $500.00
+> Seller3 | SS | $500.00
+> User1 | FS | $100.00
+
+===== list_accounts_02
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== list_accounts_03
+2c2
+< Login successful. Welcome, BuyUser (BS).
+---
+> Login successful.
+
+===== list_accounts_04
+2c2
+< Login successful. Welcome, SellUser (SS).
+---
+> Login successful.
+
+===== list_accounts_05
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== list_accounts_06
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,19c4,18
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: NewUser (FS) with 0.00 credit.
+< Active accounts:
+< AdminUser       AA 1000.00
+< BuyUser         BS 500.00
+< Buyer1          BS 500.00
+< David           FS 250.00
+< ExistingUser    FS 100.00
+< FullUser        FS 500.00
+< NearMax         FS 999500.00
+< NewUser         FS 0.00
+< SellUser        SS 500.00
+< Seller1         SS 500.00
+< Seller2         SS 500.00
+< Seller3         SS 500.00
+< User1           FS 100.00
+---
+> Enter account type:
+> Account created successfully.
+> AdminUser | AA | $1000.00
+> BuyUser | BS | $500.00
+> Buyer1 | BS | $500.00
+> David | FS | $250.00
+> ExistingUser | FS | $100.00
+> FullUser | FS | $500.00
+> NearMax | FS | $999500.00
+> NewUser | FS | $0.00
+> SellUser | SS | $500.00
+> Seller1 | SS | $500.00
+> Seller2 | SS | $500.00
+> Seller3 | SS | $500.00
+> User1 | FS | $100.00
+
+===== list_accounts_07
+2,16c2,15
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Account deleted: User1.
+< Active accounts:
+< AdminUser       AA 1000.00
+< BuyUser         BS 500.00
+< Buyer1          BS 500.00
+< David           FS 250.00
+< ExistingUser    FS 100.00
+< FullUser        FS 500.00
+< NearMax         FS 999500.00
+< SellUser        SS 500.00
+< Seller1         SS 500.00
+< Seller2         SS 500.00
+< Seller3         SS 500.00
+---
+> Login successful.
+> Enter username:
+> Account deleted successfully.
+> AdminUser | AA | $1000.00
+> BuyUser | BS | $500.00
+> Buyer1 | BS | $500.00
+> David | FS | $250.00
+> ExistingUser | FS | $100.00
+> FullUser | FS | $500.00
+> NearMax | FS | $999500.00
+> SellUser | SS | $500.00
+> Seller1 | SS | $500.00
+> Seller2 | SS | $500.00
+> Seller3 | SS | $500.00
+
+===== list_accounts_08
+2,18c2,17
+< Login successful. Welcome, AdminUser (AA).
+< Enter amount of credit to add:
+< Enter username to credit:
+< Credit added: 100.00 to FullUser.
+< Active accounts:
+< AdminUser       AA 1000.00
+< BuyUser         BS 500.00
+< Buyer1          BS 500.00
+< David           FS 250.00
+< ExistingUser    FS 100.00
+< FullUser        FS 600.00
+< NearMax         FS 999500.00
+< SellUser        SS 500.00
+< Seller1         SS 500.00
+< Seller2         SS 500.00
+< Seller3         SS 500.00
+< User1           FS 100.00
+---
+> Login successful.
+> Enter amount:
+> Enter username:
+> Credit added successfully.
+> AdminUser | AA | $1000.00
+> BuyUser | BS | $500.00
+> Buyer1 | BS | $500.00
+> David | FS | $250.00
+> ExistingUser | FS | $100.00
+> FullUser | FS | $600.00
+> NearMax | FS | $999500.00
+> SellUser | SS | $500.00
+> Seller1 | SS | $500.00
+> Seller2 | SS | $500.00
+> Seller3 | SS | $500.00
+> User1 | FS | $100.00
+
+===== list_games_01
+2,7c2,6
+< Login successful. Welcome, FullUser (FS).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== list_games_02
+2,4c2,3
+< Login successful. Welcome, FullUser (FS).
+< Games available for purchase:
+< Minecraft                  Seller1         50.00
+---
+> Login successful.
+> Minecraft | Seller1 | $50.00
+
+===== list_games_03
+2,3c2,3
+< Login successful. Welcome, FullUser (FS).
+< No games are available for purchase.
+---
+> Login successful.
+> No games available.
+
+===== list_games_04
+2,7c2,6
+< Login successful. Welcome, FullUser (FS).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== list_games_05
+2,7c2,6
+< Login successful. Welcome, FullUser (FS).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== list_games_06
+2,7c2,6
+< Login successful. Welcome, FullUser (FS).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== list_games_07
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== list_games_08
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== list_games_09
+2,7c2,6
+< Login successful. Welcome, AdminUser (AA).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== list_games_10
+2,7c2,6
+< Login successful. Welcome, FullUser (FS).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== list_games_11
+2,7c2,6
+< Login successful. Welcome, BuyUser (BS).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== list_games_12
+2,7c2,6
+< Login successful. Welcome, SellUser (SS).
+< Games available for purchase:
+< ExistingGame               Seller1         25.00
+< Minecraft                  Seller1         50.00
+< Portal                     Seller2         40.00
+< Terraria                   Seller3         30.00
+---
+> Login successful.
+> ExistingGame | Seller1 | $25.00
+> Minecraft | Seller1 | $50.00
+> Portal | Seller2 | $40.00
+> Terraria | Seller3 | $30.00
+
+===== login_01
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== login_02
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== login_03
+2c2
+< Login successful. Welcome, BuyUser (BS).
+---
+> Login successful.
+
+===== login_04
+2c2
+< Login successful. Welcome, SellUser (SS).
+---
+> Login successful.
+
+===== login_05
+2c2
+< Error: "InvalidUser" is not a registered user.
+---
+> Error: account does not exist.
+4c4
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== login_06
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== login_07
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== login_08
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== login_09
+2c2
+< Error: "" is not a registered user.
+---
+> Error: account does not exist.
+4c4
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== logout_01
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== logout_02
+3c3
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== logout_03
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== logout_04
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== logout_05
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== logout_06
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== logout_07
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== logout_08
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== logout_09
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== logout_10
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== refund_01
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== refund_02
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== refund_03
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "InvalidBuyer" is not a registered user.
+---
+> Error: buyer account does not exist.
+
+===== refund_04
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "InvalidSeller" is not a registered user.
+---
+> Error: seller account does not exist.
+
+===== refund_05
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "InvalidBuyer" is not a registered user.
+---
+> Error: buyer account does not exist.
+
+===== refund_06
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "" is not a registered user.
+---
+> Error: buyer account does not exist.
+
+===== refund_07
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "" is not a registered user.
+---
+> Error: seller account does not exist.
+
+===== refund_08
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "abc" is not a valid amount.
+---
+> Error: invalid refund amount.
+
+===== refund_09
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== refund_10
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== refund_11
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: seller "Seller1" does not have enough credit for this refund.
+---
+> Error: seller has insufficient credit.
+
+===== refund_12
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: refund amount must be greater than 0.00.
+---
+> Error: refund amount must be greater than zero.
+
+===== refund_13
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Error: "-20.00" is not a valid amount.
+---
+> Error: invalid refund amount.
+
+===== refund_14
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== refund_15a
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== refund_15b
+2c2
+< Login successful. Welcome, Buyer1 (BS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Minecraft from Seller1 for 50.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== search_01
+2,6c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter search text:
+< Games matching "Mine":
+< Minecraft                  Seller1         50.00
+< No users match "Mine".
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "Mine" is not a valid transaction code.
+
+===== search_02
+2,8c2,4
+< Login successful. Welcome, BuyUser (BS).
+< Enter search text:
+< No games match "Seller".
+< Users matching "Seller":
+< Seller1
+< Seller2
+< Seller3
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "Seller" is not a valid transaction code.
+
+===== search_03
+2,7c2,4
+< Login successful. Welcome, SellUser (SS).
+< Enter search text:
+< Games matching "Exist":
+< ExistingGame               Seller1         25.00
+< Users matching "Exist":
+< ExistingUser
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "Exist" is not a valid transaction code.
+
+===== search_04
+2,5c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter search text:
+< No games match "Admin".
+< No users match "Admin".
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "Admin" is not a valid transaction code.
+
+===== search_05
+2,6c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter search text:
+< No games match "Admin".
+< Users matching "Admin":
+< AdminUser
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "Admin" is not a valid transaction code.
+
+===== search_06
+2,6c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter search text:
+< No games match "Admin".
+< Users matching "Admin":
+< AdminSeller
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "Admin" is not a valid transaction code.
+
+===== search_07
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter search text:
+< Error: search text cannot be blank.
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "" is not a valid transaction code.
+
+===== search_08
+1c1
+< Error: please log in before using "search".
+---
+> Error: "search" is not a valid transaction code.
+3c3
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+
+===== search_09
+2,5c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter search text:
+< No games match "mine".
+< No users match "mine".
+---
+> Login successful.
+> Error: "search" is not a valid transaction code.
+> Error: "mine" is not a valid transaction code.
+
+===== sell_01
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: Minecraft for 25.00.
+---
+> Game listed successfully.
+
+===== sell_02
+2c2
+< Login successful. Welcome, SellUser (SS).
+---
+> Login successful.
+5c5
+< Game listed: Terraria for 15.00.
+---
+> Game listed successfully.
+
+===== sell_03
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+5c5
+< Game listed: Portal for 20.00.
+---
+> Game listed successfully.
+
+===== sell_04
+2c2
+< Login successful. Welcome, BuyUser (BS).
+---
+> Login successful.
+
+===== sell_05
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: MaxPriceGame for 999.99.
+---
+> Game listed successfully.
+
+===== sell_06
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Error: price must be an amount from 0.00 to 999.99.
+---
+> Error: price must be between 0.00 and 999.99.
+
+===== sell_07
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: ABCDEFGHIJKLMNOPQRSTUVWXYZ for 25.00.
+---
+> Game listed successfully.
+
+===== sell_08
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Error: game name must be 1 to 26 characters, with no space at the start or end.
+---
+> Error: invalid game name.
+
+===== sell_09
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Error: a game named "ExistingGame" is already for sale.
+---
+> Error: game name already exists.
+
+===== sell_10
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: FreshGame for 25.00.
+---
+> Game listed successfully.
+7,8c7,8
+< Enter seller's username:
+< Error: "FreshGame" is not for sale by "FullUser".
+---
+> Enter seller username:
+> Error: game is not available.
+
+===== sell_11
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Error: price must be an amount from 0.00 to 999.99.
+---
+> Error: invalid price.
+
+===== sell_12
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Error: game name must be 1 to 26 characters, with no space at the start or end.
+---
+> Error: invalid game name.
+
+===== sell_13
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: FreeGame for 0.00.
+---
+> Game listed successfully.
+
+===== sell_14
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Error: price must be an amount from 0.00 to 999.99.
+---
+> Error: invalid price.
+
+===== sell_15a
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: NextSessionGame for 25.00.
+---
+> Game listed successfully.
+
+===== sell_15b
+2c2
+< Login successful. Welcome, BuyUser (BS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: NextSessionGame from FullUser for 25.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== transaction_output_01
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: TxnNewUser (FS) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== transaction_output_02
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Account deleted: David.
+---
+> Login successful.
+> Enter username:
+> Account deleted successfully.
+
+===== transaction_output_03
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: TxnSellGame for 25.00.
+---
+> Game listed successfully.
+
+===== transaction_output_04
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Minecraft from Seller1 for 50.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== transaction_output_05
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== transaction_output_06
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Credit added: 50.00 to FullUser.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+
+===== transaction_output_07
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,10c4,10
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: TempUser (FS) with 0.00 credit.
+< Enter amount of credit to add:
+< Enter username to credit:
+< Credit added: 50.00 to User1.
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Enter account type:
+> Account created successfully.
+> Enter amount:
+> Enter username:
+> Credit added successfully.
+> Enter buyer username:
+> Enter seller username:
+12c12
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== transaction_output_08
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Credit added: 50.00 to FullUser.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+6,7c6,7
+< Enter seller's username:
+< Error: "FakeGame" is not for sale by "Seller1".
+---
+> Enter seller username:
+> Error: game is not available.
+
+===== transaction_output_09
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,5c4,5
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: Bob (FS) with 0.00 credit.
+---
+> Enter account type:
+> Account created successfully.
+
+===== transaction_output_10
+2,4c2,4
+< Login successful. Welcome, FullUser (FS).
+< Enter amount of credit to add:
+< Credit added: 110.00 to FullUser.
+---
+> Login successful.
+> Enter amount:
+> Credit added successfully.
+
+===== transaction_output_11
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== transaction_output_12
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter username to delete:
+< Account deleted: David.
+---
+> Login successful.
+> Enter username:
+> Account deleted successfully.
+
+===== transaction_output_13
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+
+===== transaction_output_14
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+5c5
+< Game listed: OrderGame for 25.00.
+---
+> Game listed successfully.
+
+===== transaction_output_15
+2c2
+< Login successful. Welcome, FullUser (FS).
+---
+> Login successful.
+4,5c4,5
+< Enter seller's username:
+< Purchase successful: Minecraft from Seller1 for 50.00.
+---
+> Enter seller username:
+> Game purchased successfully.
+
+===== transaction_output_16
+2,4c2,4
+< Login successful. Welcome, AdminUser (AA).
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Login successful.
+> Enter buyer username:
+> Enter seller username:
+6c6
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+
+===== transaction_output_17
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,10c4,10
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: TempUser (FS) with 0.00 credit.
+< Enter username to delete:
+< Account deleted: David.
+< Enter amount of credit to add:
+< Enter username to credit:
+< Credit added: 50.00 to User1.
+---
+> Enter account type:
+> Account created successfully.
+> Enter username:
+> Account deleted successfully.
+> Enter amount:
+> Enter username:
+> Credit added successfully.
+
+===== transaction_output_18
+2c2
+< Login successful. Welcome, AdminUser (AA).
+---
+> Login successful.
+4,10c4,10
+< Enter account type (admin, full-standard, buy-standard, sell-standard):
+< Account created: TempUser2 (FS) with 0.00 credit.
+< Enter amount of credit to add:
+< Enter username to credit:
+< Credit added: 50.00 to User1.
+< Enter buyer's username:
+< Enter seller's username:
+---
+> Enter account type:
+> Account created successfully.
+> Enter amount:
+> Enter username:
+> Credit added successfully.
+> Enter buyer username:
+> Enter seller username:
+12c12
+< Refund successful: 20.00 moved from Seller1 to Buyer1.
+---
+> Refund completed successfully.
+

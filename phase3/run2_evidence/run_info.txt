@@ -1,0 +1,21 @@
+Run 2 - first run with every terminal expected file
+
+Date:          2026-11-06, 11:47 (UTC-05:00)
+Code version:  main at 7bce07d (after David's and Sanjith's terminal expected files), unchanged
+Machine:       Linux copy of the repository in Raihan's Claude workspace
+Command:       bash phase1/scripts/run_tests.sh
+Compiler:      g++ 13.3.0, with the script's flags (-std=c++17 -Wall -Wextra); no warnings
+
+Result
+  Tests:  150 total, 49 passed, 101 failed
+  All 101 failures were TERMINAL_DIFF. Every DTF matched.
+  The 49 passes (create, delete, refund, sell) were not valid: their terminal expected files used
+  the Front End's own wording instead of phase3/message_catalogue.md. See "Test corrections" in
+  phase3/Phase3_Failure_Log.md. The causes of the 101 failures are F1 to F11 in that log.
+
+Files in this folder
+  run_info.txt        this file
+  console_output.txt  everything the run printed (build line, one line per test, totals)
+  summary.txt         the same per-test lines and totals, as written to summary.txt
+
+The per-test output and diff files of this run were not kept.

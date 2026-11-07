@@ -1,0 +1,153 @@
+Building phase2/frontend.exe with g++ ...
+FAIL     addcredit_01: TERMINAL_DIFF
+FAIL     addcredit_02: TERMINAL_DIFF
+FAIL     addcredit_03: TERMINAL_DIFF
+FAIL     addcredit_04: TERMINAL_DIFF
+FAIL     addcredit_05: TERMINAL_DIFF
+FAIL     addcredit_06: TERMINAL_DIFF
+FAIL     addcredit_07: TERMINAL_DIFF
+FAIL     addcredit_08: TERMINAL_DIFF
+FAIL     addcredit_09: TERMINAL_DIFF
+FAIL     addcredit_10: TERMINAL_DIFF
+FAIL     addcredit_11: TERMINAL_DIFF
+FAIL     buy_01: TERMINAL_DIFF
+FAIL     buy_02: TERMINAL_DIFF
+FAIL     buy_03: TERMINAL_DIFF
+FAIL     buy_04: TERMINAL_DIFF
+FAIL     buy_05: TERMINAL_DIFF
+FAIL     buy_06: TERMINAL_DIFF
+FAIL     buy_07: TERMINAL_DIFF
+FAIL     buy_08: TERMINAL_DIFF
+FAIL     buy_09: TERMINAL_DIFF
+FAIL     buy_10: TERMINAL_DIFF
+FAIL     buy_11: TERMINAL_DIFF
+FAIL     buy_12: TERMINAL_DIFF
+FAIL     buy_13: TERMINAL_DIFF
+PASS     create_01
+PASS     create_02
+PASS     create_03
+PASS     create_04
+PASS     create_05
+PASS     create_06
+PASS     create_07
+PASS     create_08
+PASS     create_09
+PASS     create_10
+PASS     create_11
+PASS     delete_01
+PASS     delete_02
+PASS     delete_03
+PASS     delete_04
+PASS     delete_05
+PASS     delete_06
+PASS     delete_07
+FAIL     invalid_input_01: TERMINAL_DIFF
+FAIL     invalid_input_02: TERMINAL_DIFF
+FAIL     invalid_input_03: TERMINAL_DIFF
+FAIL     invalid_input_04: TERMINAL_DIFF
+FAIL     invalid_input_05: TERMINAL_DIFF
+FAIL     invalid_input_06: TERMINAL_DIFF
+FAIL     invalid_input_07: TERMINAL_DIFF
+FAIL     invalid_input_08: TERMINAL_DIFF
+FAIL     invalid_input_09: TERMINAL_DIFF
+FAIL     invalid_input_10: TERMINAL_DIFF
+FAIL     list_accounts_01: TERMINAL_DIFF
+FAIL     list_accounts_02: TERMINAL_DIFF
+FAIL     list_accounts_03: TERMINAL_DIFF
+FAIL     list_accounts_04: TERMINAL_DIFF
+FAIL     list_accounts_05: TERMINAL_DIFF
+FAIL     list_accounts_06: TERMINAL_DIFF
+FAIL     list_accounts_07: TERMINAL_DIFF
+FAIL     list_accounts_08: TERMINAL_DIFF
+FAIL     list_games_01: TERMINAL_DIFF
+FAIL     list_games_02: TERMINAL_DIFF
+FAIL     list_games_03: TERMINAL_DIFF
+FAIL     list_games_04: TERMINAL_DIFF
+FAIL     list_games_05: TERMINAL_DIFF
+FAIL     list_games_06: TERMINAL_DIFF
+FAIL     list_games_07: TERMINAL_DIFF
+FAIL     list_games_08: TERMINAL_DIFF
+FAIL     list_games_09: TERMINAL_DIFF
+FAIL     list_games_10: TERMINAL_DIFF
+FAIL     list_games_11: TERMINAL_DIFF
+FAIL     list_games_12: TERMINAL_DIFF
+FAIL     login_01: TERMINAL_DIFF
+FAIL     login_02: TERMINAL_DIFF
+FAIL     login_03: TERMINAL_DIFF
+FAIL     login_04: TERMINAL_DIFF
+FAIL     login_05: TERMINAL_DIFF
+FAIL     login_06: TERMINAL_DIFF
+FAIL     login_07: TERMINAL_DIFF
+FAIL     login_08: TERMINAL_DIFF
+FAIL     login_09: TERMINAL_DIFF
+FAIL     logout_01: TERMINAL_DIFF
+FAIL     logout_02: TERMINAL_DIFF
+FAIL     logout_03: TERMINAL_DIFF
+FAIL     logout_04: TERMINAL_DIFF
+FAIL     logout_05: TERMINAL_DIFF
+FAIL     logout_06: TERMINAL_DIFF
+FAIL     logout_07: TERMINAL_DIFF
+FAIL     logout_08: TERMINAL_DIFF
+FAIL     logout_09: TERMINAL_DIFF
+FAIL     logout_10: TERMINAL_DIFF
+PASS     refund_01
+PASS     refund_02
+PASS     refund_03
+PASS     refund_04
+PASS     refund_05
+PASS     refund_06
+PASS     refund_07
+PASS     refund_08
+PASS     refund_09
+PASS     refund_10
+PASS     refund_11
+PASS     refund_12
+PASS     refund_13
+PASS     refund_14
+PASS     refund_15a
+PASS     refund_15b
+FAIL     search_01: TERMINAL_DIFF
+FAIL     search_02: TERMINAL_DIFF
+FAIL     search_03: TERMINAL_DIFF
+FAIL     search_04: TERMINAL_DIFF
+FAIL     search_05: TERMINAL_DIFF
+FAIL     search_06: TERMINAL_DIFF
+FAIL     search_07: TERMINAL_DIFF
+FAIL     search_08: TERMINAL_DIFF
+FAIL     search_09: TERMINAL_DIFF
+PASS     sell_01
+PASS     sell_02
+PASS     sell_03
+PASS     sell_04
+PASS     sell_05
+PASS     sell_06
+PASS     sell_07
+PASS     sell_08
+PASS     sell_09
+FAIL     sell_10: TERMINAL_DIFF
+PASS     sell_11
+PASS     sell_12
+PASS     sell_13
+PASS     sell_14
+PASS     sell_15a
+PASS     sell_15b
+FAIL     transaction_output_01: TERMINAL_DIFF
+FAIL     transaction_output_02: TERMINAL_DIFF
+FAIL     transaction_output_03: TERMINAL_DIFF
+FAIL     transaction_output_04: TERMINAL_DIFF
+FAIL     transaction_output_05: TERMINAL_DIFF
+FAIL     transaction_output_06: TERMINAL_DIFF
+FAIL     transaction_output_07: TERMINAL_DIFF
+FAIL     transaction_output_08: TERMINAL_DIFF
+FAIL     transaction_output_09: TERMINAL_DIFF
+FAIL     transaction_output_10: TERMINAL_DIFF
+FAIL     transaction_output_11: TERMINAL_DIFF
+FAIL     transaction_output_12: TERMINAL_DIFF
+FAIL     transaction_output_13: TERMINAL_DIFF
+FAIL     transaction_output_14: TERMINAL_DIFF
+FAIL     transaction_output_15: TERMINAL_DIFF
+FAIL     transaction_output_16: TERMINAL_DIFF
+FAIL     transaction_output_17: TERMINAL_DIFF
+FAIL     transaction_output_18: TERMINAL_DIFF
+
+Total: 150   Passed: 49   Failed: 101

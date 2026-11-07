@@ -1,0 +1,25 @@
+Run 5 - two new amount-parsing tests
+
+Date:          2026-11-06, 11:56 (UTC-05:00)
+Code version:  same as run 4 (committed as fdb0ce8), plus the new tests addcredit_12 and
+               addcredit_13 (also in fdb0ce8)
+Machine:       Linux copy of the repository in Raihan's Claude workspace
+Commands:      FRONTEND=<build of 7bce07d> bash phase1/scripts/run_tests.sh --no-build   (old build)
+               bash phase1/scripts/run_tests.sh                                          (fixed build)
+Compiler:      g++ 13.3.0, with the script's flags (-std=c++17 -Wall -Wextra); no warnings
+
+Result
+  Old build (code 7bce07d):  152 total, 0 passed. The two new tests failed as intended:
+    addcredit_12  TERMINAL_DIFF: printed "Error: credit amount must be greater than zero." for
+                  99999999999999999 (the amount overflowed to a negative number)
+    addcredit_13  TERMINAL_DIFF and DTF_DIFF: accepted ".5" and wrote 06 FullUser 000000.50
+  Fixed build:              152 total, 152 passed, 0 failed. Every DTF matched.
+  This is F12 in phase3/Phase3_Failure_Log.md.
+
+Files in this folder
+  run_info.txt                    this file
+  console_output.txt              fixed build: everything the run printed
+  summary.txt                     fixed build: copy of summary.txt
+  old_build_console_output.txt    old build: everything the run printed
+  old_build_summary.txt           old build: copy of summary.txt
+  new_tests_old_build_diffs.txt   old build: the diff files of addcredit_12 and addcredit_13

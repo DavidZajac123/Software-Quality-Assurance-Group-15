@@ -10,7 +10,7 @@ Results go to phase1/results/actual (output of each test) and phase1/results/com
 
 Exit status: 0 = every test passed, 1 = at least one failed, 2 = could not run.
 
-Full instructions: phase3/Phase3_Failure_Log_Draft.md, section "How to run the tests".
+Full instructions: phase3/Phase3_Failure_Log.md, section "How to run the tests".
 
 Test files follow the naming convention:
 

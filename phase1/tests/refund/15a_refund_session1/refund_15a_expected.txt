@@ -1,2 +1,1 @@
-Session 1: refund accepted; the corresponding game is removed from Buyer1's collection; logout accepted.
-Session 2: Buyer1 may purchase the previously refunded Minecraft again if all normal buy requirements are satisfied; purchase accepted; logout accepted.
+Session 1 of the original refund_15: AdminUser refunds 20.00 from Seller1 to Buyer1. Refund accepted and recorded (05); under the client clarification the refunded game leaves Buyer1's collection when the Back End applies the refund (open question R4); logout accepted. The repurchase in a later session is tested by refund_15b.
