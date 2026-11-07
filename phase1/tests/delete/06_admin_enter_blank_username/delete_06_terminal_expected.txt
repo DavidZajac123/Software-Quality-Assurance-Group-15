@@ -1,5 +1,5 @@
 Enter username:
-Login successful.
-Enter username:
-Error: account does not exist.
+Login successful. Welcome, AdminUser (AA).
+Enter username to delete:
+Error: "" is not a registered user.
 Logout successful.

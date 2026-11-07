@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, AdminUser (AA).
 Enter game name:
 Enter price:
-Game listed successfully.
+Game listed: Portal for 20.00.
 Logout successful.

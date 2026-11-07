@@ -3,6 +3,7 @@
 #include "../io/Console.h"
 #include "../io/DailyTransactionWriter.h"
 #include "../session/Session.h"
+#include "../utilities/Money.h"
 
 // Returns the command word that selects the buy transaction.
 std::string BuyTransaction::code() const {
@@ -24,32 +25,31 @@ std::string BuyTransaction::validateInput(
 ) const {
     GameListing* listing = session.findListing(gameName);
 
-    if (listing == nullptr) {
-        return "Error: game is not available.";
-    }
-
-    if (listing->sellerUsername != sellerUsername) {
-        return "Error: seller does not match listing.";
-    }
-
-    if (session.findAccount(sellerUsername) == nullptr) {
-        return "Error: seller account does not exist.";
+    // A game listed this session, or sold by an account deleted this
+    // session, is not in the listings, so it is not for sale either.
+    if (
+        listing == nullptr ||
+        listing->sellerUsername != sellerUsername ||
+        session.findAccount(sellerUsername) == nullptr
+    ) {
+        return "Error: \"" + gameName + "\" is not for sale by \"" +
+            sellerUsername + "\".";
     }
 
     const UserAccount buyer = session.currentUser();
 
     if (buyer.username == sellerUsername) {
-        return "Error: cannot buy your own game.";
+        return "Error: you cannot buy your own game.";
     }
 
     if (session.ownsGame(buyer.username, gameName)) {
-        return "Error: buyer already owns this game.";
+        return "Error: you already own \"" + gameName + "\".";
     }
 
     priceCents = listing->priceCents;
 
     if (buyer.creditCents < priceCents) {
-        return "Error: insufficient credit.";
+        return "Error: not enough credit to buy \"" + gameName + "\".";
     }
 
     return "";
@@ -69,7 +69,7 @@ void BuyTransaction::execute(
         return;
     }
 
-    if (!console.prompt("Enter seller username:", sellerUsername)) {
+    if (!console.prompt("Enter seller's username:", sellerUsername)) {
         return;
     }
 
@@ -109,5 +109,8 @@ void BuyTransaction::execute(
         priceCents
     );
 
-    console.showMessage("Game purchased successfully.");
+    console.showMessage(
+        "Purchase successful: " + gameName + " from " + sellerUsername +
+        " for " + Money::toDisplay(priceCents) + "."
+    );
 }

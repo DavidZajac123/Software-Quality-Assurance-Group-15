@@ -20,31 +20,31 @@ std::string AddCreditTransaction::validateInput(
     long long& amountCents
 ) const {
     if (!Money::parse(amountText, amountCents)) {
-        return "Error: invalid credit amount.";
+        return "Error: \"" + amountText + "\" is not a valid amount.";
     }
 
     if (amountCents <= 0) {
-        return "Error: credit amount must be greater than zero.";
+        return "Error: amount must be greater than 0.00.";
     }
 
     UserAccount* account = session.findAccount(username);
 
     if (account == nullptr) {
-        return "Error: account does not exist.";
+        return "Error: \"" + username + "\" is not a registered user.";
     }
 
     if (
         session.creditAddedThisSession(username) + amountCents >
         InputRules::MAX_CREDIT_ADDED_PER_SESSION_CENTS
     ) {
-        return "Error: session credit limit exceeded.";
+        return "Error: at most 1000.00 can be added to an account in one session.";
     }
 
     if (
         account->creditCents + amountCents >
         InputRules::MAX_BALANCE_CENTS
     ) {
-        return "Error: maximum account balance exceeded.";
+        return "Error: the balance cannot exceed 999999.99.";
     }
 
     return "";
@@ -59,14 +59,14 @@ void AddCreditTransaction::execute(
 ) {
     std::string amountText;
 
-    if (!console.prompt("Enter amount:", amountText)) {
+    if (!console.prompt("Enter amount of credit to add:", amountText)) {
         return;
     }
 
     std::string username = session.currentUser().username;
 
     if (session.currentUser().type == UserType::Admin) {
-        if (!console.prompt("Enter username:", username)) {
+        if (!console.prompt("Enter username to credit:", username)) {
             return;
         }
     }
@@ -84,5 +84,8 @@ void AddCreditTransaction::execute(
     session.addCredit(username, amountCents);
     dtfWriter.recordAddCredit(username, amountCents);
 
-    console.showMessage("Credit added successfully.");
+    console.showMessage(
+        "Credit added: " + Money::toDisplay(amountCents) +
+        " to " + username + "."
+    );
 }

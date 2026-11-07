@@ -1,4 +1,4 @@
 Enter username:
-Login successful.
+Login successful. Welcome, FullUser (FS).
 Error: your account type cannot use "delete".
 Logout successful.

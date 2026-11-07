@@ -1,7 +1,7 @@
 Enter username:
-Login successful.
-Enter buyer username:
-Enter seller username:
+Login successful. Welcome, AdminUser (AA).
+Enter buyer's username:
+Enter seller's username:
 Enter refund amount:
-Refund completed successfully.
+Refund successful: 20.00 moved from Seller1 to Buyer1.
 Logout successful.

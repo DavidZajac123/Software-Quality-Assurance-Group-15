@@ -21,11 +21,11 @@ std::string DeleteTransaction::validateInput(
     const std::string& username
 ) const {
     if (session.findAccount(username) == nullptr) {
-        return "Error: account does not exist.";
+        return "Error: \"" + username + "\" is not a registered user.";
     }
 
     if (session.currentUser().username == username) {
-        return "Error: cannot delete the currently logged-in account.";
+        return "Error: you cannot delete your own account.";
     }
 
     return "";
@@ -40,7 +40,7 @@ void DeleteTransaction::execute(
 ) {
     std::string username;
 
-    if (!console.prompt("Enter username:", username)) {
+    if (!console.prompt("Enter username to delete:", username)) {
         return;
     }
 
@@ -54,5 +54,5 @@ void DeleteTransaction::execute(
     session.removeAccount(username);
     dtfWriter.recordDelete(username);
 
-    console.showMessage("Account deleted successfully.");
+    console.showMessage("Account deleted: " + username + ".");
 }

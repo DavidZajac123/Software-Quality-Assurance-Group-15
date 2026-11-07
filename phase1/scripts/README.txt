@@ -1,27 +1,20 @@
-Phase 1 Test Scripts
+Front End Test Scripts
 
-This folder contains the planned scripts used to execute the Front End requirements tests.
+run_tests.sh builds the Front End from phase2/src, runs every requirements test in phase1/tests, and compares the terminal output and each Daily Transaction File with the expected files. run_tests.bat starts it on Windows with Git Bash.
 
-During Phase 1, the Front End implementation does not yet exist. Therefore, these scripts document the intended automated testing process that will be used once the Front End is available.
+Windows:           phase1\scripts\run_tests.bat
+Git Bash or Linux: bash phase1/scripts/run_tests.sh
+Reuse the build:   add --no-build
 
-The planned test process is:
+Results go to phase1/results/actual (output of each test) and phase1/results/comparisons (summary.txt and a diff file for each mismatch). Both folders are emptied at the start of every run.
 
-1. Select a test input file.
-2. Run the Front End using the test input file as redirected console input.
-3. Save the terminal output to the results/actual folder.
-4. Save the generated Daily Transaction File output.
-5. Compare the actual terminal output against the corresponding expected-output file.
-6. Compare the actual Daily Transaction File against the corresponding expected DTF file.
-7. Store comparison results in results/comparisons.
+Exit status: 0 = every test passed, 1 = at least one failed, 2 = could not run.
+
+Full instructions: phase3/Phase3_Failure_Log_Draft.md, section "How to run the tests".
 
 Test files follow the naming convention:
 
 <category>_<test number>_input.txt
 <category>_<test number>_expected.txt
-<category>_<test number>_dtf_expected.txt
-
-Example:
-
-buy_01_input.txt
-buy_01_expected.txt
-buy_01_dtf_expected.txt
+<category>_<test number>_terminal_expected.txt
+<category>_<test number>_dtf_expected.txt   (or _session<N>_dtf_expected.txt for tests with several sessions)

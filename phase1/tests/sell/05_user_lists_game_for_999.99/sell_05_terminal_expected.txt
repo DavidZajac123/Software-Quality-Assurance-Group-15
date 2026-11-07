@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, FullUser (FS).
 Enter game name:
 Enter price:
-Game listed successfully.
+Game listed: MaxPriceGame for 999.99.
 Logout successful.

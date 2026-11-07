@@ -28,23 +28,24 @@ std::string RefundTransaction::validateInput(
     UserAccount* seller = session.findAccount(sellerUsername);
 
     if (buyer == nullptr) {
-        return "Error: buyer account does not exist.";
+        return "Error: \"" + buyerUsername + "\" is not a registered user.";
     }
 
     if (seller == nullptr) {
-        return "Error: seller account does not exist.";
+        return "Error: \"" + sellerUsername + "\" is not a registered user.";
     }
 
     if (!Money::parse(amountText, amountCents)) {
-        return "Error: invalid refund amount.";
+        return "Error: \"" + amountText + "\" is not a valid amount.";
     }
 
     if (amountCents <= 0) {
-        return "Error: refund amount must be greater than zero.";
+        return "Error: refund amount must be greater than 0.00.";
     }
 
     if (amountCents > seller->creditCents) {
-        return "Error: seller has insufficient credit.";
+        return "Error: seller \"" + sellerUsername +
+            "\" does not have enough credit for this refund.";
     }
 
     return "";
@@ -61,11 +62,11 @@ void RefundTransaction::execute(
     std::string sellerUsername;
     std::string amountText;
 
-    if (!console.prompt("Enter buyer username:", buyerUsername)) {
+    if (!console.prompt("Enter buyer's username:", buyerUsername)) {
         return;
     }
 
-    if (!console.prompt("Enter seller username:", sellerUsername)) {
+    if (!console.prompt("Enter seller's username:", sellerUsername)) {
         return;
     }
 
@@ -101,5 +102,8 @@ void RefundTransaction::execute(
         amountCents
     );
 
-    console.showMessage("Refund completed successfully.");
+    console.showMessage(
+        "Refund successful: " + Money::toDisplay(amountCents) +
+        " moved from " + sellerUsername + " to " + buyerUsername + "."
+    );
 }

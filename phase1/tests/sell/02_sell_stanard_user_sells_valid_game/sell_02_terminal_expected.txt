@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, SellUser (SS).
 Enter game name:
 Enter price:
-Game listed successfully.
+Game listed: Terraria for 15.00.
 Logout successful.

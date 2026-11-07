@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, FullUser (FS).
 Enter game name:
 Enter price:
-Error: invalid game name.
+Error: game name must be 1 to 26 characters, with no space at the start or end.
 Logout successful.

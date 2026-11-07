@@ -25,19 +25,19 @@ std::string SellTransaction::validateInput(
     long long& priceCents
 ) const {
     if (!InputRules::isValidGameName(gameName)) {
-        return "Error: invalid game name.";
+        return "Error: game name must be 1 to 26 characters, "
+            "with no space at the start or end.";
     }
 
     if (session.isGameNameTaken(gameName)) {
-        return "Error: game name already exists.";
+        return "Error: a game named \"" + gameName + "\" is already for sale.";
     }
 
-    if (!Money::parse(priceText, priceCents)) {
-        return "Error: invalid price.";
-    }
-
-    if (priceCents < 0 || priceCents > InputRules::MAX_PRICE_CENTS) {
-        return "Error: price must be between 0.00 and 999.99.";
+    if (
+        !Money::parse(priceText, priceCents) ||
+        priceCents > InputRules::MAX_PRICE_CENTS
+    ) {
+        return "Error: price must be an amount from 0.00 to 999.99.";
     }
 
     return "";
@@ -82,5 +82,8 @@ void SellTransaction::execute(
         priceCents
     );
 
-    console.showMessage("Game listed successfully.");
+    console.showMessage(
+        "Game listed: " + gameName + " for " +
+        Money::toDisplay(priceCents) + "."
+    );
 }

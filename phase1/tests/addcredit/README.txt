@@ -2,7 +2,7 @@ Addcredit Requirements Tests
 
 This folder contains the Phase 1 requirements tests for the addcredit transaction.
 
-Number of test cases: 11
+Number of test cases: 13
 
 Each test uses the following file naming convention:
 
@@ -16,5 +16,7 @@ addcredit_XX_dtf_expected.txt
 - Expected Daily Transaction File contents for the test session.
 
 These tests cover standard-user and admin addcredit behaviour, invalid users, the $1000 per-session limit, cumulative additions, invalid amounts, balance updates, and account-balance overflow.
+
+Tests 12 and 13 were added in Phase 3 for amount parsing: an amount too large to store (12) and an amount with no digit before the point (13). Each test also has addcredit_XX_terminal_expected.txt, the exact terminal output from phase3/message_catalogue.md.
 
 All tests are based on the Front End requirements and client/TA clarifications received for Phase 1.

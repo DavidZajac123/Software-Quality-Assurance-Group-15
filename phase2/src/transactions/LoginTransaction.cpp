@@ -3,6 +3,7 @@
 #include "../io/Console.h"
 #include "../io/MasterFileReader.h"
 #include "../session/Session.h"
+#include "../utilities/UserTypeCodes.h"
 
 // Stores the master-file reader used to load fresh data at login.
 LoginTransaction::LoginTransaction(MasterFileReader& fileReader)
@@ -37,10 +38,17 @@ void LoginTransaction::execute(
         return;
     }
 
-    if (accounts.find(username) == accounts.end()) {
-        console.showMessage("Error: account does not exist.");
+    const auto account = accounts.find(username);
+
+    if (account == accounts.end()) {
+        console.showMessage(
+            "Error: \"" + username + "\" is not a registered user."
+        );
         return;
     }
+
+    const std::string typeCode =
+        UserTypeCodes::toFileCode(account->second.type);
 
     const auto listings =
         fileReader_.readAvailableGames();
@@ -55,5 +63,7 @@ void LoginTransaction::execute(
         collection
     );
 
-    console.showMessage("Login successful.");
+    console.showMessage(
+        "Login successful. Welcome, " + username + " (" + typeCode + ")."
+    );
 }

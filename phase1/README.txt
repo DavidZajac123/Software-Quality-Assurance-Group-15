@@ -2,13 +2,14 @@ Phase 1 - Front End Requirements Testing Assets
 
 Contents:
 - documents/: Phase 1 test-case documentation and Test Plan.
-- tests/: 131 Front End requirements tests, grouped by transaction/category.
-- scripts/: planned test execution scripts.
-- results/: planned actual-output and comparison locations.
+- tests/: 152 Front End requirements tests, grouped by transaction/category (131 from Phase 1; Phase 3 split sell_15 and refund_15 into two tests each and added list_accounts, search and addcredit_12-13).
+- scripts/: run_tests.sh and run_tests.bat, which build the Front End and run every test (see phase3/Phase3_Failure_Log_Draft.md, "How to run the tests").
+- results/: actual output and comparison results, written by each run.
 
 Test file convention:
 - *_input.txt: literal console input, one input line per line in the file.
 - *_expected.txt: expected observable terminal behaviour.
+- *_terminal_expected.txt: exact expected terminal output, written from phase3/message_catalogue.md.
 - *_dtf_expected.txt: exact expected Daily Transaction File content.
 
 For multi-session tests, session-specific DTF expected files are used because each valid logout writes a separate DTF.

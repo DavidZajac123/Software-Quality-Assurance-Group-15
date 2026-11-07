@@ -1,0 +1,5 @@
+login
+FullUser
+addcredit
+.5
+logout

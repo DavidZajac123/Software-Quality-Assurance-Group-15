@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, FullUser (FS).
 Enter game name:
 Enter price:
-Error: game name already exists.
+Error: a game named "ExistingGame" is already for sale.
 Logout successful.

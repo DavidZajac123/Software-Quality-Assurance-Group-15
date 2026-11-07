@@ -12,9 +12,10 @@
 #include "../transactions/AddCreditTransaction.h"
 #include "../transactions/ListGamesTransaction.h"
 #include "../transactions/ListAccountsTransaction.h"
+#include "../transactions/SearchTransaction.h"
 
 // Connects the Front End to its input/output streams and file handlers,
-// then registers all ten supported transaction objects.
+// then registers all eleven supported transaction objects.
 FrontEnd::FrontEnd(
     std::istream& input,
     std::ostream& output,
@@ -35,6 +36,7 @@ FrontEnd::FrontEnd(
     registerTransaction(std::make_unique<AddCreditTransaction>());
     registerTransaction(std::make_unique<ListGamesTransaction>());
     registerTransaction(std::make_unique<ListAccountsTransaction>());
+    registerTransaction(std::make_unique<SearchTransaction>());
 }
 
 // Reads transaction codes until input ends and processes each one.

@@ -17,7 +17,7 @@ void LogoutTransaction::execute(
     DailyTransactionWriter& dtfWriter
 ) {
     if (!dtfWriter.writeSessionFile()) {
-        console.showMessage("Error: unable to write daily transaction file.");
+        console.showMessage("Error: could not write the daily transaction file.");
         return;
     }
 

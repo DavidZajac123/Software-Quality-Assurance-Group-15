@@ -1,4 +1,4 @@
 Enter username:
-Login successful.
+Login successful. Welcome, BuyUser (BS).
 Error: your account type cannot use "sell".
 Logout successful.

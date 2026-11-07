@@ -1,0 +1,1 @@
+Denied: over the 1000.00 per-session limit. The amount is too large to store, so it must be rejected by the limit check, not misread.

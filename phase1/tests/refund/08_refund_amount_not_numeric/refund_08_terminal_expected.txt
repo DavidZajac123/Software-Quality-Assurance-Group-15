@@ -1,7 +1,7 @@
 Enter username:
-Login successful.
-Enter buyer username:
-Enter seller username:
+Login successful. Welcome, AdminUser (AA).
+Enter buyer's username:
+Enter seller's username:
 Enter refund amount:
-Error: invalid refund amount.
+Error: "abc" is not a valid amount.
 Logout successful.

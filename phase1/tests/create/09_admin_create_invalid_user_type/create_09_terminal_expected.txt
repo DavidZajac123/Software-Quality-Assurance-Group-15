@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, AdminUser (AA).
 Enter new username:
-Enter account type:
-Error: invalid account type.
+Enter account type (admin, full-standard, buy-standard, sell-standard):
+Error: "randomtype" is not a valid account type.
 Logout successful.

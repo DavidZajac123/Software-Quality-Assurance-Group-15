@@ -1,5 +1,5 @@
 Enter username:
-Login successful.
-Enter username:
-Account deleted successfully.
+Login successful. Welcome, AdminUser (AA).
+Enter username to delete:
+Account deleted: Buyer1.
 Logout successful.

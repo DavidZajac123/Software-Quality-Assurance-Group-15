@@ -1,6 +1,6 @@
 Enter username:
-Login successful.
+Login successful. Welcome, AdminUser (AA).
 Enter new username:
-Enter account type:
-Error: username already exists.
+Enter account type (admin, full-standard, buy-standard, sell-standard):
+Error: username "ExistingUser" already exists.
 Logout successful.

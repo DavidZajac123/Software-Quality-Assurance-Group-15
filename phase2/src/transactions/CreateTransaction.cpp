@@ -26,15 +26,16 @@ std::string CreateTransaction::validateInput(
     UserType& type
 ) const {
     if (!InputRules::isValidUsername(username)) {
-        return "Error: invalid username.";
+        return "Error: username must be 1 to 15 characters, "
+            "with no space at the start or end.";
     }
 
     if (session.findAccount(username) != nullptr) {
-        return "Error: username already exists.";
+        return "Error: username \"" + username + "\" already exists.";
     }
 
     if (!UserTypeCodes::fromKeyword(typeKeyword, type)) {
-        return "Error: invalid account type.";
+        return "Error: \"" + typeKeyword + "\" is not a valid account type.";
     }
 
     return "";
@@ -54,7 +55,10 @@ void CreateTransaction::execute(
         return;
     }
 
-    if (!console.prompt("Enter account type:", typeKeyword)) {
+    if (!console.prompt(
+            "Enter account type (admin, full-standard, buy-standard, sell-standard):",
+            typeKeyword
+        )) {
         return;
     }
 
@@ -76,5 +80,8 @@ void CreateTransaction::execute(
     session.addAccount(account);
     dtfWriter.recordCreate(username, type);
 
-    console.showMessage("Account created successfully.");
+    console.showMessage(
+        "Account created: " + username + " (" +
+        UserTypeCodes::toFileCode(type) + ") with 0.00 credit."
+    );
 }

@@ -1,7 +1,7 @@
 Enter username:
-Login successful.
-Enter buyer username:
-Enter seller username:
+Login successful. Welcome, AdminUser (AA).
+Enter buyer's username:
+Enter seller's username:
 Enter refund amount:
-Error: seller account does not exist.
+Error: "" is not a registered user.
 Logout successful.

@@ -6,67 +6,49 @@
 
 // Parses a monetary text value into whole cents.
 // Returns false for invalid or unsupported monetary input.
+// A valid amount is one or more digits, optionally followed by a point and
+// one or two digits (message catalogue rule 5): "5", "5.5" and "5.50" are
+// valid; "", ".5", "5.", "-5", "+5", "5.505" and "5.5.0" are not.
+// An amount too large to store is set to a value above every limit, so the
+// range checks reject it instead of the arithmetic overflowing.
 bool Money::parse(
     const std::string& text,
     long long& cents
 ) {
-    if (text.empty()) {
-        return false;
-    }
+    const std::size_t pointPosition = text.find('.');
 
-    std::size_t decimalPosition = text.find('.');
-
-    if (
-        decimalPosition != std::string::npos &&
-        text.find('.', decimalPosition + 1) != std::string::npos
-    ) {
-        return false;
-    }
-
-    std::string dollarsText;
+    std::string dollarsText = text.substr(0, pointPosition);
     std::string centsText;
 
-    if (decimalPosition == std::string::npos) {
-        dollarsText = text;
-        centsText = "00";
-    } else {
-        dollarsText = text.substr(0, decimalPosition);
-        centsText = text.substr(decimalPosition + 1);
+    if (pointPosition != std::string::npos) {
+        centsText = text.substr(pointPosition + 1);
 
-        if (centsText.size() == 1) {
-            centsText += '0';
-        }
-
-        if (centsText.size() != 2) {
+        if (centsText.empty() || centsText.size() > 2) {
             return false;
         }
     }
 
     if (dollarsText.empty()) {
-        dollarsText = "0";
-    }
-
-    for (char character : dollarsText) {
-        if (!std::isdigit(static_cast<unsigned char>(character))) {
-            return false;
-        }
-    }
-
-    for (char character : centsText) {
-        if (!std::isdigit(static_cast<unsigned char>(character))) {
-            return false;
-        }
-    }
-
-    try {
-        long long dollars = std::stoll(dollarsText);
-        long long remainingCents = std::stoll(centsText);
-
-        cents = dollars * 100 + remainingCents;
-    } catch (...) {
         return false;
     }
 
+    for (char character : dollarsText + centsText) {
+        if (!std::isdigit(static_cast<unsigned char>(character))) {
+            return false;
+        }
+    }
+
+    const std::size_t firstNonZero = dollarsText.find_first_not_of('0');
+    dollarsText =
+        firstNonZero == std::string::npos ? "0" : dollarsText.substr(firstNonZero);
+
+    if (dollarsText.size() > MAX_DOLLAR_DIGITS) {
+        cents = TOO_LARGE_CENTS;
+        return true;
+    }
+
+    centsText.resize(2, '0');
+    cents = std::stoll(dollarsText) * 100 + std::stoll(centsText);
     return true;
 }
 

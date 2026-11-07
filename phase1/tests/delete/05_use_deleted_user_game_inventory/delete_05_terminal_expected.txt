@@ -1,8 +1,8 @@
 Enter username:
-Login successful.
-Enter username:
-Account deleted successfully.
+Login successful. Welcome, AdminUser (AA).
+Enter username to delete:
+Account deleted: Seller1.
 Enter game name:
-Enter seller username:
-Error: game is not available.
+Enter seller's username:
+Error: "Minecraft" is not for sale by "Seller1".
 Logout successful.

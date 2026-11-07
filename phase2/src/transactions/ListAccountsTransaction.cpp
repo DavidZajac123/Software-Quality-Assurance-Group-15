@@ -2,6 +2,7 @@
 
 #include "../io/Console.h"
 #include "../session/Session.h"
+#include "../utilities/FixedWidthFormat.h"
 #include "../utilities/Money.h"
 #include "../utilities/UserTypeCodes.h"
 
@@ -15,7 +16,8 @@ bool ListAccountsTransaction::isPermittedFor(UserType type) const {
     return type == UserType::Admin;
 }
 
-// Displays every active account in username order.
+// Displays a header, then every active account in username order:
+// the username padded to 15 characters, the type code and the credit.
 // This transaction does not write a DTF record.
 void ListAccountsTransaction::execute(
     Session& session,
@@ -26,12 +28,16 @@ void ListAccountsTransaction::execute(
 
     const auto activeAccounts = session.accounts();
 
+    console.showMessage("Active accounts:");
+
     for (const auto& entry : activeAccounts) {
         const UserAccount& account = entry.second;
 
         console.showMessage(
-            account.username + " | " +
-            UserTypeCodes::toFileCode(account.type) + " | $" +
+            FixedWidthFormat::padRight(
+                account.username, FixedWidthFormat::USERNAME_WIDTH
+            ) + " " +
+            UserTypeCodes::toFileCode(account.type) + " " +
             Money::toDisplay(account.creditCents)
         );
     }

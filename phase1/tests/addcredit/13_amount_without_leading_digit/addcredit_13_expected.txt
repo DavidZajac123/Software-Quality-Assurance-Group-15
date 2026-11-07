@@ -1,0 +1,1 @@
+Denied: ".5" is not a valid amount, because an amount must start with a digit. No credit is added.
