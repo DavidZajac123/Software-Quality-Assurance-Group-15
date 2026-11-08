@@ -42,9 +42,9 @@ AI-assisted testing, analysis and documentation work was reviewed against the ap
 
 [Raihan] Tools used
  
-- Claude (Anthropic), in the Claude desktop app (Cowork), 1-7 November 2026. Claude Opus 5.5 did the work. Claude Sonnet 5.5 answered two messages: the explanation on 3 November and the question about this record on 7 November.
+- Claude (Anthropic), in the Claude desktop app (Cowork), 1-7 November 2026. Claude Opus 5.5 did the work. Claude Sonnet 5.5 answered two messages: the explanation on 3 November and the question about this record's git commands on 7 November.
  
-Raihan's record is in prompt_response_history.txt, in the entries marked [Raihan]. Each entry has Raihan's message to Claude, the files Claude read, Claude's reply in the chat, and the files Claude helped to edit. Messages and replies are word for word, except where an entry says otherwise (Entry 1 leaves out the pasted course handout, and Entry 7's reply is rebuilt from notes). Claude's tool calls and background actions are not listed.
+Raihan's record is in prompt_response_history.txt, in the entries marked [Raihan]. Each entry has Raihan's message to Claude, the files Claude read, Claude's reply in the chat, and the files Claude helped to edit. Messages and replies are word for word, except where an entry says otherwise. Claude's tool calls and background actions are not listed.
  
 [Raihan] Claude use
  
