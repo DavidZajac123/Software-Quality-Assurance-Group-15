@@ -34,7 +34,7 @@ class TransactionFileReader:
         raise NotImplementedError
 
     def _parse_delete(self, line: str) -> DeleteTransaction:
-        """Parses 02 username(15) blank(2) credit(9)."""
+        """Parses 02 username(15) type(2) credit(9); only the username is used (decision B11)."""
         raise NotImplementedError
 
     def _parse_sell(self, line: str) -> SellTransaction:
@@ -50,7 +50,7 @@ class TransactionFileReader:
         raise NotImplementedError
 
     def _parse_add_credit(self, line: str) -> AddCreditTransaction:
-        """Parses 06 username(15) blank(2) amount(9)."""
+        """Parses 06 username(15) type(2) credit(9); the username and the credit (the amount added, decision B9) are used, the type is not (decision B11)."""
         raise NotImplementedError
 
     def _parse_end_of_session(self, line: str) -> EndOfSessionTransaction:

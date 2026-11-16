@@ -6,7 +6,7 @@ from transactions.transaction import Transaction
 
 
 class AddCreditTransaction(Transaction):
-    """Record 06: adds an amount of credit to an existing account; the record holds the amount added, as our Front End writes it (Phase 2 decision D15)."""
+    """Record 06: adds an amount of credit to an existing account; the credit field of the record is the amount added (decision B9)."""
 
     CODE = "06"
 

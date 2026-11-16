@@ -1,4 +1,4 @@
-06 FullUser           000100.00
+06 FullUser        FS 000100.00
 03 Portal                     FullUser        020.00
 00                    000000.00
 04 Minecraft                  Seller1         Buyer1          050.00
@@ -6,6 +6,6 @@
 01 NewUser         FS 000000.00
 01 FullUser        BS 000000.00
 05 Buyer1          Seller1         000030.00
-02 Seller1            000000.00
+02 Seller1         SS 000000.00
 00                    000000.00
 00                    000000.00

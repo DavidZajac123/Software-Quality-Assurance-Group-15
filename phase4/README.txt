@@ -32,8 +32,11 @@ Decisions of this first version
   B7  Account type AM (Account Manager, client change of 10 November 2026) is accepted wherever a type is read or written.
   B8  The field widths of the daily transaction file live in TransactionFileReader only (game 26, username 15),
       so another group's Front End is a one-class change.
-  B9  The 06 record holds the amount added, as our Front End writes it (Phase 2 decision D15).
+  B9  The credit field of a 06 record is the amount added, as our Front End writes it (Phase 2 decision D15); to confirm for Front End B.
   B10 END lines are written as the three letters END.
+  B11 The 2-character type field of the 02, 06 and 00 records is read but never used or compared with the account: the
+      specification and Front End B write the account type there, our Front End leaves it blank, and the Back End finds
+      the account by username. Only 01 uses its type (AA, FS, BS, SS or AM).
 
 Smoke run: expected result of the example command, written before the code (the oracle is not the program)
   Terminal (two lines):
