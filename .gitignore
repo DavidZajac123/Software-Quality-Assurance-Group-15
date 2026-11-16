@@ -7,3 +7,6 @@ phase1/results/actual/*
 
 phase1/results/comparisons/*
 !phase1/results/comparisons/README.txt
+__pycache__/
+*.pyc
+phase4/sample_output/
