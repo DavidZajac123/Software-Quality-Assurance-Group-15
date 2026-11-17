@@ -1,0 +1,417 @@
+CSCI 3060U – Phase 4
+AI Prompt and Response History
+
+Each group member is responsible for documenting their own use of generative AI. Entries are labelled with the group member's name.
+
+Prompts and responses below are summarized rather than reproduced verbatim. The summaries preserve the purpose of each request, important constraints, affected project areas, and substantive AI contributions.
+
+========================================================================
+[David] Generative AI Tool Used: Claude
+Claude Code, Claude Opus 5.5 model
+15–16 November 2026
+
+========================================================================
+[David] Claude Entry 1 – Front End B Inspection
+15 November 2026
+
+[David] Prompt Summary:
+
+Explained that Phase 4 is the Back End Rapid Prototype, written in Python, using the replacement Front End B instead of the group's own Front End. Gave the Back End's input and output files, Front End B's transaction codes (00 to 06), the tentative team split, and the instruction not to infer new Account Manager rules.
+
+Asked Claude to inspect the Front End B folder and report its files and folders, which files define the input/output formats, any old Phase 2/3 artifacts that should not be used, whether the proposed Phase 4 structure matched the requirements, and what David should work on next.
+
+Claude was instructed not to edit, move, delete or create files, and not to commit, push, pull or merge.
+
+[David] Claude Response Summary:
+
+Claude:
+- listed the Front End B folder (C++ source, pre-built Linux and Windows programs, test data, 46 tests, scripts and READMEs) and noted that it was not a Git repository and contained no Python Back End;
+- identified `FileManager.cpp` as the authoritative definition of the master-file and Daily Transaction File layouts, supported by `TextUtils.h`, `FrontEnd.cpp`, the README and the sample data;
+- summarized the layout of each record type, including that the `06` money field is the amount added and the `05` record lists the buyer before the seller;
+- noted that Front End B empties its transaction file at each login, so each file holds one session and a separate merge step is needed;
+- identified artifacts not to use for Back End work, including the out-of-date Phase 2 README, the pre-built unsigned executable, the root-level demo files and generated test output;
+- recommended agreeing the file-I/O interfaces and drafting a file-format table before coding.
+
+========================================================================
+[David] Claude Entry 2 – File-I/O Responsibilities and Interfaces
+15 November 2026
+
+[David] Prompt Summary:
+
+Gave clarifications from the official requirements: errors use `ERROR: <msg>`; failed-constraint errors name the transaction and fatal errors name the file; malformed input is fatal; and the merged Daily Transaction File ends with an empty daily file containing only a `00` transaction. Also asked that LF line endings not be treated as a course requirement unless the documents require them.
+
+Asked Claude, without changing anything, what David's file-I/O responsibility should include and which interfaces needed agreement with Raihan and Sanjith.
+
+[David] Claude Response Summary:
+
+Claude:
+- noted that the handout itself was not visible in the session and that the answer relied on David's clarifications and Front End B's code;
+- corrected its earlier statement: Front End B does not require LF line endings, because its readers tolerate a trailing carriage return;
+- listed the file-I/O scope: readers for the three master files, a parser for the merged transaction file, writers for the three new master files, and shared format constants;
+- separated format checking (fatal, file I/O) from business-constraint checking (transactions/state);
+- listed interface points to agree with Raihan (data classes, money in whole cents, the fatal-error exception, error-log interface, command-line file order, output ordering, sample data and smoke-run input) and with Sanjith (transaction record shape, `06` and `05` semantics, session grouping, and credit-overflow handling);
+- listed items to verify against the handout before coding.
+
+========================================================================
+[David] Claude Entry 3 – Phase 4 Skeleton Review and Implementation Plan
+16 November 2026
+
+[David] Prompt Summary:
+
+Gave the current Phase 4 state: development in the main repository, Front End B as a read-only reference, the final package ownership (David: `fileio`, `utilities/money.py`, `utilities/fixed_width_format.py`), confirmed Front End B layouts and semantics, the `AM` account type, and the group's design decisions (whole-cent money, malformed input is fatal, `FatalInputError` raised by file I/O, LF/CRLF accepted on input, LF on output, and both bare and space-padded `END` accepted).
+
+Asked Claude to confirm the branch and repository state, review David's files, recommend an implementation order, and identify blocking dependencies on teammates' code, without editing anything.
+
+[David] Claude Response Summary:
+
+Claude:
+- confirmed the `phase4-fileio` branch matched `main` with no local commits;
+- reviewed the skeleton stubs and identified gaps, including undefined behaviour for negative or oversized money values, truncation in `pad_right`, the parser not receiving the file name for error messages, and no check for the final `00` transaction;
+- recommended the order `money.py`, `fixed_width_format.py`, `master_file_reader.py`, `master_file_writer.py`, `transaction_file_reader.py`;
+- confirmed that Sanjith's data classes, `UserType` and transaction constructors and Raihan's `FatalInputError` already existed, so nothing blocked David's code;
+- flagged open items for the group, including credit values too large for the 9-character field, write failures, what counts as malformed, and fatal-message wording.
+
+========================================================================
+[David] Claude Entry 4 – Money Conversion
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to implement `money.py`: money stored as whole cents in `int`, `Money.parse()` raising `ValueError` on malformed text, and `Money.format()` raising `ValueError` when the value is negative or does not fit the field. Asked to see the exact changes and checks before continuing.
+
+[David] Claude Response Summary:
+
+Claude:
+- implemented `Money.parse()` to accept only ASCII digits, a point and exactly two digits, using integer arithmetic only;
+- implemented `Money.format()` to zero-fill to the field width and raise `ValueError` for negative or oversized amounts instead of truncating;
+- ran scratchpad checks covering valid values, 16 malformed inputs, exact formatting, the error cases and a round trip of every value from 0 to 99,999 cents (33 checks passed).
+
+========================================================================
+[David] Claude Entry 5 – Fixed-Width Formatting
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to implement `fixed_width_format.py`: `pad_right()` pads to exactly the width and raises `ValueError` rather than truncating; `field()` extracts a fixed-position field, removes trailing padding spaces only, and raises `ValueError` when the field extends past the line; and add master-file record-width constants if appropriate.
+
+[David] Claude Response Summary:
+
+Claude:
+- implemented `pad_right()` and `field()` as specified;
+- added the record-width constants 28, 49 and 42, calculated from the field widths;
+- ran scratchpad checks on real sample and Front End B lines, padding and stripping rules and error cases (27 checks passed);
+- noted that readers must remove line endings before slicing, and that editor-trimmed records needed a group decision.
+
+========================================================================
+[David] Claude Entry 6 – Master File Reader
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to implement `master_file_reader.py` with exact record widths, no padding of editor-trimmed records, separator-space validation, both bare and space-padded `END`, stripping only the line ending, and conversion of every format error into `FatalInputError` naming the file.
+
+[David] Claude Response Summary:
+
+Claude:
+- implemented the three readers and the shared line reader, reporting errors as `FatalInputError` with the file name and line number;
+- found during checking that money fields passed through `field()` would accept space padding, and changed the reader to slice money fields without stripping;
+- ran scratchpad checks against the committed sample data in CRLF and LF form, Front End B's data files, `END` variants, the `AM` type and 20 fatal cases (35 checks passed);
+- left lines after `END` ignored and blank names accepted, as in the skeleton, and reported these as open group decisions.
+
+========================================================================
+[David] Claude Entry 7 – Master File Writer and Front End B Compatibility
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to implement `master_file_writer.py` preserving the exact 28/49/42-character layouts, using the shared helpers and `Money.format()`, never truncating, writing LF, following the recorded `END` decision, and producing the layouts Front End B expects.
+
+[David] Claude Response Summary:
+
+Claude:
+- implemented the three writers, writing bare `END` lines as recorded in decision B10 and LF line endings on every platform;
+- built every line before opening the file, so a value that does not fit raises `ValueError` without touching the output file;
+- ran scratchpad checks for exact bytes, record widths, round trips through the reader, byte-identical rewrites of the sample data, folder creation and oversized values (21 checks passed);
+- built Front End B from its source into a scratchpad folder without modifying it, and confirmed that it read the writer's output correctly;
+- identified from Front End B's source that it does not recognise the `AM` account type.
+
+========================================================================
+[David] Claude Entry 8 – Transaction File Reader and 00 Validation
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to implement `transaction_file_reader.py`, treating a merged file that does not end with a `00` transaction as fatal, accepting bare and padded `00` lines, leaving blank usernames in `01` records to the transaction layer, and keeping decisions B9 and B11.
+
+After reviewing the result, asked Claude to accept only a bare `00` line or the 31-character `00` layout with correct separators, so that a line such as `00garbage` is rejected, and to keep a blank record after the final `00` fatal.
+
+[David] Claude Response Summary:
+
+Claude:
+- implemented exact-width and separator checks for every record type, using Sanjith's existing transaction constructors;
+- reported every format error as `FatalInputError` with the file name and line number, and rejected a file whose last transaction is not `00`;
+- ran scratchpad checks against the committed sample merged file, all 46 of Front End B's test transaction files, Front End B's `transout.atf`, accepted variants and fatal cases (32 checks passed);
+- applied the `00` adjustment and reran the transaction-reader checks (42 checks passed) and the earlier checks (all still passed);
+- showed the final `git diff --stat` and `git status` without staging or committing.
+
+========================================================================
+[David] Claude Entry 9 – Phase 4 AI Documentation
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to inspect the existing AI-usage documentation for Phases 1 to 3, report the naming and formatting conventions, and create only David's Phase 4 AI-usage files in the same format, without editing other members' records, modifying source code, or staging or committing anything.
+
+[David] Claude Response Summary:
+
+Claude created:
+- `ai_usage/phase4/README.txt`;
+- `ai_usage/phase4/prompt_response_history.txt`.
+
+Both follow the Phase 3 format, with entries labelled `[David]` so that other members can add their own sections. No teammate AI records were created.
+
+David then asked Claude to update the README to state that both Claude and ChatGPT were used, and to reserve a separate section for David's ChatGPT record. Claude added that section as a placeholder only and did not write any ChatGPT entries, because it had no access to those conversations.
+
+Claude did not stage, commit, or push these changes.
+
+========================================================================
+End of David's Claude record.
+
+========================================================================
+[David] Generative AI Tool Used: ChatGPT (GPT-5.6 Sol)
+
+The following is a condensed record of David's ChatGPT use during Phase 4 on 16 November 2026. Prompts and responses are summarized rather than reproduced verbatim. The summaries preserve the purpose of each request, the relevant constraints, the files or project areas affected, and the substantive assistance provided.
+
+========================================================================
+[David] ChatGPT Entry 1 – Comparing the Phase 4 Project to FrontEnd B
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to compare the working `SoftwareQualityAssuranceFinalProject` ZIP against the provided replacement `FrontEnd B` ZIP and determine how much the group's current Phase 4 implementation differed from the actual Front End that the Back End needed to support.
+
+The comparison was requested specifically to determine whether the differences were significant enough to block starting the Back End file-I/O work.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT compared the two projects and found that the important interfaces were already closely aligned.
+
+It confirmed matching fixed-width layouts for:
+- Current User Accounts;
+- Available Games;
+- Game Collection;
+- transaction codes 00 through 06.
+
+ChatGPT identified the remaining differences as mainly:
+- bare versus padded `END`;
+- LF versus CRLF line endings;
+- sample-data realism;
+- strict versus tolerant parsing;
+- ignored fields in some transaction types.
+
+ChatGPT concluded that the differences were not large enough to block Phase 4 implementation and advised David to proceed with his assigned file-I/O work while keeping the reader compatible with both FrontEnd B and the formal specification.
+
+========================================================================
+[David] ChatGPT Entry 2 – Updating Claude With the Current Phase 4 Context
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to review the most recent context previously sent to Claude and help prepare an updated prompt so Claude would work from the correct repository, team split, FrontEnd B compatibility details, and Phase 4 constraints.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT drafted an updated handoff prompt for Claude that clarified:
+- the main development repository;
+- FrontEnd B as a read-only reference implementation;
+- David's ownership of `fileio`, `money.py`, and `fixed_width_format.py`;
+- Raihan's ownership of control/error/design work;
+- Sanjith's ownership of transactions/state;
+- confirmed master-file and transaction layouts;
+- `06` meaning amount added;
+- ignored fields for `02`, `06`, and `00`;
+- `AM` support in the Back End;
+- the use of whole cents rather than floating point;
+- Phase 4's rapid-prototype scope;
+- the instruction not to edit files before first reporting the current state.
+
+========================================================================
+[David] ChatGPT Entry 3 – Reviewing `money.py`
+16 November 2026
+
+[David] Prompt Summary:
+
+Provided Claude's implementation and scratchpad results for `phase4/src/utilities/money.py` and asked whether the implementation was appropriate before continuing.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT reviewed the implementation and approved:
+- parsing money into integer cents;
+- avoiding floating-point arithmetic;
+- strict `digits.decimals` parsing;
+- rejecting malformed values;
+- rejecting negative amounts;
+- raising `ValueError` when a value cannot fit the required fixed-width field;
+- keeping scratchpad verification outside the repository.
+
+ChatGPT advised David to proceed to `fixed_width_format.py` and supplied a follow-up prompt for Claude that preserved the agreed behavior and Phase 4 scope.
+
+========================================================================
+[David] ChatGPT Entry 4 – Reviewing `fixed_width_format.py`
+16 November 2026
+
+[David] Prompt Summary:
+
+Provided Claude's implementation of `fixed_width_format.py`, including line-width constants, `pad_right`, `field`, and scratchpad results, and asked whether it was safe to continue.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT approved the implementation and supported:
+- exact master-record widths of 28, 49, and 42;
+- raising `ValueError` instead of truncating oversized fields;
+- fixed-position extraction with trailing padding removed;
+- keeping ordinary data records strict rather than silently padding editor-trimmed lines.
+
+ChatGPT also clarified that:
+- normal master-file records should be exact width;
+- bare `END` and padded `END` should both be accepted as sentinels;
+- separator spaces should be validated.
+
+ChatGPT then drafted a prompt authorizing Claude to proceed with `master_file_reader.py`.
+
+========================================================================
+[David] ChatGPT Entry 5 – Reviewing the Master File Reader
+16 November 2026
+
+[David] Prompt Summary:
+
+Provided Claude's implementation and verification results for `master_file_reader.py`.
+
+The implementation included:
+- Current User Accounts parsing;
+- Available Games parsing;
+- Game Collection parsing;
+- width and separator validation;
+- LF/CRLF handling;
+- `END` handling;
+- conversion of parsing errors into `FatalInputError`.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT approved the reader implementation and specifically endorsed:
+- exact-width validation;
+- separator-position checks;
+- strict money parsing;
+- `AM` support through `UserType.from_code`;
+- converting format errors into `FatalInputError`;
+- accepting both bare and padded `END`.
+
+ChatGPT noted that lines after `END` remained an open group decision and advised not changing that behavior unilaterally.
+
+It then authorized Claude to move to `master_file_writer.py`.
+
+========================================================================
+[David] ChatGPT Entry 6 – Reviewing the Master File Writer and FrontEnd B Compatibility
+16 November 2026
+
+[David] Prompt Summary:
+
+Provided Claude's implementation of `master_file_writer.py`, its scratchpad checks, and the result of compiling FrontEnd B from source and using it to read files generated by the Back End writer.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT approved the writer implementation, including:
+- exact 28 / 49 / 42-character output records;
+- shared formatting helpers;
+- zero-filled money fields;
+- LF output;
+- no silent truncation;
+- the current group decision to write bare `END`.
+
+ChatGPT considered the compatibility run especially useful because FrontEnd B successfully read the generated files.
+
+ChatGPT also identified that FrontEnd B does not properly recognize the new `AM` account type and recommended documenting that as a compatibility limitation rather than changing David's file-I/O package.
+
+========================================================================
+[David] ChatGPT Entry 7 – Reviewing the Transaction File Reader
+16 November 2026
+
+[David] Prompt Summary:
+
+Provided Claude's implementation of `transaction_file_reader.py`, including parsing for transaction codes 00 through 06 and the related scratchpad checks.
+
+David asked whether the implementation was ready and whether any behavior should be changed before committing.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT approved most of the transaction reader and confirmed:
+- fixed-width layouts for 01/02/06, 03, 04, and 05;
+- `06` using the amount added;
+- `05` using buyer before seller;
+- type being ignored for `02`, `06`, and `00`;
+- `01` using the supplied account type;
+- a missing final `00` being treated as malformed/fatal.
+
+ChatGPT identified one issue: the implementation accepted any line beginning with `00`, including malformed input such as `00garbage`.
+
+ChatGPT recommended tightening `_parse_end_of_session()` so that `00` was valid only as:
+- a bare `00`; or
+- a correctly structured 31-character `00 username(15) type(2) credit(9)` record.
+
+Claude then applied that change and reran the checks successfully.
+
+========================================================================
+[David] ChatGPT Entry 8 – Git Review Before Commit
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT for guidance on committing the completed Phase 4 file-I/O work.
+
+David supplied Git output showing the branch state, modified files, and current commit.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT reviewed the Git state and confirmed that David was:
+- in the correct repository;
+- on the `phase4-fileio` branch;
+- based on the latest `main`;
+- modifying only the five assigned source files.
+
+ChatGPT recommended staging only:
+- `master_file_reader.py`;
+- `master_file_writer.py`;
+- `transaction_file_reader.py`;
+- `fixed_width_format.py`;
+- `money.py`;
+
+and checking `git status` and `git diff --cached --stat` before committing.
+
+ChatGPT also recommended including the Phase 4 AI-usage documentation in the same branch before the final commit.
+
+========================================================================
+[David] ChatGPT Entry 9 – Phase 4 AI Documentation
+16 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to help prepare Phase 4 AI-usage documentation consistent with the repository's earlier phases.
+
+David first requested a prompt for Claude to inspect the existing `ai_usage` folders and reproduce the established format.
+
+After Claude created the Phase 4 AI files, David asked ChatGPT to review whether the documentation was complete.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- drafted the prompt used to have Claude inspect the existing AI-usage format;
+- advised using the same shared `README.txt` and `prompt_response_history.txt` structure as prior phases;
+- emphasized that only David's AI usage should be documented by David;
+- reviewed Claude's newly created Phase 4 AI files;
+- noted that the Phase 4 documentation needed a separate ChatGPT section in addition to the Claude section;
+- recommended keeping the same condensed summary style used in David's later Phase 3 documentation;
+- prepared this ChatGPT Phase 4 AI-use record for inclusion in `ai_usage/phase4/prompt_response_history.txt`.
+
+========================================================================
+End of David's ChatGPT record.
+========================================================================
