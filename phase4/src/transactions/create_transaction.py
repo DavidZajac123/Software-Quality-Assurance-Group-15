@@ -4,6 +4,7 @@ from __future__ import annotations
 from state.system_state import SystemState
 from state.user_type import UserType
 from transactions.transaction import Transaction
+from state.user_account import UserAccount
 
 
 class CreateTransaction(Transaction):
@@ -29,8 +30,7 @@ class CreateTransaction(Transaction):
 
     def apply(self, state: SystemState) -> None:
         """Adds the account to the state with 0.00 credit."""
-        temp_account = state.add_account.__annotations__["account"]
-        new_account = temp_account(
+        new_account = UserAccount(
             username=self._username,
             user_type=self._user_type,
             credit_cents=0

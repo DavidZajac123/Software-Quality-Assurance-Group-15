@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from state.system_state import SystemState
 from transactions.transaction import Transaction
+from state.owned_game import OwnedGame
 
 
 class BuyTransaction(Transaction):
@@ -39,8 +40,7 @@ class BuyTransaction(Transaction):
         """Subtracts the price from the buyer, adds it to the seller, and adds the game to the buyer's collection."""
         state.change_credit(self._buyer, -self._price_cents)
         state.change_credit(self._seller, self._price_cents)
-        temp_owned_game = state.add_owned_game.__annotations__["owned_game"]
-        new_owned_game = temp_owned_game(
+        new_owned_game = OwnedGame(
             game_name=self._game_name,
             owner=self._buyer
         )

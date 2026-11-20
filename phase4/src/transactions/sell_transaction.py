@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from state.system_state import SystemState
 from transactions.transaction import Transaction
-
+from state.game_listing import GameListing
 
 class SellTransaction(Transaction):
     """Record 03: adds a game, its seller and its price to the games for sale, so it can be bought from the next day on."""
@@ -23,16 +23,20 @@ class SellTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when the seller has no account or a game with this name is already for sale."""
-        if state.find_account(self._seller) is None:
+        buyer_account = state.find_account(self._buyer)
+        seller_account = state.find_account(self._seller)
+
+        if buyer_account is None:
+            return f"Buyer '{self._buyer}' does not exist."
+        if seller_account is None:
             return f"Seller '{self._seller}' does not exist."
-        if state.find_listing(self._game_name) is not None:
-            return f"Game listing '{self._game_name}' already exists."
+        if seller_account.credit_cents < self._amount_cents:
+            return f"Seller '{self._seller}' credit is less than the amount of the game."
         return ""
 
     def apply(self, state: SystemState) -> None:
         """Adds the listing to the state."""
-        temp_listing = state.add_listing.__annotations__["listing"]
-        new_listing = temp_listing(
+        new_listing = GameListing(
             game_name=self._game_name,
             seller=self._seller,
             price_cents=self._price_cents

@@ -23,12 +23,21 @@ class RefundTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when the buyer or the seller has no account, or the seller's credit is less than the amount."""
+        buyer_account = state.find_account(self._buyer)
+        if buyer_account is None:
+            return f"Buyer '{self._buyer}' does not exist."
+
         seller_account = state.find_account(self._seller)
+        if seller_account is None:
+            return f"Seller '{self._seller}' does not exist."
+
         if seller_account.credit_cents < self._amount_cents:
             return f"Seller '{self._seller}' credit is less than the amount of the game."
         return ""
 
     def apply(self, state: SystemState) -> None:
         """Subtracts the amount from the seller and adds it to the buyer."""
+        if state.find_account(self._buyer) is None or state.find_account(self._seller) is None:
+            return
         state.change_credit(self._seller, -self._amount_cents)
         state.change_credit(self._buyer, self._amount_cents)
