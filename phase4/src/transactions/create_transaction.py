@@ -4,6 +4,7 @@ from __future__ import annotations
 from state.system_state import SystemState
 from state.user_type import UserType
 from transactions.transaction import Transaction
+from state.user_account import UserAccount
 
 
 class CreateTransaction(Transaction):
@@ -23,8 +24,15 @@ class CreateTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when an account with this username already exists."""
-        raise NotImplementedError
+        if state.find_account(self._username) is not None:
+            return f"User '{self._username}' already exists."
+        return ""
 
     def apply(self, state: SystemState) -> None:
         """Adds the account to the state with 0.00 credit."""
-        raise NotImplementedError
+        new_account = UserAccount(
+            username=self._username,
+            user_type=self._user_type,
+            credit_cents=0
+        )
+        state.add_account(new_account)
