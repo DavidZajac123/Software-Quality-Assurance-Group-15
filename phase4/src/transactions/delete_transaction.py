@@ -21,8 +21,10 @@ class DeleteTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when no account with this username exists."""
-        raise NotImplementedError
+        if state.find_account(self._username) is None:
+            return f"User '{self._username}' does not exist."
+        return ""
 
     def apply(self, state: SystemState) -> None:
         """Removes the account, its listings and its owned games from the state."""
-        raise NotImplementedError
+        state.remove_account(self._username)

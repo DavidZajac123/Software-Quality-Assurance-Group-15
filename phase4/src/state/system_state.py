@@ -29,32 +29,41 @@ class SystemState:
 
     def find_account(self, username: str) -> UserAccount | None:
         """Returns the account with this username, or None when there is none."""
-        raise NotImplementedError
+        for account in self._accounts:
+            if account.username == username:
+                return account
 
     def add_account(self, account: UserAccount) -> None:
         """Appends a new account; the caller has already checked that the username is unused."""
-        raise NotImplementedError
+        self._accounts.append(account)
 
     def remove_account(self, username: str) -> None:
         """Removes the account, every game it sells and every game it owns (Phase 2 decision D25)."""
-        raise NotImplementedError
+        self._accounts = [acc for acc in self._accounts if acc.username != username]
+        self._listings = [listing for listing in self._listings if listing.seller != username]
+        self._collection = [game for game in self._collection if game.owner != username]
 
     def change_credit(self, username: str, delta_cents: int) -> None:
         """Adds delta_cents (negative to subtract) to the account's credit; the caller has already checked that the balance cannot go negative."""
-        raise NotImplementedError
+        account = self.find_account(username)
+        if account is not None:
+            account.credit_cents += delta_cents
 
     def find_listing(self, game_name: str) -> GameListing | None:
         """Returns the game for sale with this name, or None when there is none."""
-        raise NotImplementedError
+        for listing in self._listings:
+            if listing.game_name == game_name:
+                return listing
+        return None
 
     def add_listing(self, listing: GameListing) -> None:
         """Appends a new game for sale; the caller has already checked that the name is unused."""
-        raise NotImplementedError
+        self._listings.append(listing)
 
     def owns_game(self, username: str, game_name: str) -> bool:
         """Returns True when this user already has this game in their collection."""
-        raise NotImplementedError
+        return any(game.owner == username and game.game_name == game_name for game in self._collection)
 
     def add_owned_game(self, owned_game: OwnedGame) -> None:
         """Appends a game to the collection; the caller has already checked that the user does not own it."""
-        raise NotImplementedError
+        self._collection.append(owned_game)

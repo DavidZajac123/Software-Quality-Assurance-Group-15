@@ -23,8 +23,16 @@ class CreateTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when an account with this username already exists."""
-        raise NotImplementedError
+        if state.find_account(self._username) is not None:
+            return f"User '{self._username}' already exists."
+        return ""
 
     def apply(self, state: SystemState) -> None:
         """Adds the account to the state with 0.00 credit."""
-        raise NotImplementedError
+        temp_account = state.add_account.__annotations__["account"]
+        new_account = temp_account(
+            username=self._username,
+            user_type=self._user_type,
+            credit_cents=0
+        )
+        state.add_account(new_account)

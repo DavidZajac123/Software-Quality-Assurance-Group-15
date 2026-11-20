@@ -22,8 +22,10 @@ class AddCreditTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when no account with this username exists."""
-        raise NotImplementedError
+        if state.find_account(self._username) is None:
+            return f"User '{self._username}' does not exist."
+        return ""
 
     def apply(self, state: SystemState) -> None:
         """Adds the amount to the account's credit."""
-        raise NotImplementedError
+        state.change_credit(self._username, self._amount_cents)

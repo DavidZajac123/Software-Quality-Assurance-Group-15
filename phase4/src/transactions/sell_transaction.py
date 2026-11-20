@@ -23,8 +23,18 @@ class SellTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when the seller has no account or a game with this name is already for sale."""
-        raise NotImplementedError
+        if state.find_account(self._seller) is None:
+            return f"Seller '{self._seller}' does not exist."
+        if state.find_listing(self._game_name) is not None:
+            return f"Game listing '{self._game_name}' already exists."
+        return ""
 
     def apply(self, state: SystemState) -> None:
         """Adds the listing to the state."""
-        raise NotImplementedError
+        temp_listing = state.add_listing.__annotations__["listing"]
+        new_listing = temp_listing(
+            game_name=self._game_name,
+            seller=self._seller,
+            price_cents=self._price_cents
+        )
+        state.add_listing(new_listing)
