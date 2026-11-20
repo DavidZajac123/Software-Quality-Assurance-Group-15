@@ -39,12 +39,24 @@ class BackEnd:
 
     def _load_state(self) -> SystemState:
         """Reads the three old master files and returns them as one SystemState."""
-        raise NotImplementedError
+        return SystemState(
+            self._master_reader.read_accounts(self._files.old_users),
+            self._master_reader.read_listings(self._files.old_games),
+            self._master_reader.read_collection(self._files.old_collection),
+        )
+        
 
     def _apply_all(self, transactions: list[Transaction], state: SystemState) -> None:
         """Validates and applies each transaction in file order; one that fails a constraint is logged with its record and skipped, and the batch continues."""
-        raise NotImplementedError
+        for transaction in transactions:
+            failure = transaction.validate(state)
+            if failure:
+                self._error_log.failed_constraint(failure, transaction.record)
+            else:
+                transaction.apply(state)
 
     def _write_state(self, state: SystemState) -> None:
         """Writes the accounts, listings and collection of the state to the three new master files."""
-        raise NotImplementedError
+        self._master_writer.write_accounts(self._files.new_users, state.accounts())
+        self._master_writer.write_listings(self._files.new_games, state.listings())
+        self._master_writer.write_collection(self._files.new_collection, state.collection())

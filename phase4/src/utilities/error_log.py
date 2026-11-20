@@ -14,11 +14,13 @@ class ErrorLog:
 
     def failed_constraint(self, description: str, record: str) -> None:
         """Prints ERROR: Failed constraint: <description> (transaction: <record>) and counts it."""
-        raise NotImplementedError
+        print(f"ERROR: {self.FAILED_CONSTRAINT}: {description} (transaction: {record})")
+        self._count += 1
 
     def fatal(self, description: str, file_name: str) -> None:
         """Prints ERROR: Fatal input error: <description> (file: <file_name>) and counts it."""
-        raise NotImplementedError
+        print(f"ERROR: {self.FATAL}: {description} (file: {file_name})")
+        self._count += 1
 
     def count(self) -> int:
         """Returns how many errors have been logged in this run."""
