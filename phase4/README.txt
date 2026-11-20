@@ -17,7 +17,7 @@ Who owns what (each package is one branch and one pull request)
   Sanjith  transactions, state
 
 Rule for the skeleton: declarations, constants, constructors and one-line methods are written;
-every method with real logic raises NotImplementedError until its owner fills it in.
+Every method body is now written (design document, Section 1.1); the known failures are L2 and L3 below.
 
 Decisions of this first version
   B1  Money is handled in whole cents (int), never floating point (as the Front End does).
@@ -46,7 +46,11 @@ Decisions of this first version
 Known limitations of this first version
   L1  Account type AM: the Back End reads, keeps and writes it (B7), but Front End B does not recognize it yet;
       the Front End update is planned for Phase 5.
-
+  L2  BuyTransaction.validate does not check that the seller has the game for sale, so B3 does not yet cover the game of a 04 record:
+      a buy of a game that is not listed is applied. Left for Phase 5.
+  L3  No transaction checks the maximum balance of 999999.99, which only the Front End enforces, on addcredit (Phase 2, Q3). 
+      A record that raises a credit above it makes the writer stop the run with a Python ValueError (exit status 1) before any new file is written. Left for Phase 5.
+  
 Smoke run: expected result of the example command, written before the code (the oracle is not the program)
   Terminal (two lines):
     ERROR: Failed constraint: buyer Buyer1 has 20.00, price is 50.00 (transaction: 04 Minecraft ... Buyer1 ... 050.00)
@@ -55,3 +59,4 @@ Smoke run: expected result of the example command, written before the code (the 
   New games:     Terraria FullUser 10.00; Portal FullUser 20.00  (Minecraft removed with Seller1)
   New collection: Terraria Buyer1
   Exit status 0.
+Note: the real run matches the new files and exit status above. Its two ERROR lines differ only in wording and in printing the full records: "Buyer 'Buyer1' has insufficient credit." and "User 'FullUser' already exists."
