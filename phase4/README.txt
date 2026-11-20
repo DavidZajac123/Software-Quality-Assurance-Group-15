@@ -16,7 +16,6 @@ Who owns what (each package is one branch and one pull request)
   David    fileio, utilities/money.py, utilities/fixed_width_format.py
   Sanjith  transactions, state
 
-Rule for the skeleton: declarations, constants, constructors and one-line methods are written;
 Every method body is now written (design document, Section 1.1); the known failures are L2 and L3 below.
 
 Decisions of this first version
