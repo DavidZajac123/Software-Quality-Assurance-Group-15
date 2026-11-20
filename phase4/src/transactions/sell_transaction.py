@@ -23,15 +23,10 @@ class SellTransaction(Transaction):
 
     def validate(self, state: SystemState) -> str:
         """Fails when the seller has no account or a game with this name is already for sale."""
-        buyer_account = state.find_account(self._buyer)
-        seller_account = state.find_account(self._seller)
-
-        if buyer_account is None:
-            return f"Buyer '{self._buyer}' does not exist."
-        if seller_account is None:
+        if state.find_account(self._seller) is None:
             return f"Seller '{self._seller}' does not exist."
-        if seller_account.credit_cents < self._amount_cents:
-            return f"Seller '{self._seller}' credit is less than the amount of the game."
+        if state.find_listing(self._game_name) is not None:
+            return f"Game listing '{self._game_name}' already exists."
         return ""
 
     def apply(self, state: SystemState) -> None:
