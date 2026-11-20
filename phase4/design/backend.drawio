@@ -143,7 +143,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="fig3" name="Figure 3 - Control and utilities">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1253" pageHeight="962" math="0" shadow="0">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1253" pageHeight="1004" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -175,13 +175,13 @@
           <mxGeometry x="842" y="486" width="331" height="104" as="geometry" />
         </mxCell>
         <mxCell id="f3c9" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;Money&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;&lt;u&gt;+ parse(text : str) : int&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ format(cents : int, width : int) : str&lt;/u&gt;&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#f5f5f5;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
-          <mxGeometry x="60" y="715" width="292" height="88" as="geometry" />
+          <mxGeometry x="60" y="736" width="292" height="88" as="geometry" />
         </mxCell>
-        <mxCell id="f3c10" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;FixedWidthFormat&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ USERNAME_WIDTH : int = 15&lt;br&gt;+ USER_TYPE_WIDTH : int = 2&lt;br&gt;+ CREDIT_WIDTH : int = 9&lt;br&gt;+ GAME_NAME_WIDTH : int = 26&lt;br&gt;+ PRICE_WIDTH : int = 6&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;&lt;u&gt;+ pad_right(text : str, width : int) : str&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ field(line : str, start : int, width : int)&lt;/u&gt;&lt;br&gt;&lt;u&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: str&lt;/u&gt;&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#f5f5f5;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
-          <mxGeometry x="444" y="680" width="325" height="158" as="geometry" />
+        <mxCell id="f3c10" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;FixedWidthFormat&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ USERNAME_WIDTH : int = 15&lt;br&gt;+ USER_TYPE_WIDTH : int = 2&lt;br&gt;+ CREDIT_WIDTH : int = 9&lt;br&gt;+ GAME_NAME_WIDTH : int = 26&lt;br&gt;+ PRICE_WIDTH : int = 6&lt;br&gt;+ ACCOUNT_LINE_WIDTH : int = 28&lt;br&gt;+ LISTING_LINE_WIDTH : int = 49&lt;br&gt;+ COLLECTION_LINE_WIDTH : int = 42&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;&lt;u&gt;+ pad_right(text : str, width : int) : str&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ field(line : str, start : int, width : int)&lt;/u&gt;&lt;br&gt;&lt;u&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: str&lt;/u&gt;&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#f5f5f5;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="444" y="680" width="325" height="200" as="geometry" />
         </mxCell>
         <mxCell id="f3c11" value="Money and FixedWidthFormat are used by the file input and output classes (Figure 6)." style="text;html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="872" y="729" width="270" height="60" as="geometry" />
+          <mxGeometry x="872" y="750" width="270" height="60" as="geometry" />
         </mxCell>
         <mxCell id="f3e1" value="" style="endArrow=open;endSize=10;html=1;strokeColor=#333333;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="f3c4" target="f3c5">
           <mxGeometry relative="1" as="geometry" />
@@ -208,7 +208,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="f3legend" value="&lt;b&gt;Legend:&lt;/b&gt; solid line with hollow triangle = inheritance; solid line with open arrow = attribute (has-a); dashed line with open arrow = uses. Dashed boxes are classes drawn in full on the figure named in the box." style="text;html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="40" y="868" width="1153" height="34" as="geometry" />
+          <mxGeometry x="40" y="910" width="1153" height="34" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -350,7 +350,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="fig6" name="Figure 6 - File input and output">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1253" pageHeight="840" math="0" shadow="0">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1253" pageHeight="952" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -360,17 +360,17 @@
         <mxCell id="f6c1" value="&lt;p style=&quot;margin:0;line-height:14px;&quot;&gt;&lt;b&gt;UserAccount, GameListing, OwnedGame&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;(Figure 4)&lt;/span&gt;&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#ffffff;align=center;verticalAlign=middle;dashed=1;" vertex="1" parent="1">
           <mxGeometry x="677" y="65" width="260" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="f6c2" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;TransactionFileReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ CODE_WIDTH : int = 2&lt;br&gt;+ USERNAME_WIDTH : int = 15&lt;br&gt;+ USER_TYPE_WIDTH : int = 2&lt;br&gt;+ CREDIT_WIDTH : int = 9&lt;br&gt;+ GAME_NAME_WIDTH : int = 26&lt;br&gt;+ PRICE_WIDTH : int = 6&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ read(file_name : str) : list[Transaction]&lt;br&gt;- _parse(line : str) : Transaction&lt;br&gt;- _parse_create(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CreateTransaction&lt;br&gt;- _parse_delete(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DeleteTransaction&lt;br&gt;- _parse_sell(line : str) : SellTransaction&lt;br&gt;- _parse_buy(line : str) : BuyTransaction&lt;br&gt;- _parse_refund(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RefundTransaction&lt;br&gt;- _parse_add_credit(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AddCreditTransaction&lt;br&gt;- _parse_end_of_session(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EndOfSessionTransaction&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#e1d5e7;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
-          <mxGeometry x="50" y="240" width="311" height="326" as="geometry" />
+        <mxCell id="f6c2" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;TransactionFileReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ CODE_WIDTH : int = 2&lt;br&gt;+ USERNAME_WIDTH : int = 15&lt;br&gt;+ USER_TYPE_WIDTH : int = 2&lt;br&gt;+ CREDIT_WIDTH : int = 9&lt;br&gt;+ GAME_NAME_WIDTH : int = 26&lt;br&gt;+ PRICE_WIDTH : int = 6&lt;br&gt;- 14 private field positions computed from the&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;widths&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ read(file_name : str) : list[Transaction]&lt;br&gt;- _parse(line : str) : Transaction&lt;br&gt;- _parse_create(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CreateTransaction&lt;br&gt;- _parse_delete(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DeleteTransaction&lt;br&gt;- _parse_sell(line : str) : SellTransaction&lt;br&gt;- _parse_buy(line : str) : BuyTransaction&lt;br&gt;- _parse_refund(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RefundTransaction&lt;br&gt;- _parse_add_credit(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AddCreditTransaction&lt;br&gt;- _parse_end_of_session(line : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EndOfSessionTransaction&lt;br&gt;&lt;u&gt;- _check_layout(line : str, width : int,&lt;/u&gt;&lt;br&gt;&lt;u&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;separators : tuple[int, ...]) : None&lt;/u&gt;&lt;br&gt;&lt;u&gt;- _text(line : str, start : int, width : int)&lt;/u&gt;&lt;br&gt;&lt;u&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: str&lt;/u&gt;&lt;br&gt;&lt;u&gt;- _money(line : str, start : int, width : int)&lt;/u&gt;&lt;br&gt;&lt;u&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: int&lt;/u&gt;&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#e1d5e7;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="331" height="438" as="geometry" />
         </mxCell>
-        <mxCell id="f6c3" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;MasterFileReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ read_accounts(file_name : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[UserAccount]&lt;br&gt;+ read_listings(file_name : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[GameListing]&lt;br&gt;+ read_collection(file_name : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[OwnedGame]&lt;br&gt;- _read_lines(file_name : str) : list[str]&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#e1d5e7;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
-          <mxGeometry x="454" y="324" width="305" height="158" as="geometry" />
+        <mxCell id="f6c3" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;MasterFileReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ read_accounts(file_name : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[UserAccount]&lt;br&gt;+ read_listings(file_name : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[GameListing]&lt;br&gt;+ read_collection(file_name : str) :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[OwnedGame]&lt;br&gt;- _read_lines(file_name : str) : list[str]&lt;br&gt;&lt;u&gt;- _check_layout(line : str, record_kind : str,&lt;/u&gt;&lt;br&gt;&lt;u&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width : int, separators : tuple[int, ...])&lt;/u&gt;&lt;br&gt;&lt;u&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: None&lt;/u&gt;&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#e1d5e7;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="441" y="359" width="331" height="200" as="geometry" />
         </mxCell>
         <mxCell id="f6c4" value="&lt;p style=&quot;margin:0;text-align:center;line-height:16px;&quot;&gt;&lt;b&gt;MasterFileWriter&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:3px 0;&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:14px;&quot;&gt;+ write_accounts(file_name : str, accounts :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[UserAccount]) : None&lt;br&gt;+ write_listings(file_name : str, listings :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[GameListing]) : None&lt;br&gt;+ write_collection(file_name : str, collection&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: list[OwnedGame]) : None&lt;br&gt;- _write_lines(file_name : str, lines :&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list[str]) : None&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#e1d5e7;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
-          <mxGeometry x="842" y="317" width="331" height="172" as="geometry" />
+          <mxGeometry x="842" y="373" width="331" height="172" as="geometry" />
         </mxCell>
         <mxCell id="f6c5" value="&lt;p style=&quot;margin:0;line-height:14px;&quot;&gt;&lt;b&gt;FatalInputError, Money, FixedWidthFormat&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;(Figure 3)&lt;/span&gt;&lt;/p&gt;" style="html=1;whiteSpace=wrap;fontFamily=Courier New;fontSize=11;strokeColor=#555555;fillColor=#ffffff;align=center;verticalAlign=middle;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="476" y="656" width="260" height="60" as="geometry" />
+          <mxGeometry x="476" y="768" width="260" height="60" as="geometry" />
         </mxCell>
         <mxCell id="f6e1" value="" style="endArrow=open;endSize=10;dashed=1;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="f6c3" target="f6c5">
           <mxGeometry relative="1" as="geometry" />
@@ -391,7 +391,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="f6legend" value="&lt;b&gt;Legend:&lt;/b&gt; solid line with hollow triangle = inheritance; solid line with open arrow = attribute (has-a); dashed line with open arrow = uses. Dashed boxes are classes drawn in full on the figure named in the box." style="text;html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="40" y="746" width="1153" height="34" as="geometry" />
+          <mxGeometry x="40" y="858" width="1153" height="34" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
