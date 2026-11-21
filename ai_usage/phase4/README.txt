@@ -62,3 +62,32 @@ ChatGPT did not directly modify repository files or Git history. Where ChatGPT s
 AI-assisted code and recommendations were reviewed against the Phase 4 requirements, the group's design decisions, Front End B's file formats, the merged implementation and the final smoke-test results before being incorporated into the project.
 
 `prompt_response_history.txt` contains a condensed record of David's relevant prompts and AI responses, with both David's Claude record and David's ChatGPT record included. Prompts and responses are summarized rather than reproduced verbatim while preserving the purpose, constraints, affected project areas and substantive AI contribution.
+
+[Raihan] Tools used
+
+- Claude (Claude desktop app, Cowork mode), Claude Fable 5.1, Claude Opus 5.5 and Claude Sonnet 5.5, 15–20 November 2026.
+
+Raihan's prompt and response history is recorded in `prompt_response_history.txt` under the [Raihan] entries.
+
+[Raihan] Claude use
+
+Raihan's Phase 4 contribution was the plan, the design and the control and error-reporting code:
+- the Phase 4 skeleton: folders, every class and method as a stub with its docstring, and the sample data;
+- `phase4/design/`: the draw.io UML source, the seven figures, and `Phase_4_Design_Document.docx` and `.pdf`;
+- `phase4/README.txt` (decisions B9 to B13 and known limitations L1 to L3) and the END lines of the sample data;
+- `phase4/src/control/back_end.py` (the load, apply and write methods);
+- `phase4/src/utilities/error_log.py`.
+
+Claude assisted with:
+- summarizing the Phase 4 handout and planning the team split and the class design;
+- creating the skeleton: one class per file under phase4/src, a one-sentence docstring for every class and method, sample data and .gitignore rules;
+- generating the UML class diagrams and the input/output, package and run-time figures in draw.io, and fixing Figures 1, 3 and 6 after David's review and his merged file I/O code;
+- writing README decisions B1 to B13, known limitations L1 to L3, and the note under the smoke run;
+- building the first full draft of the design document from the code's documentation comments, and checking later drafts against the merged code;
+- reviewing David's edits to the design document and giving replacement wording;
+- writing BackEnd._load_state, _apply_all and _write_state and ErrorLog.failed_constraint and fatal, following decisions B2 and B4, and checking them with the README example;
+- reproducing two known failures on the merged code so they could be documented for Phase 5 (L2 and L3);
+- preparing this AI-usage record.
+
+Claude wrote the skeleton, the draw.io file, the figures and the README and sample-data changes into Raihan's local folder, and delivered the design document and all later text in the chat. Raihan reviewed every change, edited the design document in Word, pasted the code and README text himself, and added everything to the repository himself. In teammates' packages (fileio, transactions, state, Money, FixedWidthFormat) Claude only wrote the skeleton stubs and docstrings, not their code. Claude did not stage, commit, push or merge anything; Raihan made every commit and pull request.
+

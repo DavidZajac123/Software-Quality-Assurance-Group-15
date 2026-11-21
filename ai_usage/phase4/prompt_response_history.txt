@@ -653,3 +653,270 @@ David manually performed all repository edits and Git operations.
 ========================================================================
 End of David's ChatGPT record.
 ========================================================================
+
+========================================================================
+[Raihan] Generative AI Tool Used: Claude
+Claude desktop app (Cowork mode), Claude Fable 5.1, Claude Opus 5.5 and Claude Sonnet 5.5 models
+15–20 November 2026
+
+========================================================================
+[Raihan] Claude Entry 1 – Phase 4 Context Brief
+15 November 2026 · Claude Sonnet 5.5
+
+[Raihan] Prompt Summary:
+
+Uploaded the Phase 4 handout to the Claude project and asked Claude to summarize the assignment, the course specification and the state of the project into a brief for planning Phase 4.
+
+[Raihan] Claude Response Summary:
+
+Claude wrote a context brief covering the deliverables, the marking scheme, the Back End transactions and error rules from the specification, the decisions left open, and the client's AM change.
+
+[Raihan] Files Claude assisted with:
+- none in the repository (planning note kept in the Claude project)
+
+========================================================================
+[Raihan] Claude Entry 2 – Phase 4 Plan, Team Split and Class Design
+15 November 2026 · Claude Fable 5.1
+
+[Raihan] Prompt Summary:
+
+Asked how to plan Phase 4 so both teammates could start work, whether to use separate branches and pull requests to avoid conflicts, and whether to ask David to create the phase4 folders first, working step by step and keeping the conversation short.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- recommended one package per person, each on its own branch and pull request, and a five-day schedule;
+- proposed the design: Python 3, one class per file, packages control, transactions, state, fileio and utilities, validate-then-apply, a fatal-error exception for bad input, and money in whole cents;
+- proposed the first decisions (an unknown user or game is a failed constraint, refund leaves the collection unchanged, delete removes the account's listings and collection entries);
+- drafted a group message and a question for the TA about the zip format.
+
+[Raihan] Files Claude assisted with:
+- none directly (the design became the skeleton and the README decisions)
+
+========================================================================
+[Raihan] Claude Entry 3 – Phase 4 Skeleton
+15 November 2026 · Claude Fable 5.1
+
+[Raihan] Prompt Summary:
+
+Shared the plan as posted to the group, confirmed that the UML would use draw.io as in Phase 2, asked Claude to explain each step briefly, and asked it to start on the structure because the team had not replied yet.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- created the Phase 4 structure: one folder per package under phase4/src and one class per file, 22 classes plus main;
+- gave every class and method a one-sentence docstring; methods with real logic raise NotImplementedError until their owner writes them;
+- wrote phase4/README.txt with the ownership, decisions B1 to B10 and the expected smoke-run result, written before any code;
+- made four sample data files with checked record widths, and Python ignore rules for .gitignore;
+- checked that backend.py imports every module and prints its usage line.
+
+[Raihan] Files Claude assisted with:
+- phase4/src/backend.py and the control, transactions, state, fileio and utilities packages (created)
+- phase4/README.txt, phase4/design/README.txt and phase4/sample_data/ (4 files) (created)
+- .gitignore (modified)
+
+========================================================================
+[Raihan] Claude Entry 4 – 02 and 06 Record Layout (Decision B11)
+15–16 November 2026 · Claude Fable 5.1
+
+[Raihan] Prompt Summary:
+
+Shared David's review of the skeleton: the specification and Front End B write the 2-character account type in 02 and 06 records, which the skeleton and sample data left blank.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- confirmed David's finding against the specification and changed the sample 02 and 06 records to carry a type;
+- updated README decision B9 and added B11: the type field of 02, 06 and 00 is read for its position but never used, because the Back End finds the account by username;
+- updated the docstrings of the two parse methods and of AddCreditTransaction.
+
+[Raihan] Files Claude assisted with:
+- phase4/README.txt and phase4/sample_data/merged_daily_transactions.txt (modified)
+- phase4/src/fileio/transaction_file_reader.py and phase4/src/transactions/add_credit_transaction.py (docstrings modified)
+
+========================================================================
+[Raihan] Claude Entry 5 – UML Figures, README Decisions and Sample Data
+17–18 November 2026
+
+[Raihan] Prompt Summary:
+
+Shared David's confirmation of the Front End B formats (the 06 credit is the amount added, 02 writes the deleted user's balance, the 03, 04 and 05 widths, and 28, 49 and 42-character master files ending with END) and asked Claude to generate the draw.io UML from the code.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- generated backend.drawio from the code: seven figures (inputs and outputs, packages, control and utilities, state, transactions, file input and output, one batch run), checked so that no arrow crosses a box or another arrow;
+- exported each figure as a PNG;
+- updated README decisions B9 and B10 and added B12 (the 02 credit field is ignored) and B13 (LF or CRLF input, LF output);
+- updated the END lines of the three sample master files.
+
+[Raihan] Files Claude assisted with:
+- phase4/design/backend.drawio and fig1_inputs_outputs.png to fig7_run_time.png (created)
+- phase4/README.txt and the three phase4/sample_data/ master files (modified)
+
+========================================================================
+[Raihan] Claude Entry 6 – Figure Fixes after David's Review
+19 November 2026 · Claude Sonnet 5.5 and Claude Opus 5.5
+
+[Raihan] Prompt Summary:
+
+Shared David's review of the figures: Figure 1 said the END line is padded to the record width, but MasterFileWriter writes a bare END as Front End B does; and Front End B does not recognise the new AM account type. Asked Claude to fix the figures that needed it.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- agreed with David and changed Figure 1 and README decision B10 to a bare END line;
+- checked that the group's own Front End reads a bare END line;
+- recommended documenting AM as known limitation L1, with the Front End update planned for Phase 5, and added L1 to the README.
+
+[Raihan] Files Claude assisted with:
+- phase4/design/fig1_inputs_outputs.png and backend.drawio (modified)
+- phase4/README.txt (modified)
+
+========================================================================
+[Raihan] Claude Entry 7 – Design Document First Draft
+19 November 2026 · Claude Opus 5.5
+
+[Raihan] Prompt Summary:
+
+Said that David had merged his file I/O code and asked Claude to create the design document and post it in the chat only (not in the repository), so Raihan could edit it in Word, proofread it and share it with the group.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- updated Figures 3 and 6 to match David's merged file I/O code;
+- built the document from the documentation comments in the code: purpose and implementation status, inputs and outputs, architecture, classes, run-time behaviour, a one-sentence intention table for all 22 classes and 81 methods plus main, decisions B1 to B13 and L1, and requirements traceability;
+- placed Figures 1 to 7 on their own pages and delivered a 22-page .docx and .pdf in the chat.
+
+[Raihan] Files Claude assisted with:
+- phase4/design/Phase_4_Design_Document.docx and .pdf (created; Raihan edited them and added them to the repository)
+- phase4/design/fig3_control_utilities.png, fig6_file_io.png and backend.drawio (modified)
+
+========================================================================
+[Raihan] Claude Entry 8 – Design Document Length
+19 November 2026 · Claude Sonnet 5.5 and Claude Opus 5.5
+
+[Raihan] Prompt Summary:
+
+Asked whether the 22-page document could be shorter and how much of it met the marking criteria rather than extra description; then asked for a shorter version, posted in the chat only.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- measured the text: the figure explanations were about 7% of the words, and the length comes from the required figures and the intention table;
+- produced a 20-page version; Raihan kept the 22-page version.
+
+[Raihan] Files Claude assisted with:
+- phase4/design/Phase_4_Design_Document.docx (shorter draft, not used)
+
+========================================================================
+[Raihan] Claude Entry 9 – Review of David's Edits to the Design Document
+20 November 2026 · Claude Sonnet 5.5
+
+[Raihan] Prompt Summary:
+
+Shared the copy of the design document that David edited in Google Docs (exported as Markdown) and his comment that Section 3.2 should not say only fileio knows the field widths. Asked Claude to say where and how to fix anything, without making the changes.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- agreed with David: the master-file widths are defined in FixedWidthFormat and used by the fileio classes;
+- found nine edited spots, five needing a fix: a fragment and comma splice in Section 1, a sentence in 3.2 implying apply runs after a failed validate, the spelling of the Section 5 heading, three terms in Section 1, and a double space in 1.1;
+- gave replacement wording for each, which Raihan applied.
+
+[Raihan] Files Claude assisted with:
+- phase4/design/Phase_4_Design_Document.docx (modified by Raihan)
+
+========================================================================
+[Raihan] Claude Entry 10 – BackEnd and ErrorLog Methods
+20 November 2026 · Claude Opus 5.5
+
+[Raihan] Prompt Summary:
+
+After Sanjith's state and transaction code was merged, asked Claude to write the five remaining methods using the real method names in the merged code, following README decisions B2 and B4 and validate-then-apply, with no renames, every documentation comment kept and the simplest code. Then asked Claude to run the README example and compare the result with the expected smoke run.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- wrote BackEnd._load_state (reads the three old master files into one SystemState), _apply_all (validates each transaction in file order, logs a failed constraint with its record and skips it, and applies the rest) and _write_state (writes the three new master files);
+- wrote ErrorLog.failed_constraint and ErrorLog.fatal, which print the two ERROR formats and count them;
+- ran the README example: the three new master files matched the README, and only the wording of the two ERROR descriptions differed; a missing file or a malformed line gave one fatal ERROR line, exit status 1 and no new files.
+
+Raihan pasted the code into the two files himself.
+
+[Raihan] Files Claude assisted with:
+- phase4/src/control/back_end.py (modified)
+- phase4/src/utilities/error_log.py (modified)
+
+========================================================================
+[Raihan] Claude Entry 11 – Implementation Status and Known Limitations
+20 November 2026 · Claude Opus 5.5
+
+[Raihan] Prompt Summary:
+
+After the merge, asked Claude to confirm that the merged code included Sanjith's work, check the updated design document, and give the text for the Section 1.1 implementation-status table.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- confirmed that all 22 classes and 81 methods were written and that the Section 6 table matched every method's documentation comment;
+- gave the new Section 1.1 paragraph and table: every method written, not completely tested, and the known failures left for Phase 5;
+- found a grammar error in Section 1;
+- reproduced two failures on the merged code and wrote known limitations L2 (BUY does not check that the seller has the game for sale) and L3 (no check of the maximum balance; a credit too large for its field stops the run before any new file is written).
+
+[Raihan] Files Claude assisted with:
+- phase4/design/Phase_4_Design_Document.docx (modified by Raihan)
+- phase4/README.txt (L2 and L3 added by Raihan)
+
+========================================================================
+[Raihan] Claude Entry 12 – README Smoke-Run Note
+20 November 2026 · Claude Sonnet 5.5
+
+[Raihan] Prompt Summary:
+
+Asked for text to paste under the README smoke run, explaining how the real run differs from the expected result written before the code.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- wrote the note: the new files and exit status match, and the two ERROR lines differ only in wording and in printing the full records;
+- found that the Section 1.1 counts had not been updated and that a comma was missing in the 1.1 paragraph.
+
+[Raihan] Files Claude assisted with:
+- phase4/README.txt (modified by Raihan)
+- phase4/design/Phase_4_Design_Document.docx (modified by Raihan)
+
+========================================================================
+[Raihan] Claude Entry 13 – Final Design Document Check
+20 November 2026 · Claude Opus 5.5
+
+[Raihan] Prompt Summary:
+
+Shared the final draft of the design document and asked whether it was complete or whether David or Sanjith needed to add anything; then shared the final .docx and .pdf.
+
+[Raihan] Claude Response Summary:
+
+Claude:
+- noticed that the Markdown export of the draft had lost the Figure 1 image, and confirmed it was present in the .docx and on page 2 of the .pdf;
+- confirmed that the rest of the document was complete;
+- found README lines that still said methods raise NotImplementedError and gave the replacement status line.
+
+[Raihan] Files Claude assisted with:
+- phase4/design/Phase_4_Design_Document.docx and .pdf (checked)
+- phase4/README.txt (modified by Raihan)
+
+========================================================================
+[Raihan] Claude Entry 14 – AI Usage Record
+20 November 2026 · Claude Opus 5.5
+
+[Raihan] Prompt Summary:
+
+Asked Claude to write Raihan's entries for this file and the Phase 4 AI-usage README in the group's format: only the prompts and responses that helped with Phase 4 files, as short summaries, with dates and models, and no git commands, terminal commands or tool actions.
+
+[Raihan] Claude Response Summary:
+
+Claude wrote the [Raihan] entries in this file and the [Raihan] sections of README.txt, and gave them in the chat for Raihan to paste.
+
+[Raihan] Files Claude assisted with:
+- ai_usage/phase4/prompt_response_history.txt ([Raihan] entries)
+- ai_usage/phase4/README.txt ([Raihan] sections)
