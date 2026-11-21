@@ -62,12 +62,3 @@ Smoke run: expected result of the example command
   New games:     Terraria FullUser 10.00; Portal FullUser 20.00  (Minecraft removed with Seller1)
   New collection: Terraria Buyer1
   Exit status 0.
-
-Smoke run: expected result of the example command
-  Terminal (two lines):
-    ERROR: Failed constraint: Buyer 'Buyer1' has insufficient credit. (transaction: 04 Minecraft                  Seller1         Buyer1          050.00)
-    ERROR: Failed constraint: User 'FullUser' already exists. (transaction: 01 FullUser        BS 000000.00)
-  New accounts:  AdminUser AA 1000.00; FullUser FS 200.00; Buyer1 BS 50.00; NewUser FS 0.00  (Seller1 deleted)
-  New games:     Terraria FullUser 10.00; Portal FullUser 20.00  (Minecraft removed with Seller1)
-  New collection: Terraria Buyer1
-  Exit status 0.
