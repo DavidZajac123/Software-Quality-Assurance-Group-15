@@ -1,0 +1,228 @@
+CSCI 3060U – Phase 5
+AI Prompt and Response History
+
+Each group member is responsible for documenting their own use of generative AI. Entries are labelled with the group member's name.
+
+Prompts and responses below are summarized rather than reproduced verbatim. The summaries preserve the purpose of each request, important constraints, affected project areas, and substantive AI contributions.
+
+========================================================================
+[David] Generative AI Tool Used: Claude
+Claude Code, Claude Opus 5.5 model
+24–27 November 2026
+
+========================================================================
+[David] Claude Entry 1 – Phase 5 Handoff and Readiness Audit
+24 November 2026
+
+[David] Prompt Summary:
+
+Gave Claude the Phase 5 and Phase 6 requirements and the instructor's clarifications as the authoritative context: white-box pytest unit tests for every Back End method, statement coverage for every method, full path coverage for one non-trivial method, a test report that records failures of both the tests and the system, and only standard Python and pytest without unnecessary packages or plugins. Also gave the final Phase 4 smoke-test result as the baseline and the two known limitations (BUY listing validation and the 999999.99 credit maximum).
+
+Asked Claude to perform a read-only Phase 5 readiness audit of the latest repository: the relevant structure, every method requiring tests, existing tests, hard-to-test methods, a recommended test-file and fixture structure, a statement-coverage plan for each method, candidates for the path-coverage method, known limitations to test, visible source defects, dependency concerns and a suggested division of work. Claude was instructed not to edit anything and not to stage, commit, push, pull or merge.
+
+[David] Claude Response Summary:
+
+Claude:
+- inspected GitHub `main` at `4832e1f` in a separate scratch clone and confirmed that the Phase 4 source matched the reviewed final version;
+- listed the 82 Back End methods by package and confirmed that no tests, `conftest.py` or `pytest.ini` existed yet;
+- identified hard-to-test areas and how to test them with standard pytest features (`tmp_path`, `capsys`, `monkeypatch`), including the BackEnd collaborators created in its constructor, terminal output, file-error branches, the `__main__` line of `backend.py` and the abstract methods;
+- proposed a test-file structure with a separate folder for integration tests, a minimal fixture structure, and a method-by-method statement-coverage plan with boundary and error partitions;
+- ranked candidates for the path-coverage method and explained why the BUY/REFUND/SELL validate methods do not qualify, because their path count equals their statement-coverage test count;
+- confirmed no defects beyond the documented limitations, and listed documentation-only items;
+- noted that measuring statement coverage needs a tool, that `pytest-cov` is a plugin, and that coverage.py was not installed locally;
+- suggested a division of Phase 5 work that keeps the Phase 4 ownership.
+
+No repository files were modified.
+
+========================================================================
+[David] Claude Entry 2 – Path-Coverage Candidate Analysis
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Told Claude that statement coverage will be measured with PyCharm's built-in Run with Coverage, without adding `coverage.py` or `pytest-cov`. The audit had ranked `BackEnd._apply_all()` first; David asked Claude not to choose it yet, because bounded 0/1/2-iteration loop testing may not count as full path coverage under the course's definition. Asked Claude to enumerate the feasible control-flow paths of `BackEnd.run()`, show why full path coverage needs more tests than statement coverage, and identify other loop-free methods with meaningful branches.
+
+[David] Claude Response Summary:
+
+Claude:
+- enumerated four feasible paths through `BackEnd.run()` (fatal error while loading the master files, fatal error while reading the transaction file, success, and an exception escaping from writing the output) and confirmed each one with scratchpad runs;
+- showed that statement coverage needs two tests while full path coverage needs four;
+- explained that this depends on counting a separate exception edge for each statement in the `try` block, and that whether the course counts such edges is unresolved;
+- noted that the fourth path tests known limitation L3, so a later L3 fix would change the paths of `run()`;
+- reported a new observation, not a confirmed defect: a failure to write one output file can leave partial new master files;
+- compared loop-free alternatives (`RefundTransaction.apply`, `FixedWidthFormat.field`, `TransactionFileReader._parse_end_of_session`, `SystemState.change_credit`) and the definition assumptions each one relies on.
+
+Both `BackEnd._apply_all()` (which has a loop) and `BackEnd.run()` (which depends on exception paths) were left as candidates, and the course-definition question remained unresolved. No final path-coverage choice was made in this work. No repository files were modified.
+
+========================================================================
+[David] Claude Entry 3 – Shared pytest Setup
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to draft the shared Phase 5 pytest setup without writing any files: `pytest.ini`, `phase5/tests/conftest.py` and any `.gitignore` additions, using only standard Python and pytest. The `make_state()` fixture had to return new lists and objects every time, and `write_text()` had to keep exact line endings. Also asked for an explanation of each `pytest.ini` line, PyCharm test discovery, PyCharm's Run with Coverage, and any pytest version dependency.
+
+After reviewing the proposal, David asked Claude to write exactly the proposed `pytest.ini` and `conftest.py`, to add only `.pytest_cache/` to `.gitignore` (not `-ra`, `.idea/` or coverage entries), to create no test files yet, and to run a collection check.
+
+[David] Claude Response Summary:
+
+Claude:
+- proposed `pytest.ini` with `minversion = 7.0`, `testpaths = phase5/tests` and `pythonpath = phase4/src`, and explained that `pythonpath` is a built-in pytest setting from version 7.0, not a plugin;
+- proposed a `conftest.py` with only two fixtures: `write_text`, which writes a file in the test's temporary folder without line-ending translation, and `make_state`, which builds a new `SystemState` matching the sample data on every call;
+- explained how PyCharm discovers the tests from the repository root and how its built-in Run with Coverage gives statement coverage when branch coverage is left off;
+- checked the proposal in a scratchpad copy of the repository before showing it;
+- after approval, wrote the three changes, ran a collection check from the repository root (no tests collected, no import errors) and listed both fixtures with `pytest --fixtures`;
+- found and explained a one-line docstring difference between the scratch copy and the approved text, confirmed that the repository file matched the approved proposal, and reran the scratch checks against the exact repository files.
+
+Files written: `pytest.ini`, `phase5/tests/conftest.py`, `.gitignore`.
+
+========================================================================
+[David] Claude Entry 4 – Money and FixedWidthFormat Unit Tests
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to prepare `phase5/tests/unit/test_money.py` and `phase5/tests/unit/test_fixed_width_format.py` without writing them yet. For each file Claude was to give the methods tested, a test-case table (test name, input, expected result, statements or branch exercised, and normal/boundary/error kind), and the proposed pytest code. The tests had to use `pytest.raises` for exceptions, include named boundary and error cases (including the 999999.99 maximum), avoid redundant tests, and achieve statement coverage for every method in both files.
+
+After review, David asked Claude to write both files exactly as proposed, run them from the repository root, verify statement coverage with the same scratch-only method, and show the Git status and diffs.
+
+[David] Claude Response Summary:
+
+Claude:
+- drafted 18 tests for `Money.parse` and `Money.format`, including zero, the 999999.99 maximum, the smallest non-zero value, six malformed inputs (one of them non-ASCII digits written as `\u` escapes so the file stays ASCII), a negative value, and the first value that does not fit width 9;
+- drafted 10 tests for `FixedWidthFormat.pad_right` and `FixedWidthFormat.field`, including text exactly at the width, a field ending exactly at the end of the line, leading spaces kept, and the three error conditions;
+- linked each test to the source lines it exercises;
+- ran the drafts in the scratchpad copy (28 passed) and measured statement coverage with a scratch-only tracer written with `sys.settrace`, which reported no missed statement in either source file;
+- after approval, wrote both files unchanged, ran them from the repository root (28 passed) and repeated the coverage check (no missed statements);
+- confirmed with a read-only `git ls-remote` that local `main` and GitHub `main` were both at `4832e1f`.
+
+Files written: `phase5/tests/unit/test_money.py`, `phase5/tests/unit/test_fixed_width_format.py`.
+
+No test failed, so no system or test defects were found in these two files.
+
+========================================================================
+[David] Claude Entry 5 – Local Branch and Commit
+27 November 2026
+
+[David] Prompt Summary:
+
+Asked Claude to create the branch `phase5-utilities-tests` from `main`, confirm that it starts at `4832e1f`, stage only the five Phase 5 files, show the staged summary, and commit with the message `Phase 5: add pytest setup and utility unit tests` only if exactly those five files were staged. Claude was told not to push, pull, merge or rebase.
+
+David then asked Claude to remove the `Co-Authored-By` trailer that Claude Code had added to the commit message, without changing the committed files, and to create this Phase 5 AI-usage record.
+
+[David] Claude Response Summary:
+
+Claude:
+- created the branch from `4832e1f`, staged exactly the five expected files and made the local commit;
+- amended only the commit message, confirming that the committed file tree was unchanged;
+- inspected the Phase 1 to Phase 4 AI-usage folders and created `ai_usage/phase5/README.txt` and `ai_usage/phase5/prompt_response_history.txt` in the Phase 4 format, recording only David's Claude use so far;
+- did not push anything, and left the staging, commit and push of the AI-usage files to David.
+
+No Phase 4 source code was changed.
+
+========================================================================
+End of David's Claude record.
+
+========================================================================
+[David] Generative AI Tool Used: ChatGPT (GPT-5.6 Sol)
+
+The following is a condensed record of David's ChatGPT use during Phase 5 from 24–27 November 2026. Exact dates for individual entries were not recorded, so each entry gives the same range. Prompts and responses are summarized rather than reproduced verbatim. The summaries preserve the purpose of each request, the relevant constraints, the files or project areas affected, and the substantive assistance provided.
+
+ChatGPT did not directly modify repository files or Git history. David directed Claude himself and approved every repository change.
+
+========================================================================
+[David] ChatGPT Entry 1 – Phase 5 and Phase 6 Requirements and Claude Handoff
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to review the official Phase 5 and Phase 6 requirements and the instructor's clarifications, and to help prepare a handoff prompt for Claude.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- summarized the Phase 5 and Phase 6 requirements, deadlines and deliverables, including statement coverage for every method, full path coverage for one method, failure reporting, and the Daily and Weekly scripts;
+- summarized the instructor's clarifications on recording test and system failures and on avoiding unnecessary dependencies;
+- helped prepare the handoff prompt that David sent to Claude.
+
+========================================================================
+[David] ChatGPT Entry 2 – Review of Claude's Phase 5 Readiness Audit
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to review Claude's Phase 5 readiness audit (sections A to L).
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- reviewed the audit;
+- flagged uncertainty about whether testing a loop-containing method counts as full path coverage under the course definition;
+- compared `BackEnd._apply_all()` and `BackEnd.run()` as path-coverage candidates;
+- recommended keeping the final choice provisional until the course's definition is clear.
+
+========================================================================
+[David] ChatGPT Entry 3 – Shared pytest Setup Review
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to review Claude's proposed `pytest.ini`, `phase5/tests/conftest.py`, fixtures and `.gitignore` change.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- approved `minversion = 7.0`, `testpaths = phase5/tests` and `pythonpath = phase4/src`;
+- approved the `write_text` and `make_state` fixtures;
+- approved adding `.pytest_cache/` to `.gitignore`;
+- recommended using no extra pytest plugins and using PyCharm's built-in Run with Coverage.
+
+========================================================================
+[David] ChatGPT Entry 4 – Utility Test Review
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to review Claude's proposed tests for `Money.parse`, `Money.format`, `FixedWidthFormat.pad_right` and `FixedWidthFormat.field`.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- confirmed that the normal, boundary and error partitions looked appropriate;
+- recommended keeping both the negative-start and the negative-width tests for `FixedWidthFormat.field` as distinct invalid-input partitions;
+- approved proceeding with the two test files after Claude's scratch checks.
+
+========================================================================
+[David] ChatGPT Entry 5 – Git Workflow Guidance
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT for guidance on how to branch, commit and push the Phase 5 work.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT:
+- recommended keeping the Phase 5 work off `main` and creating the `phase5-utilities-tests` branch;
+- reviewed the expected five-file commit scope;
+- recommended reviewing the branch before pushing;
+- recommended removing the Claude `Co-Authored-By` trailer from the commit message and documenting AI use in `ai_usage/phase5/` instead.
+
+========================================================================
+[David] ChatGPT Entry 6 – Group Coordination Messages
+24–27 November 2026
+
+[David] Prompt Summary:
+
+Asked ChatGPT to help draft messages to the SQA group.
+
+[David] ChatGPT Response Summary:
+
+ChatGPT helped draft David's messages to the group about:
+- his Phase 5 ownership;
+- his availability;
+- the proposed testing split;
+- keeping the path-coverage choice provisional until it is clarified.
+
+========================================================================
+End of David's ChatGPT record.
