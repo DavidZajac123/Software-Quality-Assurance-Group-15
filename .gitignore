@@ -10,3 +10,4 @@ phase1/results/comparisons/*
 __pycache__/
 *.pyc
 phase4/sample_output/
+.pytest_cache/
